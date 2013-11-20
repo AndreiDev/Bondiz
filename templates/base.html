@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load dajaxice_templatetags %}
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> 
+	
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bondiz. Bond with passive talents to turn them into active candidates">
+    <meta name="author" content="Andrei Averkin">
+    
+    <link rel="icon" type="image/png" href="{% static 'favicon.ico' %}">
+    
+    <title>{% block title %}Bondiz{% endblock title %}</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/pricing-tables.css' %}" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville|Miltonian+Tattoo|Cherry+Swash' rel='stylesheet' type='text/css'>
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+     <!-- Static navbar -->
+      <div class="navbar navbar-default navbar-fixed-top" id="navbar">
+        <div class="container">                 
+        <div class="navbar-header">
+          <!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>-->
+          <a class="navbar-brand" href="/"><span style="font-family: 'Cherry Swash', cursive;color:#cc1111">Bond</span><span style="font-family: 'Cherry Swash', cursive;color:#1111cc">iz</span> - Bond with passive talents to turn them into active candidates</a>
+        </div>
+        <!--<div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="">about</a></li>
+            <li><a href="pricing-plans.html">pricing-plans</a></li>                   
+          </ul>          
+        </div>/.nav-collapse -->
+        </div>
+      </div>
+   
+
+	<div class="content">
+    {% block content %}
+    {% endblock content %}
+	</div>
+	
+  <!-- FOOTER -->
+  
+  <div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">                 
+        <p class="navbar-text">&copy; 2013 Bondiz. All rights reserved &middot; <a href="mailto:feedback@bondiz.com?subject=feedback" class="navbar-link">email us</a></p>       
+    </div>
+  </div>  
+
+				 
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <!-- Load jQuery from Google CDN -->
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Load jQuery from a local copy if loading from Google fails -->
+    <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src={% static "js/jquery-1.10.2.min.js" %}><\/script>')</script>
+	
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+
+	<script type="text/javascript">
+	
+	  var _gaq = _gaq || [];
+	  _gaq.push(['_setAccount', 'UA-44956657-1']);
+	  _gaq.push(['_trackPageview']);
+	
+	  (function() {
+	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	  })();
+
+	</script>	
+
+  </body>
+</html>

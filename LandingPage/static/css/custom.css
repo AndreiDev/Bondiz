@@ -1,0 +1,71 @@
+body { 
+  background: url("../img/hexabump.png"); 
+  opacity: 0.9;
+  min-height: 600px;
+  padding-bottom: 70px;
+  padding-top: 20px;
+}
+
+.jumbotron {
+  font-stretch: 1px;
+  word-spacing: 0.2em;	
+  opacity: .85;
+  padding-top: 10px;
+  margin-top: 40px;
+}
+
+.jumbotron h1{
+	font-size: 2em;
+}
+
+#desk {
+	padding: 10px;
+}
+
+.marketing h2 {
+	text-align: center;
+	font-family: 'Miltonian Tattoo', cursive;
+	font-size: 5em;
+	color: white;
+}
+
+.marketing p{
+	font-family: 'Libre Baskerville', serif;
+	font-size: 1.3em;
+	color: white;
+}
+
+.pricing-tables h1{
+	font-size: 2em;
+	color: white;
+}
+
+.color-text {
+	color: #3f8fd2;
+	font-weight: bold;
+}
+
+#navbar a, #navbar p{ 
+	font-size: 2em; 
+}
+
+.navbar-fixed-bottom {
+	background: none;
+}
+
+.navbar-fixed-bottom .navbar-text, .navbar-fixed-bottom .navbar-link, .navbar-fixed-bottom .navbar-link:hover{
+	color: #AAAAAA;
+}
+
+.form-signin {
+	margin-top: 40px;
+}
+
+.form-signin {
+	color: #AAAAAA;
+}
+
+.content {
+	min-height: 450px;
+}
+

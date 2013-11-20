@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Plans {% endblock %}
+{% block content %}
+    <div class="container">
+
+	  <div class="pricing-tables attached">
+
+        <h1>
+          Pricing Plans
+        </h1>
+        <div class="row">
+          <div class="col-sm-4 col-md-4">
+           
+           <div class="plan first">
+
+              <div class="head">
+                <h2>Free</h2>
+              
+              </div>  
+
+              <ul class="item-list">
+       			   <li><strong>5</strong> Candidates <img data-toggle="tooltip" title="Number of tweeters to monitor" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>5</strong> Trigger Keywords <img data-toggle="tooltip" title="Number of keywords to look for in candidate's tweets" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>5</strong> Notifications a day <img data-toggle="tooltip" title="Maximum number of notification sent in a day" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Endless</strong> Support <img data-toggle="tooltip" title="We are committed  to your happiness" border="0" src="{% static 'img/help.png' %}"></li>                   
+                   <li><p>&nbsp;</p></li>
+                   <li><strong>Blog Post</strong> Published <img data-toggle="tooltip" title="Notifying when a candidate releases a blog post" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Popular</strong> Tweets <img data-toggle="tooltip" title="Notifying when a candidate's tweet is wildly retweeted" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><p>&nbsp;</p></li>
+                   <li><p>&nbsp;</p></li>
+              </ul>
+
+              <div class="price">
+                <h3>FREE</h3>
+                <h4>of charge</h4>
+              </div>
+
+              <a href="/signup/1" class="btn btn-success signup">Sign Up</a>
+
+           </div>
+             
+            
+          </div>
+
+
+          <div class="col-sm-4 col-md-4 ">
+            
+            <div class="plan recommended">
+
+              <div class="head">
+                <h2>Standard</h2>
+              </div>  
+
+              <ul class="item-list">
+                   <li><strong>20</strong> Candidates <img data-toggle="tooltip" title="Number of tweeters to monitor" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>10</strong> Trigger Keywords <img data-toggle="tooltip" title="Number of keywords to look for in candidate's tweets" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>20</strong> Notifications a day <img data-toggle="tooltip" title="Maximum number of notification sent in a day" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Endless</strong> Support <img data-toggle="tooltip" title="We are committed  to your happiness" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><p>&nbsp;</p></li>
+                   <li><strong>Blog Post</strong> Published <img data-toggle="tooltip" title="Notifying when a candidate releases a blog post" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Popular</strong> Tweets <img data-toggle="tooltip" title="Notifying when a candidate's tweet is wildly retweeted" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Profile Bio</strong> monitoring <img data-toggle="tooltip" title="Notifying when a candidate changes its profile bio" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><p>&nbsp;</p></li>        
+              </ul>
+
+              <div class="price">
+                <h3><span class="symbol">$</span>9</h3>
+                <h4>per month</h4>
+              </div>
+
+              <a href="/signup/2" class="btn btn-success signup">Sign Up</a>
+
+           </div>
+
+          </div>
+
+
+          <div class="col-sm-4 col-md-4  ">
+                       <div class="plan last">
+
+              <div class="head">
+                <h2>Advanced</h2>
+              
+              </div>  
+
+              <ul class="item-list">
+                   <li><strong>50</strong> Candidates <img data-toggle="tooltip" title="Number of tweeters to monitor" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>20</strong> Trigger Keywords <img data-toggle="tooltip" title="Number of keywords to look for in candidate's tweets" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>100</strong> Notifications a day <img data-toggle="tooltip" title="Maximum number of notification sent in a day" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Endless</strong> Support <img data-toggle="tooltip" title="We are committed  to your happiness" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><p>&nbsp;</p></li>
+                   <li><strong>Blog Post</strong> Published <img data-toggle="tooltip" title="Notifying when a candidate releases a blog post" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Popular</strong> Tweets <img data-toggle="tooltip" title="Notifying when a candidate's tweet is wildly retweeted" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Profile Bio</strong> monitoring <img data-toggle="tooltip" title="Notifying when a candidate changes its profile bio" border="0" src="{% static 'img/help.png' %}"></li>
+                   <li><strong>Following Patterns</strong> monitoring <img data-toggle="tooltip" title="Notifying when a candidate starts to follow like crazy" border="0" src="{% static 'img/help.png' %}"></li>                  
+              </ul>
+
+              <div class="price">
+                <h3><span class="symbol">$</span>19</h3>
+                <h4>per month</h4>
+              </div>
+
+              <a href="/signup/3" class="btn btn-success signup">Sign Up</a>
+
+           </div>
+
+          </div>
+
+        </div> <!-- row-->
+
+      </div> <!-- pricing-tables -->
+   </div><!-- /.container -->   
+{% endblock content %}

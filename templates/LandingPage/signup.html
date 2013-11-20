@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Signup {% endblock %}
+{% block content %}
+    <div class="container">
+      <div class="row">
+		<div class="jumbotron col-md-offset-2 col-md-8">
+		  <div class="container">
+		    <h1>Hello!</h1>
+		    <h2>We are almost ready to launch &#9786;</h2>
+		    <p>Please sign up to recieve an invitation to the beta version</p>		
+			  <form action="/thanks/" method="post">{% csrf_token %}
+				  <div class="form-group">
+				    <label class="sr-only" for="InputEmail">Email address</label>
+				    <input type="email" name="email" class="form-control" id="InputEmail" placeholder="email">
+				  </div>
+				  <button class="btn btn-lg btn-primary btn-block">Send me an invitation</button>
+				  <p><i>* we hate spam and will never share your email with a third party without your consent</i></p>
+			  </form>	
+		  </div>
+		</div>	
+	  </div>
+	</div><!-- /.container -->
+{% endblock content %}

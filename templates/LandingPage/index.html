@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Bondiz - bonding with talents on twitter {% endblock %}
+{% block content %}
+
+	<div class="row">
+		<div class="jumbotron col-md-offset-3 col-md-4">
+		  <div class="container">
+		    <h1>Recruiter/Headhunter,</h1>
+		    <p>Talents may go to LinkedIn when they actively look for a job, but in their passive mode they live and interact in Twitter.</p>
+		    <p>Unleash the power of Twitter by bonding with talents, and easily engaging with a job offering.</p>
+		    <p><a href="/pricing-plans" class="btn btn-primary btn-lg">Sign up for free</a></p>
+		  </div>
+		</div>
+		<div class="col-md-2">
+			<div class="container">
+		      <form class="form-signin">
+		        <h2 class="form-signin-heading">sign in</h2>
+		        <input type="text" class="form-control" placeholder="Email address" autofocus>
+		        <input type="password" class="form-control" placeholder="Password">
+		        <label class="checkbox">
+		          <input type="checkbox" value="remember-me"> Remember me
+		        </label>
+		        <a href="/pricing-plans" class="btn btn-primary btn-lg">Sign in</a></p>
+		      </form>
+			</div>
+		</div>
+	</div>	
+	
+	    <div class="container marketing">
+	
+	      <!-- Three columns of text below the carousel -->
+	      <div class="row">
+	      	<div class="col-lg-12">
+	      		<div class="col-lg-6">
+	      			<iframe width="500px" height="350px" src="http://www.youtube.com/embed/gRJxdb7pq8c" frameborder="0" allowfullscreen></iframe>
+	      		</div>	
+		        <div class="col-lg-6">
+		          
+		          <p>Choose tweeters you wish to bond with. They are the <span class="color-text">passive candidates</span> that are so hard to engage.</p>
+      
+		          <hr />
+		          <p>Tell BONDIZ what <span class="color-text">social activity</span> by the candidate should trigger notifications: tweeting about "job" / changing profile bio / posting a blog post - YOU NAME IT.</p>
+
+		          <hr />
+		          <p>Let BONDIZ do all the hard work of monitoring your candidate's social activity, and <span class="color-text">notify you</span> when it's the right time to retweet, respond to a blog post, or to engage with a job offering.</p>
+		        </div><!-- /.col-lg-4 -->
+	      	</div>
+
+
+	      </div><!-- /.row -->
+	
+		</div>		
+
+{% endblock content %}
