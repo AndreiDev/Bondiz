@@ -24,4 +24,5 @@ def thanks(request):
     else:
         newLog = Log(ip=request.META['REMOTE_ADDR'],text=request.POST.values()[1])
         newLog.save()    
-        return render_to_response('LandingPage/thanks.html',context_instance=RequestContext(request))          
+        return render_to_response('LandingPage/thanks.html',context_instance=RequestContext(request))
+        

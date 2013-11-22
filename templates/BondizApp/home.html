@@ -3,13 +3,17 @@
 {% block title %} Bondiz - bonding with talents on twitter {% endblock %}
 
 {% block navbar %}
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/pricing-plans">Pricing Plans</a></li>
+    <!--<li class="active"><a href="/alpha">Home</a></li>
+    <li><a href="/pricing-plans">Pricing Plans</a></li> -->
 {% endblock %}
 
-{% block navbar_login %}
-			<li><a href="/pricing-plans">Sign up</a></li>
-{% endblock %}
+{% block navbar_login %} 
+	{% if user.is_authenticated %}
+	<li><a href="/accounts/logout/">log-out {{ user }}</a></li>
+	{% else %}
+	<li><a href="/accounts/twitter/login/">log-in</a></li>
+	{% endif %}
+{% endblock %} 
 
 {% block content %}
 
@@ -19,7 +23,7 @@
 		    <h1>Recruiter/Headhunter,</h1>
 		    <p>Talents may go to LinkedIn when they actively look for a job, but in their passive mode they live and interact in Twitter.</p>
 		    <p>Unleash the power of Twitter by bonding with talents, and easily engaging with a job offering.</p>
-		    <p><a href="/pricing-plans" class="btn btn-primary btn-lg">Sign up for free</a></p>
+		    <p><a href="/accounts/twitter/login/" class="btn btn-primary btn-lg">Login here</a></p>
 		  </div>
 		</div>
 	</div>	

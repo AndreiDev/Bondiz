@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %} Bondiz - bonding with talents on twitter {% endblock %}
+
+{% block navbar %}
+            <!--<li class="active"><a href="/alpha">Home</a></li>
+            <li><a href="/pricing-plans">Pricing Plans</a></li> -->
+            <li class="active"><a href="">Alpha version</a></li>
+{% endblock %}
+
+{% block navbar_login %} 
+	{% if user.is_authenticated %}
+	<li><a href="/accounts/logout/">log-out {{ user }}</a></li>
+	{% else %}
+	<li><a href="/accounts/twitter/login/">log-in</a></li>
+	{% endif %}
+{% endblock %} 
+
+{% block content %}
+
+	<div class="dashboard">
+	    <div class="container">
+	
+	      <div class="row">
+	      		<div class="col-md-4 col-md-offset-4">
+	      			<h1>DASHBOARD</h1>
+	      			<p>Applied to all tweeters in your <a href="https://www.twitter.com/{{ bondi.twitter_screen_name }}/lists" target="_blank">"Bondiz" Twitter list</a></p>
+	      		</div>	    		  
+	      </div><!-- /.row -->
+	      
+	      <div class="row">
+	      		<div class="col-md-5 col-md-offset-1">
+	      			<h2>keywords in tweets</h2>
+	      			 <div class="row">
+	      			 	<div class="col-md-offset-2 col-md-2 text-left">
+		      			<button type="button" class="btn btn-default btn-lg active ">Auto Retweet</button>
+		      			</div>
+		      			<div class="col-md-offset-2 col-md-2 text-right">
+		      			<button type="button" class="btn btn-default btn-lg active">Auto Favorite</button>
+		      			</div>
+	      			</div>
+	      		</div>	
+	      		<div class="col-md-5">
+	      			<h2>popular tweets</h2>
+	      			 <div class="row">
+	      			 	<div class="col-md-offset-2 col-md-2 text-left">
+		      			<button type="button" class="btn btn-default btn-lg active ">Auto Retweet</button>
+		      			</div>
+		      			<div class="col-md-offset-2 col-md-2 text-right">
+		      			<button type="button" class="btn btn-default btn-lg active">Auto Favorite</button>
+		      			</div>
+	      			</div>	      			
+	      		</div>		      		      
+	     </div><!-- /.row -->
+	      	      
+				    <!--<p>Bondiz uses Twitter lists to manage the tweeters you want to bond with.</p>
+				    <p>Please <a href="https://www.twitter.com/{{ bondi.twitter_screen_name }}/lists" target="_blank">create a list</a> in your Twitter account.</p>
+				    <p>{{ bondiList.realtime_keywords_RT_flag }} {{ bondi.twitter_screen_name }}</p>-->	      	
+		</div>		
+	</div>
+{% endblock content %}

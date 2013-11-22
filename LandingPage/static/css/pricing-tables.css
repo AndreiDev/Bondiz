@@ -14,7 +14,7 @@ body * {
   font-family: 'Open Sans';
   font-weight: 100; }
 
-.navbar {
+/*.navbar {
   box-shadow: 0 2px 2px rgba(10, 10, 10, 0.06);
   -moz-box-shadow: 0 2px 2px rgba(10, 10, 10, 0.06);
   -webkit-box-shadow: 0 2px 2px rgba(10, 10, 10, 0.06);
@@ -29,7 +29,7 @@ body * {
   .navbar .container .navbar-brand {
     margin-left: 0px;
     padding: 15px; }
-
+*/
 .main-title {
   text-align: center; }
 
@@ -143,6 +143,6 @@ body * {
       margin-bottom: 10px; }
       
 pricing-tables h1, h2, h3 {
-margin-top: 5px;
-margin-bottom: 5px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
