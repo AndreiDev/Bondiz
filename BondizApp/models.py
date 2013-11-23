@@ -19,12 +19,12 @@ class Bondi_lists(models.Model):
     realtime_keywords_FAV_flag = models.BooleanField(default=True)
     realtime_popular_RT_flag = models.BooleanField(default=True)
     realtime_popular_FAV_flag = models.BooleanField(default=True)
-    realtime_popular_time_period = models.IntegerField(default=20)
-    realtime_popular_RT_threshold = models.IntegerField(default=5)
-    realtime_popular_FAV_threshold = models.IntegerField(default=5)
+    realtime_popular_time_period = models.IntegerField(default=2)
+    realtime_popular_RT_threshold = models.IntegerField(default=2)
+    realtime_popular_FAV_threshold = models.IntegerField(default=2)
     
-    report_friends_num = models.IntegerField(default=10)
-    rerort_follows_me_flag = models.BooleanField(default=True)
+    report_friends_num = models.IntegerField(default=2)
+    report_follows_me_flag = models.BooleanField(default=True)
     report_change_bio_flag = models.BooleanField(default=True)
     
     def __unicode__(self):
@@ -38,7 +38,7 @@ class Bondi_tweet_keywords(models.Model):
     def __unicode__(self):
         return self.keyword  
     
-class Bondi_friends_keywords(models.Model):
+class Bondi_bio_keywords(models.Model):
     alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
     bondi_list = models.ForeignKey(Bondi_lists)
     keyword = models.CharField(max_length=20,default='', validators=[alphanumeric])

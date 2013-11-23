@@ -103,9 +103,13 @@
     <!-- Load jQuery from a local copy if loading from Google fails -->
     <script type="text/javascript">window.jQuery || document.write('<script type="text/javascript" src={% static "js/jquery-1.10.2.min.js" %}><\/script>')</script>
 	
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/custom.js' %}"></script>
-
+	<!--<script type="text/javascript" src="{% static 'js/jquery-git.js' %}"></script>-->
+	
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+	
+	{% dajaxice_js_import %}
+	
 	<script type="text/javascript">
 	
 	  var _gaq = _gaq || [];

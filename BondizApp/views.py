@@ -1,6 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
-from models import Bondi, Bondi_lists, Bondi_tweet_keywords, Bondi_friends_keywords
+from models import Bondi, Bondi_lists, Bondi_tweet_keywords, Bondi_bio_keywords
 #from django.shortcuts import redirect
 
 #import useTwitterAPI
@@ -29,12 +29,26 @@ def home(request):
             if 'Bondiz' not in listNames: # user doesn't have "Bondiz" list in Twitter
                 useTwitterAPI.createList(twitter,name='Bondiz',method='private')
             newList = Bondi_lists(bondi=bondi,list_name='Bondiz')
-            newList.save()            
+            newList.save()  
+            bondiList = bondi.bondi_lists_set.all()[0]   
+            bondiList.bondi_tweet_keywords_set.create(keyword="")
+            bondiList.bondi_tweet_keywords_set.create(keyword="") 
+            bondiList.bondi_tweet_keywords_set.create(keyword="") 
+            bondiList.bondi_tweet_keywords_set.create(keyword="") 
+            bondiList.bondi_tweet_keywords_set.create(keyword="") 
+            bondiList.bondi_bio_keywords_set.create(keyword="")  
+            bondiList.bondi_bio_keywords_set.create(keyword="")  
+            bondiList.bondi_bio_keywords_set.create(keyword="")  
+            bondiList.bondi_bio_keywords_set.create(keyword="")  
+            bondiList.bondi_bio_keywords_set.create(keyword="")        
                     
-        bondiList = Bondi_lists.objects.filter(bondi=bondi)[0]
-        bondiTweetKeywords = Bondi_tweet_keywords.objects.filter(bondi_list=bondiList) 
-        bondiFriendsKeywords = Bondi_friends_keywords.objects.filter(bondi_list=bondiList)              
-        return render_to_response('BondizApp/dashboard.html',{'bondi': bondi,'bondiList': bondiList,'bondiTweetKeywords':bondiTweetKeywords,'bondiFriendsKeywords':bondiFriendsKeywords},context_instance=RequestContext(request))      
+        bondiList = bondi.bondi_lists_set.all()[0]       
+        bondiTweetKeywords = bondiList.bondi_tweet_keywords_set.all()
+        bondiBioKeywords = bondiList.bondi_bio_keywords_set.all()         
+        #bondiList = Bondi_lists.objects.filter(bondi=bondi)[0]
+        #bondiTweetKeywords = Bondi_tweet_keywords.objects.filter(bondi_list=bondiList) 
+        #bondiFriendsKeywords = Bondi_friends_keywords.objects.filter(bondi_list=bondiList)              
+        return render_to_response('BondizApp/dashboard.html',{'bondi': bondi,'bondiList': bondiList,'first_bondiTweetKeywords':bondiTweetKeywords.first(),'first_bondiBioKeywords':bondiBioKeywords.first()},context_instance=RequestContext(request))      
                   
     else:        
         return render_to_response('BondizApp/home.html',context_instance=RequestContext(request))   
