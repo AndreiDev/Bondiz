@@ -69,8 +69,8 @@
 	      			<div class="form-group">
 	      				<div class="row">		      			
 		      				<div class="col-md-offset-3 col-md-6">
-	      						{% if bondiList.bondi_tweet_keywords_set.all.1 %}
-		      					<input type="text" class="form-control" id="tweet_keyword2" placeholder="2nd keyword" value="{{ bondiList.bondi_tweet_keywords_set.all.1 }}">
+	      						{% if bondiList.tweet_keyword_set.all.1 %}
+		      					<input type="text" class="form-control" id="tweet_keyword2" placeholder="2nd keyword" value="{{ bondiList.tweet_keyword_set.all.1 }}">
 		      					{% else %}
 		      					<input type="text" class="form-control" id="tweet_keyword2" placeholder="2nd keyword">
 		      					{% endif %}
@@ -84,8 +84,8 @@
 	      			<div class="form-group">
 	      				<div class="row">		      			
 		      				<div class="col-md-offset-3 col-md-6">
-	      						{% if bondiList.bondi_tweet_keywords_set.all.2 %}
-		      					<input type="text" class="form-control" id="tweet_keyword3" placeholder="3rd keyword" value="{{ bondiList.bondi_tweet_keywords_set.all.2 }}">
+	      						{% if bondiList.tweet_keyword_set.all.2 %}
+		      					<input type="text" class="form-control" id="tweet_keyword3" placeholder="3rd keyword" value="{{ bondiList.tweet_keyword_set.all.2 }}">
 		      					{% else %}
 		      					<input type="text" class="form-control" id="tweet_keyword3" placeholder="3rd keyword">
 		      					{% endif %}
@@ -99,8 +99,8 @@
 	      			<div class="form-group">
 	      				<div class="row">		      			
 		      				<div class="col-md-offset-3 col-md-6">
-	      						{% if bondiList.bondi_tweet_keywords_set.all.3 %}
-		      					<input type="text" class="form-control" id="tweet_keyword4" placeholder="4th keyword" value="{{ bondiList.bondi_tweet_keywords_set.all.3 }}">
+	      						{% if bondiList.tweet_keyword_set.all.3 %}
+		      					<input type="text" class="form-control" id="tweet_keyword4" placeholder="4th keyword" value="{{ bondiList.tweet_keyword_set.all.3 }}">
 		      					{% else %}
 		      					<input type="text" class="form-control" id="tweet_keyword4" placeholder="4th keyword">
 		      					{% endif %}
@@ -114,8 +114,8 @@
 	      			<div class="form-group">
 	      				<div class="row">		      			
 		      				<div class="col-md-offset-3 col-md-6">
-	      						{% if bondiList.bondi_tweet_keywords_set.all.4 %}
-		      					<input type="text" class="form-control" id="tweet_keyword5" placeholder="5th keyword" value="{{ bondiList.bondi_tweet_keywords_set.all.4 }}">
+	      						{% if bondiList.tweet_keyword_set.all.4 %}
+		      					<input type="text" class="form-control" id="tweet_keyword5" placeholder="5th keyword" value="{{ bondiList.tweet_keyword_set.all.4 }}">
 		      					{% else %}
 		      					<input type="text" class="form-control" id="tweet_keyword5" placeholder="5th keyword">
 		      					{% endif %}
@@ -151,7 +151,7 @@
 	      			<div class="form-group">
 	      				<div class="row">
 	      					<div class="col-md-offset-2 col-md-6">
-		      					<p>time period: </p>
+		      					<p>time period (mins.): </p>
 		      				</div>
 		      				<div class="col-md-3">
 				      			<select id="rt_pop_time" class="form-control">
@@ -274,89 +274,9 @@
 
 	      <div class="row well"> <!-- REPORT SECTION -->
 				<div class="col-md-offset-3 col-md-6 well well-sm">
-					<h2>Daily triggers</h2>
+					<h2>Special triggers</h2>
 				</div>		      	
-	      		<div class="col-md-5 col-md-offset-1">
-	      			<h3>keywords in followees bio</h3>
-	      			
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
-		      					{% if first_bondiBioKeywords %}
-		      					<input type="text" class="form-control" id="bio_keyword1" placeholder="1st keyword" value="{{ first_bondiBioKeywords }}">
-		      					{% else %}
-		      					<input type="text" class="form-control" id="bio_keyword1" placeholder="1st keyword">
-		      					{% endif %}
-								<div id="alert_bio_keyword1" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
-		      					{% if bondiList.bondi_bio_keywords_set.all.1 %}
-		      					<input type="text" class="form-control" id="bio_keyword2" placeholder="2nd keyword" value="{{ bondiList.bondi_bio_keywords_set.all.1 }}">
-		      					{% else %}
-		      					<input type="text" class="form-control" id="bio_keyword2" placeholder="2nd keyword">
-		      					{% endif %}
-								<div id="alert_bio_keyword2" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
-		      					{% if bondiList.bondi_bio_keywords_set.all.2 %}
-		      					<input type="text" class="form-control" id="bio_keyword3" placeholder="3rd keyword" value="{{ bondiList.bondi_bio_keywords_set.all.2 }}">
-		      					{% else %}
-		      					<input type="text" class="form-control" id="bio_keyword3" placeholder="3rd keyword">
-		      					{% endif %}
-								<div id="alert_bio_keyword3" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>			
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
-		      					{% if bondiList.bondi_bio_keywords_set.all.3 %}
-		      					<input type="text" class="form-control" id="bio_keyword4" placeholder="4th keyword" value="{{ bondiList.bondi_bio_keywords_set.all.3 }}">
-		      					{% else %}
-		      					<input type="text" class="form-control" id="bio_keyword4" placeholder="4th keyword">
-		      					{% endif %}
-								<div id="alert_bio_keyword4" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>		
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
-		      					{% if bondiList.bondi_bio_keywords_set.all.4 %}
-		      					<input type="text" class="form-control" id="bio_keyword5" placeholder="5th keyword" value="{{ bondiList.bondi_bio_keywords_set.all.4 }}">
-		      					{% else %}
-		      					<input type="text" class="form-control" id="bio_keyword5" placeholder="5th keyword">
-		      					{% endif %}
-								<div id="alert_bio_keyword5" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>		
-	      		</div>	
-	      		<div class="col-md-5">
-	      			<h3>special triggers</h3>
+	      		<div class="col-md-offset-3 col-md-6">
 	      			
 	      			<div class="form-group">
 	      				<div class="row">
@@ -426,7 +346,7 @@
 	     </div><!-- /.row -->
 	      <div class="row">
   			 	<div class="col-md-offset-4 col-md-4 text-center">
-  			 		{% ifequal bondi.active_flag 1 %}
+  			 		{% ifequal bondiList.active_flag 1 %}
       				<button type="button" id="enabledFlag" class="btn btn-default btn-lg active" data-toggle="button">Account is active</button>
       				{% else %}
       				<button type="button" id="enabledFlag" class="btn btn-default btn-lg" data-toggle="button">Account is inactive</button>

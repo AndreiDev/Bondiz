@@ -166,56 +166,6 @@ $(document).ready(function () {
 		
 		
 		
-		
-
-	function updated_bio_keyword(data){
-		$('#bio_keyword'+data.keyword_num).val(data.bio_keyword);	
-	}	
-	$('#bio_keyword1').change(function() { 
-		$('#alert_bio_keyword1').hide();	
-		if (($('#bio_keyword1').val() == "") || (IsAlphaNumeric($('#bio_keyword1').val()))){
-			Dajaxice.BondizApp.AJ_bio_keyword(updated_bio_keyword,{'keyword_num':1,'bio_keyword':$('#bio_keyword1').val()});			
-		}
-		else {
-			$('#alert_bio_keyword1').show();
-		}		
-	})
-	$('#bio_keyword2').change(function() { 
-		$('#alert_bio_keyword2').hide();	
-		if (($('#bio_keyword2').val() == "") || (IsAlphaNumeric($('#bio_keyword2').val()))){
-			Dajaxice.BondizApp.AJ_bio_keyword(updated_bio_keyword,{'keyword_num':2,'bio_keyword':$('#bio_keyword2').val()});			
-		}
-		else {
-			$('#alert_bio_keyword2').show();
-		}		
-	})
-	$('#bio_keyword3').change(function() { 
-		$('#alert_bio_keyword3').hide();	
-		if (($('#bio_keyword3').val() == "") || (IsAlphaNumeric($('#bio_keyword3').val()))){
-			Dajaxice.BondizApp.AJ_bio_keyword(updated_bio_keyword,{'keyword_num':3,'bio_keyword':$('#bio_keyword3').val()});			
-		}
-		else {
-			$('#alert_bio_keyword3').show();
-		}		
-	})
-	$('#bio_keyword4').change(function() { 
-		$('#alert_bio_keyword4').hide();	
-		if (($('#bio_keyword4').val() == "") || (IsAlphaNumeric($('#bio_keyword4').val()))){
-			Dajaxice.BondizApp.AJ_bio_keyword(updated_bio_keyword,{'keyword_num':4,'bio_keyword':$('#bio_keyword4').val()});			
-		}
-		else {
-			$('#alert_bio_keyword4').show();
-		}		
-	})		
-	$('#bio_keyword5').change(function() { 
-		$('#alert_bio_keyword5').hide();	
-		if (($('#bio_keyword5').val() == "") || (IsAlphaNumeric($('#bio_keyword5').val()))){
-			Dajaxice.BondizApp.AJ_bio_keyword(updated_bio_keyword,{'keyword_num':5,'bio_keyword':$('#bio_keyword5').val()});			
-		}
-		else {
-			$('#alert_bio_keyword5').show();
-		}		
-	})	
 	
 	function updatedRepFriendsNum(data){
 		$('#rep_friends_num').val(data.RepFriendsNumChoice);

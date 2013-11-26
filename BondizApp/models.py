@@ -6,14 +6,16 @@ class Bondi(models.Model):
     
     email = models.CharField(max_length=40,default='')
     plan = models.IntegerField(default=1)
+    notification_timestamp = models.CharField(max_length=10,default='')
     active_flag = models.BooleanField(default=True)
     
     def __unicode__(self):
         return self.twitter_screen_name
     
-class Bondi_lists(models.Model):
+class List(models.Model):
     bondi = models.ForeignKey(Bondi)
     list_name = models.CharField(max_length=30,default='')
+    active_flag = models.BooleanField(default=True)
 
     realtime_keywords_RT_flag = models.BooleanField(default=True)
     realtime_keywords_FAV_flag = models.BooleanField(default=True)
@@ -30,33 +32,30 @@ class Bondi_lists(models.Model):
     def __unicode__(self):
         return self.list_name  
     
-class Bondi_tweet_keywords(models.Model):
+class Tweet_keyword(models.Model):
     alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
-    bondi_list = models.ForeignKey(Bondi_lists)
+    bondi_list = models.ForeignKey(List)
     keyword = models.CharField(max_length=20,default='', validators=[alphanumeric])
     
-    def __unicode__(self):
-        return self.keyword  
-    
-class Bondi_bio_keywords(models.Model):
-    alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
-    bondi_list = models.ForeignKey(Bondi_lists)
-    keyword = models.CharField(max_length=20,default='', validators=[alphanumeric])
-
     def __unicode__(self):
         return self.keyword  
     
 class Bondee(models.Model):
+    bondi = models.ForeignKey(Bondi)
+    twitter_screen_name = models.CharField(max_length=20,default='')
+    
+    followers_num = models.IntegerField(default=0)
+    friends_num = models.IntegerField(default=0)
     profile_bio = models.CharField(max_length=200,default='')
     follows_me_flag = models.BooleanField(default=True)
-    timestamp = models.DateTimeField(auto_now_add=True)
 
     def __unicode__(self):
-        return self.twitter_screen_name + ' at ' + str(self.timestamp)  
+        return self.twitter_screen_name 
     
-class Bondee_friends(models.Model):
-    bondee = models.ForeignKey(Bondee)
-    friend_id_str =  models.CharField(max_length=20,default='')
+class Log(models.Model):
+    bondi = models.ForeignKey(Bondi)
+    message = models.CharField(max_length=1000,default='')
+    message_timestamp = models.CharField(max_length=10,default='')
 
     def __unicode__(self):
-        return self.friend_id_str     
+        return self.message     
