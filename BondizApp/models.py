@@ -25,6 +25,7 @@ class List(models.Model):
     realtime_popular_RT_threshold = models.IntegerField(default=2)
     realtime_popular_FAV_threshold = models.IntegerField(default=2)
     
+    report_followers_num = models.IntegerField(default=2)
     report_friends_num = models.IntegerField(default=2)
     report_follows_me_flag = models.BooleanField(default=True)
     report_change_bio_flag = models.BooleanField(default=True)
@@ -35,6 +36,7 @@ class List(models.Model):
 class Tweet_keyword(models.Model):
     alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
     bondi_list = models.ForeignKey(List)
+    place = models.IntegerField(default=0)
     keyword = models.CharField(max_length=20,default='', validators=[alphanumeric])
     
     def __unicode__(self):
@@ -44,6 +46,9 @@ class Bondee(models.Model):
     bondi = models.ForeignKey(Bondi)
     twitter_screen_name = models.CharField(max_length=20,default='')
     
+    name = models.CharField(max_length=20,default='')
+    image_url = models.CharField(max_length=100,default='')
+    
     followers_num = models.IntegerField(default=0)
     friends_num = models.IntegerField(default=0)
     profile_bio = models.CharField(max_length=200,default='')
@@ -52,10 +57,33 @@ class Bondee(models.Model):
     def __unicode__(self):
         return self.twitter_screen_name 
     
-class Log(models.Model):
+class Daily_log(models.Model):
     bondi = models.ForeignKey(Bondi)
-    message = models.CharField(max_length=1000,default='')
-    message_timestamp = models.CharField(max_length=10,default='')
+    bondee_screen_name = models.CharField(max_length=20,default='')
+    
+    type = models.CharField(max_length=20,default='') # followers / friends /  relationship / bio
+    before = models.CharField(max_length=200,default='')
+    after = models.CharField(max_length=200,default='')
+    
+    email_timestamp = models.CharField(max_length=10,default='')
 
     def __unicode__(self):
-        return self.message     
+        return self.type     
+    
+class Realtime_log(models.Model):
+    bondi = models.ForeignKey(Bondi)
+    bondee_screen_name = models.CharField(max_length=20,default='')
+    
+    type = models.CharField(max_length=10,default='') # keyword / RT / FAV
+    value = models.CharField(max_length=20,default='') # "" / "X" / "Y" 
+    condition = models.CharField(max_length=20,default='') # "keyword X" / "X" / "Y" 
+    tweet_id = models.CharField(max_length=20,default='')
+    tweet_text = models.CharField(max_length=200,default='')
+    
+    RT = models.IntegerField(default=0)
+    FAV = models.IntegerField(default=0)
+
+    email_timestamp = models.CharField(max_length=10,default='')
+
+    def __unicode__(self):
+        return self.type       

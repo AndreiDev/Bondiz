@@ -27,15 +27,15 @@ def home(request):
             OwnedLists = useTwitterAPI.getOwnedLists(twitter,request.user)['lists']   
             listNames = {OwnedList['name'] for OwnedList in OwnedLists}    
             if 'Bondiz' not in listNames: # user doesn't have "Bondiz" list in Twitter
-                useTwitterAPI.createList(twitter,name='Bondiz',method='private')
+                useTwitterAPI.createList(twitter,name='Bondiz',mode='private')
             newList = List(bondi=bondi,list_name='Bondiz')
             newList.save()  
             bondiList = bondi.list_set.all()[0]   
-            bondiList.tweet_keyword_set.create(keyword="")
-            bondiList.tweet_keyword_set.create(keyword="") 
-            bondiList.tweet_keyword_set.create(keyword="") 
-            bondiList.tweet_keyword_set.create(keyword="") 
-            bondiList.tweet_keyword_set.create(keyword="")        
+            bondiList.tweet_keyword_set.create(place=1,keyword="")
+            bondiList.tweet_keyword_set.create(place=2,keyword="") 
+            bondiList.tweet_keyword_set.create(place=3,keyword="") 
+            bondiList.tweet_keyword_set.create(place=4,keyword="") 
+            bondiList.tweet_keyword_set.create(place=5,keyword="")        
                     
         bondiList = bondi.list_set.all()[0]       
         bondiTweetKeywords = bondiList.tweet_keyword_set.all()

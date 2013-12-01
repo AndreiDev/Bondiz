@@ -1,0 +1,31 @@
+Hi!
+
+This is a Bondiz notification for @{{bondi}}:
+
+{% if dailyEmailHeading %}
+
+		{{ dailyEmailHeading }}
+	
+	{% for line in dailyEmailContent %}
+		{% if line %}
+			{{ line }}
+		{% else %}
+			""
+		{% endif %}
+	{% endfor%}
+
+{% endif %}
+
+{% if realtimeEmailHeading %}
+
+	{{ realtimeEmailHeading }} 
+	
+	{% for line in realtimeEmailContent %}
+		{% if line %}
+			{{ line }}
+		{% else %}
+			""
+		{% endif %}
+	{% endfor%}
+
+{% endif %}	

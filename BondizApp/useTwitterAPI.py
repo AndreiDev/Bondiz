@@ -53,6 +53,11 @@ def twitterReTweet(twitter,**params):
     return twitter.retweet(**params)
 
 @twitter_retry
+def twitterFavorite(twitter,**params):
+    return twitter.create_favorite(**params)
+
+
+@twitter_retry
 def twitterUserTimeline(twitter,**params):
     return twitter.get_user_timeline(**params)
 
@@ -71,6 +76,16 @@ def twitterGetOwnedLists(twitter,**params):
 @twitter_retry
 def twitterCreateList(twitter,**params):
     return twitter.create_list(**params)
+
+@twitter_retry
+def twitterGetListMembers(twitter,**params):
+    return twitter.get_list_members(**params)
+
+@twitter_retry
+def twitterListTimeline(twitter,**params):
+    return twitter.get_list_statuses(**params)
+
+
 
 ### *********************************************** ###
 
@@ -127,13 +142,19 @@ def unfollowUser_byID(twitter, userId):
     return twitterDestroyFriendship(twitter,user_id=userId)  
     
 def friendship_byID(twitter, userId):
-    return twitterLookupFriendships(twitter,user_id=userId)       
+    return twitterLookupFriendships(twitter,user_id=userId) 
+
+def friendship_byNAME(twitter, screen_name):
+    return twitterLookupFriendships(twitter,screen_name=screen_name)         
     
 def getRateLimit(twitter, resources):    
     return twitterRateLimit(twitter,resources=resources)
 
 def ReTweet(twitter, tweetId):    
     return twitterReTweet(twitter,id=tweetId)
+ 
+def Favorite(twitter, tweetId):    
+    return twitterFavorite(twitter,id=tweetId)    
     
 def UserTimeline(twitter,screen_name,count,trim_user,exclude_replies ,include_rts):
     print '*** getting UserTimeline of ' + screen_name
@@ -175,6 +196,27 @@ def DeleteTweet(twitter, tweetId):
 def getOwnedLists(twitter, screen_name):    
     return twitterGetOwnedLists(twitter,screen_name=screen_name)
 
-def createList(twitter, name, method):    
-    return twitterCreateList(twitter,name=name,method=method)
-        
+def createList(twitter, name, mode):    
+    return twitterCreateList(twitter,name=name,mode=mode)
+
+def getListMembers(twitter, slug, owner_screen_name):     
+    print '*** getting "Bondiz" list members of ' + owner_screen_name
+    ii = 1
+    print 'page ' + str(ii) 
+    members_raw = twitterGetListMembers(twitter,slug=slug,owner_screen_name=owner_screen_name,cursor=-1)
+    members_next_cursor = members_raw['next_cursor']
+    members_names = members_raw['users']
+    while members_next_cursor:
+        ii += 1
+        print 'page ' + str(ii) 
+        members_raw = twitterGetListMembers(twitter,slug=slug,owner_screen_name=owner_screen_name,cursor=members_next_cursor)
+        members_next_cursor = members_raw['next_cursor']
+        members_names = members_names + members_raw['users']    
+    return members_names
+
+def ListTimeline(twitter,slug,owner_screen_name,count,trim_user,exclude_replies ,include_rts):
+    print '*** getting ONE! ListTimeline of ' + owner_screen_name
+    HomeTimeline = twitterListTimeline(twitter,slug=slug,owner_screen_name=owner_screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)
+    return HomeTimeline
+
+    

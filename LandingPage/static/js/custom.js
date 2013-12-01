@@ -165,7 +165,12 @@ $(document).ready(function () {
 
 		
 		
-		
+	function updatedRepFollowersNum(data){
+		$('#rep_followers_num').val(data.RepFollowersNumChoice);
+	}
+	$('#rep_followers_num').change(function() { 
+		Dajaxice.BondizApp.AJ_updateRepFollowersNum(updatedRepFollowersNum,{'RepFollowersNumChoice':$('#rep_followers_num').val()});	
+	})			
 	
 	function updatedRepFriendsNum(data){
 		$('#rep_friends_num').val(data.RepFriendsNumChoice);

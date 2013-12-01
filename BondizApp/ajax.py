@@ -1,6 +1,6 @@
 import json
 from dajaxice.decorators import dajaxice_register
-from models import Bondi, List, Tweet_keyword, Bondee, Log
+from models import Bondi, List, Tweet_keyword, Bondee, Realtime_log, Daily_log
 from django.contrib.auth.models import User
 
 from allauth.socialaccount.models import SocialLogin, SocialToken, SocialApp, SocialAccount
@@ -18,8 +18,9 @@ def AJ_updateEmail(request,email):
 def AJ_tweet_keyword(request,keyword_num,tweet_keyword):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0] 
-    bondiTweetKeywords = bondiList.tweet_keyword_set.all()
-    bondiTweetKeywords.filter(pk=keyword_num).update(keyword=tweet_keyword)
+    bondiTweetKeyword = bondiList.tweet_keyword_set.filter(place=keyword_num)[0]
+    bondiTweetKeyword.keyword = tweet_keyword
+    bondiTweetKeyword.save()
     return json.dumps({'keyword_num':keyword_num,'tweet_keyword':tweet_keyword})
 
 @dajaxice_register
@@ -87,6 +88,15 @@ def AJ_togglePopularFAV(request,popular_FAV_flag):
     return json.dumps({'popular_FAV_flag':popular_FAV_flag})
 
 
+
+RepFollowersNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
+@dajaxice_register
+def AJ_updateRepFollowersNum(request,RepFollowersNumChoice):
+    bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
+    bondiList = bondi.list_set.all()[0]  
+    bondiList.report_followers_num = RepFollowersNumTable.keys()[RepFollowersNumTable.values().index(RepFollowersNumChoice)]
+    bondiList.save()
+    return json.dumps({'RepFollowersNumChoice':RepFollowersNumChoice})
 
 RepFriendsNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
 @dajaxice_register

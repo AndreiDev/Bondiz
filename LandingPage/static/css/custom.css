@@ -1,3 +1,7 @@
+#alert_email, #alert_tweet_keyword1, #alert_tweet_keyword2, #alert_tweet_keyword3, #alert_tweet_keyword4, #alert_tweet_keyword5 {
+	display: none;
+}
+
 body { 
   opacity: 1;
   min-height: 600px;
@@ -106,4 +110,4 @@ body {
 .btn {
 	margin-top: 5px;
 }
-}
+

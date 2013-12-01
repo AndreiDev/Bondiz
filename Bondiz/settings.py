@@ -189,6 +189,12 @@ LOGGING = {
     }
 }
 
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'mail.bondiz.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'andrei@bondiz.com'
+EMAIL_HOST_PASSWORD = 'a-SAR5248'
+
 from django.core.urlresolvers import reverse_lazy
 LOGIN_URL = reverse_lazy('login')
 
