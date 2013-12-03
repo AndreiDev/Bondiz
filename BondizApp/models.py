@@ -79,6 +79,7 @@ class Realtime_log(models.Model):
     condition = models.CharField(max_length=20,default='') # "keyword X" / "X" / "Y" 
     tweet_id = models.CharField(max_length=20,default='')
     tweet_text = models.CharField(max_length=200,default='')
+    time = models.IntegerField(default=0)
     
     RT = models.IntegerField(default=0)
     FAV = models.IntegerField(default=0)

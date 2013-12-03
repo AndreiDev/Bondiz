@@ -4,6 +4,7 @@ import Bondiz.settings
 import emailTask
 from BondizApp.models import Bondi, List, Tweet_keyword, Bondee, Daily_log
 import time
+from debug import debug
 import BondizApp.useTwitterAPI
 from allauth.socialaccount.models import SocialLogin, SocialToken, SocialApp, SocialAccount
 from twython import Twython, TwythonError, TwythonRateLimitError
@@ -15,10 +16,13 @@ from datetime import datetime
 #from BondizApp.ajax import
 
 def runDailyTask():
+    debug('runDailyTask started')
     RepFollowersNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
     RepFriendsNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
 
     for bondi in Bondi.objects.all():
+        debug('processing bondi ' + bondi.twitter_screen_name)
+        
         userID = User.objects.filter(username=bondi.twitter_screen_name)[0].id
         SocialAccountId = SocialAccount.objects.filter(user_id=userID)[0].id 
         APP_KEY = SocialApp.objects.filter(name='Bondiz')[0].client_id 
@@ -28,32 +32,55 @@ def runDailyTask():
         twitter = Twython(APP_KEY, APP_SECRET, OAUTH_TOKEN, OAUTH_TOKEN_SECRET) 
         
         if not bondi.active_flag:
+            debug('bondi not active - moving forward')
             continue
         
         bondiList = bondi.list_set.all()[0]
         report_followers_num = int(RepFollowersNumTable[bondiList.report_followers_num])   
         report_friends_num = int(RepFriendsNumTable[bondiList.report_friends_num])      
              
+        debug('TWITTER: getting list members')
+        tic = time.clock()
         newBondees = BondizApp.useTwitterAPI.getListMembers(twitter, slug='Bondiz', owner_screen_name=bondi.twitter_screen_name)
+        toc = time.clock()
+        debug('TWITTER: done [' + str(toc-tic) + ' seconds]')          
+        
+        newBondees_screen_names = [newBondee['screen_name'] for newBondee in newBondees]
         
         for oldBondee in bondi.bondee_set.all():
             if not str(oldBondee) in [str(newBondee['screen_name']) for newBondee in newBondees]:
+                debug('deleting ' + oldBondee.twitter_screen_name)    
                 bondi.realtime_log_set.filter(bondee_screen_name = oldBondee.twitter_screen_name).delete()
                 bondi.daily_log_set.filter(bondee_screen_name = oldBondee.twitter_screen_name).delete()
                 bondi.bondee_set.filter(twitter_screen_name = oldBondee.twitter_screen_name).delete()
-                
+        
+        debug('TWITTER: getting frienships')
+        tic = time.clock()
+        newConnections = BondizApp.useTwitterAPI.friendship_byNAME(twitter,screen_name = (",".join(newBondees_screen_names)))
+        toc = time.clock()        
+              
         for newBondee in newBondees:
+            debug('iterating through bondees (' + newBondee['screen_name'] + ')')
+            
+            for newConnection in newConnections:
+                if newConnection['screen_name'] == newBondee['screen_name']:
+                    new_follows_me_flag = u'followed_by' in newConnection['connections'] 
+                    break              
             
             OldBondee = bondi.bondee_set.filter(twitter_screen_name = newBondee['screen_name'])
             
             if not OldBondee:
+                
+                debug('creating ' + newBondee['screen_name'])                        
+                
+                debug('TWITTER: done [' + str(toc-tic) + ' seconds]') 
                 bondi.bondee_set.create(twitter_screen_name = newBondee['screen_name'],
                                         name = newBondee['name'],
                                         image_url = newBondee['profile_image_url'],
                                         followers_num = newBondee['followers_count'],
                                         friends_num = newBondee['friends_count'],                                    
                                         profile_bio = newBondee['description'],
-                                        follows_me_flag = u'followed_by' in BondizApp.useTwitterAPI.friendship_byNAME(twitter,screen_name = newBondee['screen_name'])[0]['connections'])
+                                        follows_me_flag = new_follows_me_flag)
                 continue
             else:
                 OldBondee = OldBondee[0]
@@ -68,8 +95,8 @@ def runDailyTask():
             newSnapshot['followersNum'] = newBondee['followers_count']
             newSnapshot['friendsNum'] = newBondee['friends_count']
             newSnapshot['bio'] = newBondee['description']
-            newSnapshot['relationship'] = u'followed_by' in BondizApp.useTwitterAPI.friendship_byNAME(twitter,screen_name = newBondee['screen_name'])[0]['connections']
-                
+            newSnapshot['relationship'] = new_follows_me_flag     
+
             if newSnapshot['followersNum'] - oldSnapshot['followersNum'] >= report_followers_num:
             # following growth
                 bondi.daily_log_set.create(bondee_screen_name = newBondee['screen_name'],
@@ -113,4 +140,4 @@ if __name__=='__main__':
     tic = time.clock()
     runDailyTask() 
     toc = time.clock()
-    print ['RealtimeTask done in '+ str(toc) + ' seconds']
+    print ['runDailyTask done ['+ str(toc-tic) + ' seconds]']

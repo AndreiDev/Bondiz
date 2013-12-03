@@ -498,6 +498,7 @@
 													{% if line.text %}
 														<p><img src="{{ line.image_url }}" height="50px" width="50px"><a href="https://twitter.com/{{ line.screen_name }}" target="_blank">{{ line.name }}</a>
 														<br>{{ line.text }}
+														<br><strong>{{ line.tweet_text }}</strong>
 														<br><a href="https://twitter.com/{{ line.screen_name }}/status/{{ line.tweet_id }}" target="_blank">open tweet</a></p>
 													{% else %}
 														<br>
