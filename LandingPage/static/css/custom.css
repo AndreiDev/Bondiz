@@ -2,12 +2,57 @@
 	display: none;
 }
 
+body * {
+  font-family: 'Open Sans';
+  font-weight: 100; 
+}
+
 body { 
+	
   opacity: 1;
   min-height: 600px;
-  padding-bottom: 70px;
-  padding-top: 20px; 
+  
+  padding-top: 10px; 
   font-size: 16px;
+  
+  background: white;
+  
+  min-height: 900px;
+  color: #434a54;  
+}
+
+.logo .row{
+	margin-bottom: 1em;
+}
+
+.logo-text {
+	border-top-style: solid;
+	border-top-color: #1111cc;
+	border-top-width: 0.1em;
+	border-bottom-style: solid;
+ 	border-bottom-color: #cc1111;
+	border-bottom-width: 0.1em; 
+	padding: 0;
+	margin: 0;
+	font-size: 2.5em;
+}
+
+strong {
+	font-weight: bold;
+}
+
+.marketing .row{
+	margin-bottom: 1em;
+}
+
+.marketing p{
+	font-size: 2em;
+	color: #1C1C1C;
+}
+
+.btn-default {
+	background-color: #fff;
+	border-color: #ccc;
 }
 
 .navbar-brand {
@@ -28,24 +73,18 @@ body {
 	font-size: 2em;
 }
 
-#desk {
-	padding: 10px;
-}
-
 .dashboard {
-	margin: 50px 10px;
+	margin: 10px 10px 50px 10px;
 }
 
 .dashboard h1{
 	text-align: center;
-	font-family: 'Miltonian Tattoo', cursive;
 	font-size: 2em;
 	color: #1C1C1C;	
 }
 
 .dashboard h2{
 	text-align: center;
-	font-family: 'Miltonian Tattoo', cursive;
 	font-size: 1.6em;
 	color: #1C1C1C;	
 	padding: 0px 0px 10px 0px;
@@ -54,7 +93,6 @@ body {
 
 .dashboard h3{
 	text-align: center;
-	font-family: 'Miltonian Tattoo', cursive;
 	font-size: 1.3em;
 	color: #1C1C1C;	
 	padding: 0px 0px 10px 0px;
@@ -62,28 +100,11 @@ body {
 }
 
 .dashboard p{
-	font-family: 'Libre Baskerville', serif;
+	
 	font-size: 1em;
 	color: #1C1C1C;
 }
 
-.marketing h2 {
-	text-align: center;
-	font-family: 'Miltonian Tattoo', cursive;
-	font-size: 5em;
-	color: #1C1C1C;
-}
-
-.marketing p{
-	font-family: 'Libre Baskerville', serif;
-	font-size: 1.3em;
-	color: #1C1C1C;
-}
-
-.pricing-tables h1{
-	font-size: 2em;
-	color: #1C1C1C;
-}
 
 .color-text {
 	color: #3f8fd2;
@@ -94,7 +115,6 @@ body {
 	background: none;
 }
 
-
 .form-signin {
 	margin-top: 40px;
 }
@@ -104,7 +124,9 @@ body {
 }
 
 .content {
+	text-align: center;
 	min-height: 450px;
+	padding-top: 30px; 
 }
 
 .btn {

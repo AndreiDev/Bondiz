@@ -13,14 +13,16 @@ def plans(request):
     newLog.save()    
     return render_to_response('LandingPage/pricing-plans.html',context_instance=RequestContext(request))    
     
-def signup(request, plan):
-    newLog = Log(ip=request.META['REMOTE_ADDR'],text=plan)
+def signup(request):
+    newLog = Log(ip=request.META['REMOTE_ADDR'],text="signup")
     newLog.save()
     return render_to_response('LandingPage/signup.html',context_instance=RequestContext(request))      
 
 def thanks(request):
+    if not request.POST.values():
+        return render_to_response('LandingPage/thanks.html',context_instance=RequestContext(request))
     if not request.POST.values()[1]:
-        return redirect("/signup/0")
+        return redirect("/signup")
     else:
         newLog = Log(ip=request.META['REMOTE_ADDR'],text=request.POST.values()[1])
         newLog.save()    
