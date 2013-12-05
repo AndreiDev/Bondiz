@@ -1,8 +1,9 @@
 #cd /home/andreii1/django_projects/Bondiz && /home/andreii1/python/bin/python dailyTask.py
 
-#from django.core.management import setup_environ
+#import os
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Bondiz.settings")
 import Bondiz.settings
-#setup_environ(Bondiz.settings)
+
 import emailTask
 from BondizApp.models import Bondi, List, Tweet_keyword, Bondee, Daily_log
 import time
@@ -18,7 +19,7 @@ from datetime import datetime
 #from BondizApp.ajax import
 
 def runDailyTask():
-    debug('runDailyTask started')
+    debug('****** runDailyTask started ******')
     RepFollowersNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
     RepFriendsNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
 
@@ -57,14 +58,15 @@ def runDailyTask():
                     bondi.daily_log_set.filter(bondee_screen_name = oldBondee.twitter_screen_name).delete()
                     bondi.bondee_set.filter(twitter_screen_name = oldBondee.twitter_screen_name).delete()
             
-            debug('TWITTER: getting frienships')
+            debug('TWITTER: getting friendships')
             tic = time.clock()
             newConnections = BondizApp.useTwitterAPI.friendship_byNAME(twitter,screen_name = (",".join(newBondees_screen_names)))
-            toc = time.clock()        
+            toc = time.clock()    
+            debug('TWITTER: done [' + str(toc-tic) + ' seconds]')     
                   
             for newBondee in newBondees:
                 try:
-                    debug('iterating through bondees (' + newBondee['screen_name'] + ')')
+                    #debug('iterating through bondees (' + newBondee['screen_name'] + ')')
                     
                     for newConnection in newConnections:
                         if newConnection['screen_name'] == newBondee['screen_name']:
@@ -76,8 +78,7 @@ def runDailyTask():
                     if not OldBondee:
                         
                         debug('creating ' + newBondee['screen_name'])                        
-                        
-                        debug('TWITTER: done [' + str(toc-tic) + ' seconds]') 
+                                                
                         bondi.bondee_set.create(twitter_screen_name = newBondee['screen_name'],
                                                 name = newBondee['name'],
                                                 image_url = newBondee['profile_image_url'],
@@ -138,13 +139,13 @@ def runDailyTask():
                         OldBondee.follows_me_flag = newSnapshot['relationship']  
                         OldBondee.save()    
                 except Exception as e:   
-                    debug('Exception in ' + newBondee['screen_name'] + ': ' + e)                                                                              
+                    debug('!!! Exception in ' + newBondee['screen_name'] + ': ' + str(e))                                                                              
         except Exception as e:   
-            debug('Exception in ' + bondi.twitter_screen_name + ': ' + e)
+            debug('!!! Exception in ' + bondi.twitter_screen_name + ': ' + str(e))
     return 1
 
 if __name__=='__main__':
     tic = time.clock()
     runDailyTask() 
     toc = time.clock()
-    print ['runDailyTask done ['+ str(toc-tic) + ' seconds]']
+    debug('------ DailyTask done ['+ str(toc-tic) + ' seconds] ------')

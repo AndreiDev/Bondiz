@@ -1,6 +1,6 @@
-#from django.core.management import setup_environ
+#import os
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Bondiz.settings")
 import Bondiz.settings
-#setup_environ(Bondiz.settings)
 
 from BondizApp.models import Bondi, List, Tweet_keyword, Bondee, Realtime_log, Daily_log
 import time
@@ -58,7 +58,7 @@ def runEmailTask():
         realtimeEmailHeading = [] 
         realtimeEmailContent = []    
         if realtime_logs:
-            debug('iterating through daily logs...')
+            debug('iterating through realtime logs...')
             
             realtimeEmailHeading = "Realtime events:"
             unique_tweet_ids = list(set([realtime_log.tweet_id for realtime_log in realtime_logs]))
@@ -88,29 +88,29 @@ def runEmailTask():
                                                                'tweet_id':tweet_id_realtime_log.tweet_id}]                  
                           
 
-        
-        if dailyEmailContent or realtimeEmailContent:         
-            emailContext = Context({'bondi':bondi.twitter_screen_name,'dailyEmailHeading': dailyEmailHeading,'dailyEmailContent': dailyEmailContent, 'realtimeEmailHeading': realtimeEmailHeading,'realtimeEmailContent': realtimeEmailContent })
-            plaintext = get_template('../templates/email/email.txt')
-            htmly     = get_template('../templates/email/email.html')
-            subject, from_email, to = 'Bondiz notification', 'andrei@bondiz.com', bondi.email
-            text_content = plaintext.render(emailContext)
-            html_content = htmly.render(emailContext)
-            msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
-            msg.attach_alternative(html_content, "text/html")
-            
-            debug('DJANGO: sending email')
-            tic = time.clock()
-            msg.send()    
-            toc = time.clock()
-            debug('DJANGO: done [' + str(toc-tic) + ' seconds]')              
-            
-                   
-            
+        if not bondi.email:
+            debug('no email defined for @' + bondi.twitter_screen_name)
+        else:
+            if dailyEmailContent or realtimeEmailContent:         
+                emailContext = Context({'bondi':bondi.twitter_screen_name,'dailyEmailHeading': dailyEmailHeading,'dailyEmailContent': dailyEmailContent, 'realtimeEmailHeading': realtimeEmailHeading,'realtimeEmailContent': realtimeEmailContent })
+                plaintext = get_template('../templates/email/email.txt')
+                htmly     = get_template('../templates/email/email.html')
+                subject, from_email, to = 'Bondiz notification', 'andrei@bondiz.com', bondi.email
+                text_content = plaintext.render(emailContext)
+                html_content = htmly.render(emailContext)
+                msg = EmailMultiAlternatives(subject, text_content, from_email, [to])
+                msg.attach_alternative(html_content, "text/html")
+                
+                debug('DJANGO: sending email')
+                tic = time.clock()
+                msg.send()    
+                toc = time.clock()
+                debug('DJANGO: done [' + str(toc-tic) + ' seconds]')              
+
     return 1
 
-if __name__=='__main__':
-    tic = time.clock()
-    runEmailTask() 
-    toc = time.clock()
-    print ['runEmailTask done ['+ str(toc) + ' seconds]']
+#if __name__=='__main__':
+#    tic = time.clock()
+#    runEmailTask() 
+#    toc = time.clock()
+#    print ['runEmailTask done ['+ str(toc) + ' seconds]']

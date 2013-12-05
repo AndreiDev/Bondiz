@@ -1,8 +1,9 @@
 #cd /home/andreii1/django_projects/Bondiz && /home/andreii1/python/bin/python realtimeTask.py
 
-#from django.core.management import setup_environ
+#import os
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Bondiz.settings")
 import Bondiz.settings
-#setup_environ(Bondiz.settings)
+
 import emailTask
 from BondizApp.models import Bondi, List, Tweet_keyword, Bondee, Realtime_log
 import time
@@ -18,7 +19,7 @@ from datetime import datetime
 #from BondizApp.ajax import
 
 def runRealtimeTask():
-    debug('RealtimeTask started')
+    debug('*** RealtimeTask started ***')
     RtPopTimeTable = {1:u'10',2:u'20',3:u'30',4:u'60'}
     RtPopMinRTtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}
     RtPopMinFAVtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}    
@@ -56,7 +57,7 @@ def runRealtimeTask():
             
             newConnections = []        
             for newBondee in newBondees:
-                debug('iterating through bondees (' + newBondee['screen_name'] + ')')
+                #debug('iterating through bondees (' + newBondee['screen_name'] + ')')
                 
                 OldBondee = bondi.bondee_set.filter(twitter_screen_name = newBondee['screen_name'])
                 
@@ -65,17 +66,17 @@ def runRealtimeTask():
                     debug('creating ' + newBondee['screen_name'])
                     
                     if not newConnections:  
-                        debug('TWITTER: getting frienships')
+                        debug('TWITTER: getting friendships')
                         tic = time.clock()
                         newConnections = BondizApp.useTwitterAPI.friendship_byNAME(twitter,screen_name = (",".join(newBondees_screen_names)))
                         toc = time.clock()
+                        debug('TWITTER: done [' + str(toc-tic) + ' seconds]') 
                     
                     for newConnection in newConnections:
                         if newConnection['screen_name'] == newBondee['screen_name']:
                             new_follows_me_flag = u'followed_by' in newConnection['connections'] 
                             break               
-                    
-                    debug('TWITTER: done [' + str(toc-tic) + ' seconds]') 
+                                        
                     bondi.bondee_set.create(twitter_screen_name = newBondee['screen_name'],
                                             name = newBondee['name'],
                                             image_url = newBondee['profile_image_url'],
@@ -87,7 +88,7 @@ def runRealtimeTask():
                                                            
                                                     
             
-            MINUTES_PARAMETER = 10
+            MINUTES_PARAMETER = 5
             POP_MAX_RT = 0
             POP_MAX_FAV = 0
             KEY_MAX_RT = 0
@@ -116,7 +117,7 @@ def runRealtimeTask():
             if len(tweets) > 0:
                 for tweet in tweets:
                     try:
-                        debug('iterating through tweets (' + tweet['id_str'] + ')')
+                        #debug('iterating through tweets (' + tweet['id_str'] + ')')
                         timeDelta = datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
                         if (timeDelta.total_seconds() > realtime_popular_time_period * 60) and (timeDelta.total_seconds() > MINUTES_PARAMETER * 60): 
                         # tweet is irrelevant by time created  
@@ -335,9 +336,9 @@ def runRealtimeTask():
                                                                           FAV = 0,
                                                                           email_timestamp = "")
                     except Exception as e:   
-                        debug('Exception in ' + tweet['id_str'] + ': ' + e)                                                                                           
+                        debug('!!! Exception in ' + tweet['id_str'] + ': ' + str(e))                                                                                           
         except Exception as e:   
-            debug('Exception in ' + bondi.twitter_screen_name + ': ' + e)
+            debug('!!! Exception in ' + bondi.twitter_screen_name + ': ' + str(e))
     
         try:
             debug('calling emailTask')
@@ -346,11 +347,11 @@ def runRealtimeTask():
             toc = time.clock()
             debug('emailTask done [' + str(toc-tic) + ' seconds]')                  
         except Exception as e:   
-            debug('Exception in calling emailTask : ' + e)    
+            debug('!!! Exception in calling emailTask : ' + str(e))    
     return 1
 
 if __name__=='__main__':
     tic = time.clock()
     runRealtimeTask() 
     toc = time.clock()
-    debug('RealtimeTask done ['+ str(toc-tic) + ' seconds]')
+    debug('--- RealtimeTask done ['+ str(toc-tic) + ' seconds] ---')
