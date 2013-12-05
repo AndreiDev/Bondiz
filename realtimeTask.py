@@ -1,6 +1,8 @@
+#cd /home/andreii1/django_projects/Bondiz && /home/andreii1/python/bin/python realtimeTask.py
+
 #from django.core.management import setup_environ
 import Bondiz.settings
-#setup_environ(CrossValidate.settings)
+#setup_environ(Bondiz.settings)
 import emailTask
 from BondizApp.models import Bondi, List, Tweet_keyword, Bondee, Realtime_log
 import time
