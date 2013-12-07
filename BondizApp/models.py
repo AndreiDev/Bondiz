@@ -21,12 +21,12 @@ class List(models.Model):
     realtime_keywords_FAV_flag = models.BooleanField(default=True)
     realtime_popular_RT_flag = models.BooleanField(default=True)
     realtime_popular_FAV_flag = models.BooleanField(default=True)
-    realtime_popular_time_period = models.IntegerField(default=2)
-    realtime_popular_RT_threshold = models.IntegerField(default=2)
-    realtime_popular_FAV_threshold = models.IntegerField(default=2)
+    realtime_popular_time_period = models.IntegerField(default=30)
+    realtime_popular_RT_threshold = models.IntegerField(default=3)
+    realtime_popular_FAV_threshold = models.IntegerField(default=3)
     
-    report_followers_num = models.IntegerField(default=2)
-    report_friends_num = models.IntegerField(default=2)
+    report_followers_num = models.IntegerField(default=30)
+    report_friends_num = models.IntegerField(default=30)
     report_follows_me_flag = models.BooleanField(default=True)
     report_change_bio_flag = models.BooleanField(default=True)
     

@@ -1,0 +1,311 @@
+2013-12-06 10:26:14.515000 | ****** runDailyTask started ******
+2013-12-06 10:26:14.664000 | processing bondi andreii
+2013-12-06 10:26:15.045000 | TWITTER: getting list members
+2013-12-06 10:26:17.781000 | TWITTER: done [2.7352929737 seconds]
+2013-12-06 10:26:18.003000 | deleting tferriss
+2013-12-06 10:26:18.327000 | deleting 2morrowknight
+2013-12-06 10:26:18.354000 | deleting rickygervais
+2013-12-06 10:26:18.379000 | TWITTER: getting friendships
+2013-12-06 10:26:18.604000 | TWITTER: done [0.224079729621 seconds]
+2013-12-06 10:26:18.877000 | ------ DailyTask done [4.36041077009 seconds] ------
+2013-12-06 10:27:48.998000 | *** RealtimeTask started ***
+2013-12-06 10:27:49.045000 | processing bondi andreii
+2013-12-06 10:27:49.235000 | TWITTER: getting list members
+2013-12-06 10:27:51.460000 | TWITTER: done [2.22462505702 seconds]
+2013-12-06 10:27:51.555000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:27:55.469000 | TWITTER: done [3.91373941453 seconds]
+2013-12-06 10:27:55.760000 | calling emailTask
+2013-12-06 10:27:55.760000 | runEmailTask started
+2013-12-06 10:27:55.778000 | iterating through daily logs...
+2013-12-06 10:27:55.919000 | iterating through realtime logs...
+2013-12-06 10:27:56.385000 | !!! Exception in calling emailTask : Invalid block tag: 'else', expected 'empty' or 'endfor'
+2013-12-06 10:27:56.392000 | --- RealtimeTask done [7.3935951175 seconds] ---
+2013-12-06 10:29:53.808000 | *** RealtimeTask started ***
+2013-12-06 10:29:53.856000 | processing bondi andreii
+2013-12-06 10:29:59.071000 | ****** runDailyTask started ******
+2013-12-06 10:29:59.121000 | processing bondi andreii
+2013-12-06 10:29:59.290000 | TWITTER: getting list members
+2013-12-06 10:30:01.506000 | TWITTER: done [2.21582405615 seconds]
+2013-12-06 10:30:01.519000 | TWITTER: getting friendships
+2013-12-06 10:30:01.758000 | TWITTER: done [0.238575471935 seconds]
+2013-12-06 10:30:01.910000 | ------ DailyTask done [2.83892827365 seconds] ------
+2013-12-06 10:31:15.167000 | *** RealtimeTask started ***
+2013-12-06 10:31:15.215000 | processing bondi andreii
+2013-12-06 10:31:15.387000 | TWITTER: getting list members
+2013-12-06 10:31:17.707000 | TWITTER: done [2.32012379661 seconds]
+2013-12-06 10:31:17.805000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:31:21.881000 | TWITTER: done [4.07554972324 seconds]
+2013-12-06 10:31:21.971000 | calling emailTask
+2013-12-06 10:31:21.971000 | runEmailTask started
+2013-12-06 10:31:21.988000 | iterating through daily logs...
+2013-12-06 10:31:22.019000 | iterating through realtime logs...
+2013-12-06 10:31:22.094000 | !!! Exception in calling emailTask : Invalid block tag: 'else', expected 'empty' or 'endfor'
+2013-12-06 10:31:22.098000 | --- RealtimeTask done [6.93104403863 seconds] ---
+2013-12-06 10:32:49.047000 | *** RealtimeTask started ***
+2013-12-06 10:32:49.098000 | processing bondi andreii
+2013-12-06 10:32:49.249000 | TWITTER: getting list members
+2013-12-06 10:32:51.572000 | TWITTER: done [2.32351730503 seconds]
+2013-12-06 10:32:51.669000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:32:55.712000 | TWITTER: done [4.04266558952 seconds]
+2013-12-06 10:32:55.773000 | calling emailTask
+2013-12-06 10:32:55.774000 | runEmailTask started
+2013-12-06 10:32:55.798000 | emailTask done [0.0242127797842 seconds]
+2013-12-06 10:32:55.802000 | --- RealtimeTask done [6.75525576503 seconds] ---
+2013-12-06 10:33:26.976000 | ****** runDailyTask started ******
+2013-12-06 10:33:27.026000 | processing bondi andreii
+2013-12-06 10:33:27.190000 | TWITTER: getting list members
+2013-12-06 10:33:29.442000 | TWITTER: done [2.25215598795 seconds]
+2013-12-06 10:33:29.457000 | TWITTER: getting friendships
+2013-12-06 10:33:29.705000 | TWITTER: done [0.246818180713 seconds]
+2013-12-06 10:33:29.985000 | ------ DailyTask done [3.00860490989 seconds] ------
+2013-12-06 10:33:56.451000 | *** RealtimeTask started ***
+2013-12-06 10:33:56.501000 | processing bondi andreii
+2013-12-06 10:33:56.651000 | TWITTER: getting list members
+2013-12-06 10:33:59.201000 | TWITTER: done [2.54869984386 seconds]
+2013-12-06 10:33:59.316000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:34:03.339000 | TWITTER: done [4.02302651037 seconds]
+2013-12-06 10:34:03.405000 | calling emailTask
+2013-12-06 10:34:03.405000 | runEmailTask started
+2013-12-06 10:34:03.423000 | iterating through daily logs...
+2013-12-06 10:34:03.533000 | !!! Exception in calling emailTask : Invalid block tag: 'endifequal', expected 'endif'
+2013-12-06 10:34:03.536000 | --- RealtimeTask done [7.08518694682 seconds] ---
+2013-12-06 10:47:19.128000 | ****** runDailyTask started ******
+2013-12-06 10:47:19.178000 | processing bondi andreii
+2013-12-06 10:47:19.379000 | TWITTER: getting list members
+2013-12-06 10:47:21.887000 | TWITTER: done [2.50757421679 seconds]
+2013-12-06 10:47:21.901000 | TWITTER: getting friendships
+2013-12-06 10:47:22.163000 | TWITTER: done [0.261204938576 seconds]
+2013-12-06 10:47:22.253000 | ------ DailyTask done [3.12517411178 seconds] ------
+2013-12-06 10:47:28.776000 | *** RealtimeTask started ***
+2013-12-06 10:47:28.823000 | processing bondi andreii
+2013-12-06 10:47:28.968000 | TWITTER: getting list members
+2013-12-06 10:47:31.142000 | TWITTER: done [2.17335820394 seconds]
+2013-12-06 10:47:31.251000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:47:35.248000 | TWITTER: done [3.99724702845 seconds]
+2013-12-06 10:47:35.310000 | calling emailTask
+2013-12-06 10:47:35.310000 | runEmailTask started
+2013-12-06 10:47:35.333000 | emailTask done [0.0227745091446 seconds]
+2013-12-06 10:47:35.336000 | --- RealtimeTask done [6.55927903342 seconds] ---
+2013-12-06 10:48:17.961000 | ****** runDailyTask started ******
+2013-12-06 10:48:18.010000 | processing bondi andreii
+2013-12-06 10:48:18.179000 | TWITTER: getting list members
+2013-12-06 10:48:20.474000 | TWITTER: done [2.2941506546 seconds]
+2013-12-06 10:48:20.487000 | TWITTER: getting friendships
+2013-12-06 10:48:20.776000 | TWITTER: done [0.288528434408 seconds]
+2013-12-06 10:48:20.938000 | ------ DailyTask done [2.97675673617 seconds] ------
+2013-12-06 10:48:26.738000 | *** RealtimeTask started ***
+2013-12-06 10:48:26.787000 | processing bondi andreii
+2013-12-06 10:48:26.937000 | TWITTER: getting list members
+2013-12-06 10:48:29.187000 | TWITTER: done [2.24993375852 seconds]
+2013-12-06 10:48:29.291000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:48:33.252000 | TWITTER: done [3.96045322946 seconds]
+2013-12-06 10:48:33.316000 | calling emailTask
+2013-12-06 10:48:33.317000 | runEmailTask started
+2013-12-06 10:48:33.333000 | iterating through daily logs...
+2013-12-06 10:48:33.399000 | DJANGO: sending email
+2013-12-06 10:48:37.303000 | DJANGO: done [3.90364397008 seconds]
+2013-12-06 10:48:37.304000 | emailTask done [3.98768718789 seconds]
+2013-12-06 10:48:37.312000 | --- RealtimeTask done [10.5735478936 seconds] ---
+2013-12-06 10:50:44.538000 | ****** runDailyTask started ******
+2013-12-06 10:50:44.585000 | processing bondi andreii
+2013-12-06 10:50:44.746000 | TWITTER: getting list members
+2013-12-06 10:50:47.024000 | TWITTER: done [2.27700525313 seconds]
+2013-12-06 10:50:47.037000 | TWITTER: getting friendships
+2013-12-06 10:50:47.283000 | TWITTER: done [0.245385582127 seconds]
+2013-12-06 10:50:47.520000 | ------ DailyTask done [2.98249969006 seconds] ------
+2013-12-06 10:50:52.084000 | ****** runDailyTask started ******
+2013-12-06 10:50:52.132000 | processing bondi andreii
+2013-12-06 10:50:52.299000 | TWITTER: getting list members
+2013-12-06 10:50:54.539000 | TWITTER: done [2.23906083763 seconds]
+2013-12-06 10:50:54.552000 | TWITTER: getting friendships
+2013-12-06 10:50:54.801000 | TWITTER: done [0.248383667404 seconds]
+2013-12-06 10:50:54.888000 | ------ DailyTask done [2.80425987403 seconds] ------
+2013-12-06 10:50:57.874000 | *** RealtimeTask started ***
+2013-12-06 10:50:57.926000 | processing bondi andreii
+2013-12-06 10:50:58.075000 | TWITTER: getting list members
+2013-12-06 10:51:00.416000 | TWITTER: done [2.34058451319 seconds]
+2013-12-06 10:51:00.507000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:51:04.633000 | TWITTER: done [4.12398460119 seconds]
+2013-12-06 10:51:04.691000 | calling emailTask
+2013-12-06 10:51:04.692000 | runEmailTask started
+2013-12-06 10:51:04.708000 | iterating through daily logs...
+2013-12-06 10:51:04.767000 | !!! Exception in calling emailTask : Could not parse the remainder: ' line.type' from 'ifequal line.type'
+2013-12-06 10:51:04.770000 | --- RealtimeTask done [6.89551551266 seconds] ---
+2013-12-06 10:51:22.380000 | *** RealtimeTask started ***
+2013-12-06 10:51:22.429000 | processing bondi andreii
+2013-12-06 10:51:22.575000 | TWITTER: getting list members
+2013-12-06 10:51:24.768000 | TWITTER: done [2.19305238303 seconds]
+2013-12-06 10:51:24.860000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:51:28.926000 | TWITTER: done [4.06554503165 seconds]
+2013-12-06 10:51:28.989000 | calling emailTask
+2013-12-06 10:51:28.989000 | runEmailTask started
+2013-12-06 10:51:29.009000 | emailTask done [0.0202131719661 seconds]
+2013-12-06 10:51:29.013000 | --- RealtimeTask done [6.63267783305 seconds] ---
+2013-12-06 10:51:37.823000 | ****** runDailyTask started ******
+2013-12-06 10:51:37.870000 | processing bondi andreii
+2013-12-06 10:51:38.034000 | TWITTER: getting list members
+2013-12-06 10:51:40.230000 | TWITTER: done [2.1956145305 seconds]
+2013-12-06 10:51:40.243000 | TWITTER: getting friendships
+2013-12-06 10:51:40.475000 | TWITTER: done [0.231991028432 seconds]
+2013-12-06 10:51:40.594000 | ------ DailyTask done [2.77152240339 seconds] ------
+2013-12-06 10:51:46.341000 | *** RealtimeTask started ***
+2013-12-06 10:51:46.396000 | processing bondi andreii
+2013-12-06 10:51:46.549000 | TWITTER: getting list members
+2013-12-06 10:51:48.961000 | TWITTER: done [2.41210181173 seconds]
+2013-12-06 10:51:49.068000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:51:53.032000 | TWITTER: done [3.96383741951 seconds]
+2013-12-06 10:51:53.089000 | calling emailTask
+2013-12-06 10:51:53.090000 | runEmailTask started
+2013-12-06 10:51:53.106000 | iterating through daily logs...
+2013-12-06 10:51:53.187000 | DJANGO: sending email
+2013-12-06 10:51:56.683000 | DJANGO: done [3.49358450265 seconds]
+2013-12-06 10:51:56.684000 | emailTask done [3.59301397513 seconds]
+2013-12-06 10:51:56.689000 | --- RealtimeTask done [10.3475052284 seconds] ---
+2013-12-06 10:53:38.811000 | ****** runDailyTask started ******
+2013-12-06 10:53:38.862000 | processing bondi andreii
+2013-12-06 10:53:39.033000 | TWITTER: getting list members
+2013-12-06 10:53:41.580000 | TWITTER: done [2.54657444448 seconds]
+2013-12-06 10:53:41.593000 | TWITTER: getting friendships
+2013-12-06 10:53:41.907000 | TWITTER: done [0.313521526657 seconds]
+2013-12-06 10:53:42.035000 | ------ DailyTask done [3.22391726581 seconds] ------
+2013-12-06 10:53:45.352000 | *** RealtimeTask started ***
+2013-12-06 10:53:45.396000 | processing bondi andreii
+2013-12-06 10:53:45.488000 | TWITTER: getting list members
+2013-12-06 10:53:47.655000 | TWITTER: done [2.16653067244 seconds]
+2013-12-06 10:53:47.695000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:53:49.680000 | TWITTER: done [1.98448936531 seconds]
+2013-12-06 10:53:49.696000 | calling emailTask
+2013-12-06 10:53:49.696000 | runEmailTask started
+2013-12-06 10:53:49.705000 | iterating through daily logs...
+2013-12-06 10:53:49.733000 | DJANGO: sending email
+2013-12-06 10:53:53.545000 | DJANGO: done [3.81176156957 seconds]
+2013-12-06 10:53:53.546000 | emailTask done [3.85013098391 seconds]
+2013-12-06 10:53:53.553000 | --- RealtimeTask done [8.20132385722 seconds] ---
+2013-12-06 10:55:56.264000 | ****** runDailyTask started ******
+2013-12-06 10:55:56.314000 | processing bondi andreii
+2013-12-06 10:55:56.497000 | TWITTER: getting list members
+2013-12-06 10:55:58.992000 | TWITTER: done [2.49384784798 seconds]
+2013-12-06 10:55:59.005000 | TWITTER: getting friendships
+2013-12-06 10:55:59.268000 | TWITTER: done [0.262614443803 seconds]
+2013-12-06 10:56:00.606000 | ------ DailyTask done [4.34049376034 seconds] ------
+2013-12-06 10:56:08.040000 | *** RealtimeTask started ***
+2013-12-06 10:56:08.087000 | processing bondi andreii
+2013-12-06 10:56:08.227000 | TWITTER: getting list members
+2013-12-06 10:56:10.534000 | TWITTER: done [2.30711413224 seconds]
+2013-12-06 10:56:10.626000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:56:14.749000 | TWITTER: done [4.12283438982 seconds]
+2013-12-06 10:56:14.792000 | calling emailTask
+2013-12-06 10:56:14.792000 | runEmailTask started
+2013-12-06 10:56:14.819000 | iterating through daily logs...
+2013-12-06 10:56:15.095000 | DJANGO: sending email
+2013-12-06 10:56:18.681000 | DJANGO: done [3.58422431836 seconds]
+2013-12-06 10:56:18.682000 | emailTask done [3.88878926783 seconds]
+2013-12-06 10:56:18.689000 | --- RealtimeTask done [10.6481844163 seconds] ---
+2013-12-06 10:58:14.028000 | ****** runDailyTask started ******
+2013-12-06 10:58:14.086000 | processing bondi andreii
+2013-12-06 10:58:14.290000 | TWITTER: getting list members
+2013-12-06 10:58:16.493000 | TWITTER: done [2.20256036483 seconds]
+2013-12-06 10:58:16.507000 | TWITTER: getting friendships
+2013-12-06 10:58:16.743000 | TWITTER: done [0.236309891818 seconds]
+2013-12-06 10:58:16.875000 | ------ DailyTask done [2.84698866643 seconds] ------
+2013-12-06 10:58:22.230000 | ****** runDailyTask started ******
+2013-12-06 10:58:22.283000 | processing bondi andreii
+2013-12-06 10:58:22.438000 | TWITTER: getting list members
+2013-12-06 10:58:24.780000 | TWITTER: done [2.34189435234 seconds]
+2013-12-06 10:58:24.793000 | TWITTER: getting friendships
+2013-12-06 10:58:25.026000 | TWITTER: done [0.231899465287 seconds]
+2013-12-06 10:58:25.101000 | ------ DailyTask done [2.87037737791 seconds] ------
+2013-12-06 10:58:28.769000 | *** RealtimeTask started ***
+2013-12-06 10:58:28.815000 | processing bondi andreii
+2013-12-06 10:58:28.960000 | TWITTER: getting list members
+2013-12-06 10:58:31.202000 | TWITTER: done [2.24099905925 seconds]
+2013-12-06 10:58:31.299000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 10:58:35.175000 | TWITTER: done [3.87525899 seconds]
+2013-12-06 10:58:35.213000 | calling emailTask
+2013-12-06 10:58:35.213000 | runEmailTask started
+2013-12-06 10:58:35.231000 | iterating through daily logs...
+2013-12-06 10:58:35.298000 | DJANGO: sending email
+2013-12-06 10:58:38.787000 | DJANGO: done [3.48738130216 seconds]
+2013-12-06 10:58:38.788000 | emailTask done [3.57414062316 seconds]
+2013-12-06 10:58:38.795000 | --- RealtimeTask done [10.0252232156 seconds] ---
+2013-12-06 11:01:01.939000 | ****** runDailyTask started ******
+2013-12-06 11:01:01.990000 | processing bondi andreii
+2013-12-06 11:01:02.147000 | TWITTER: getting list members
+2013-12-06 11:01:04.461000 | TWITTER: done [2.31338094077 seconds]
+2013-12-06 11:01:04.475000 | TWITTER: getting friendships
+2013-12-06 11:01:04.748000 | TWITTER: done [0.271856649389 seconds]
+2013-12-06 11:01:04.821000 | ------ DailyTask done [2.88186531142 seconds] ------
+2013-12-06 11:01:12.963000 | *** RealtimeTask started ***
+2013-12-06 11:01:13.011000 | processing bondi andreii
+2013-12-06 11:01:13.161000 | TWITTER: getting list members
+2013-12-06 11:01:15.440000 | TWITTER: done [2.27868985294 seconds]
+2013-12-06 11:01:15.534000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 11:01:19.620000 | TWITTER: done [4.08600939454 seconds]
+2013-12-06 11:01:19.667000 | calling emailTask
+2013-12-06 11:01:19.668000 | runEmailTask started
+2013-12-06 11:01:19.691000 | emailTask done [0.0232489358823 seconds]
+2013-12-06 11:01:19.695000 | --- RealtimeTask done [6.73166245449 seconds] ---
+2013-12-06 11:02:32.698000 | ****** runDailyTask started ******
+2013-12-06 11:02:32.756000 | processing bondi andreii
+2013-12-06 11:02:32.918000 | TWITTER: getting list members
+2013-12-06 11:02:35.139000 | TWITTER: done [2.22037385313 seconds]
+2013-12-06 11:02:35.152000 | TWITTER: getting friendships
+2013-12-06 11:02:35.371000 | TWITTER: done [0.218081938481 seconds]
+2013-12-06 11:02:35.631000 | ------ DailyTask done [2.93294903822 seconds] ------
+2013-12-06 11:02:41.481000 | *** RealtimeTask started ***
+2013-12-06 11:02:41.534000 | processing bondi andreii
+2013-12-06 11:02:41.680000 | TWITTER: getting list members
+2013-12-06 11:02:43.952000 | TWITTER: done [2.27062054693 seconds]
+2013-12-06 11:02:44.046000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 11:02:47.981000 | TWITTER: done [3.93424024062 seconds]
+2013-12-06 11:02:48.019000 | calling emailTask
+2013-12-06 11:02:48.019000 | runEmailTask started
+2013-12-06 11:02:48.039000 | iterating through daily logs...
+2013-12-06 11:02:48.291000 | DJANGO: sending email
+2013-12-06 11:02:51.894000 | DJANGO: done [3.60289793302 seconds]
+2013-12-06 11:02:51.895000 | emailTask done [3.87591856876 seconds]
+2013-12-06 11:02:51.902000 | --- RealtimeTask done [10.4207727605 seconds] ---
+2013-12-06 11:31:05.685000 | ****** runDailyTask started ******
+2013-12-06 11:31:05.737000 | processing bondi andreii
+2013-12-06 11:31:05.905000 | TWITTER: getting list members
+2013-12-06 11:31:08.233000 | TWITTER: done [2.32789491468 seconds]
+2013-12-06 11:31:08.246000 | TWITTER: getting friendships
+2013-12-06 11:31:08.505000 | TWITTER: done [0.25866507417 seconds]
+2013-12-06 11:31:08.775000 | ------ DailyTask done [3.08912821352 seconds] ------
+2013-12-06 11:31:14.173000 | *** RealtimeTask started ***
+2013-12-06 11:31:14.219000 | processing bondi andreii
+2013-12-06 11:31:14.369000 | TWITTER: getting list members
+2013-12-06 11:31:16.659000 | TWITTER: done [2.28967256857 seconds]
+2013-12-06 11:31:16.750000 | TWITTER: getting List Timeline (tweets)
+2013-12-06 11:31:20.768000 | TWITTER: done [4.01834585101 seconds]
+2013-12-06 11:31:20.806000 | calling emailTask
+2013-12-06 11:31:20.806000 | runEmailTask started
+2013-12-06 11:31:20.824000 | iterating through daily logs...
+2013-12-06 11:31:20.974000 | DJANGO: sending email
+2013-12-06 11:31:24.880000 | DJANGO: done [3.90532451842 seconds]
+2013-12-06 11:31:24.881000 | emailTask done [4.07514011997 seconds]
+2013-12-06 11:31:24.887000 | --- RealtimeTask done [10.7140041374 seconds] ---
+2013-12-06 20:47:43.007000 | *** RealtimeTask started ***
+2013-12-06 20:47:43.066000 | processing bondi andreii
+2013-12-07 23:10:36.191000 | *** RealtimeTask started ***
+2013-12-07 23:10:36.256000 | processing bondi andreii
+2013-12-07 23:10:36.424000 | TWITTER: getting list members
+2013-12-07 23:10:39.232000 | TWITTER: done [2.80844301329 seconds]
+2013-12-07 23:10:39.419000 | creating hichamchraibi
+2013-12-07 23:10:39.420000 | TWITTER: getting friendships
+2013-12-07 23:10:39.745000 | TWITTER: done [0.324866443404 seconds]
+2013-12-07 23:10:39.860000 | creating itsjamieosborne
+2013-12-07 23:10:39.909000 | creating iamreff
+2013-12-07 23:10:39.926000 | creating arkarthick
+2013-12-07 23:10:39.980000 | TWITTER: getting List Timeline (tweets)
+2013-12-07 23:10:45.493000 | TWITTER: done [5.51202677857 seconds]
+2013-12-07 23:10:45.611000 | calling emailTask
+2013-12-07 23:10:45.611000 | runEmailTask started
+2013-12-07 23:10:45.836000 | emailTask done [0.224728369422 seconds]
+2013-12-07 23:10:45.844000 | --- RealtimeTask done [9.65298459389 seconds] ---
+2013-12-07 23:11:02.723000 | *** RealtimeTask started ***
+2013-12-07 23:11:02.768000 | processing bondi andreii
+2013-12-07 23:11:02.927000 | TWITTER: getting list members
+2013-12-07 23:11:05.760000 | TWITTER: done [2.83158255957 seconds]
+2013-12-07 23:11:05.908000 | TWITTER: getting List Timeline (tweets)
+2013-12-07 23:11:11.908000 | TWITTER: done [5.99937364327 seconds]

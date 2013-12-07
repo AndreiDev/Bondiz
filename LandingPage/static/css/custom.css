@@ -10,15 +10,28 @@ body * {
 body { 
 	
   opacity: 1;
-  min-height: 600px;
   
   padding-top: 10px; 
   font-size: 16px;
   
   background: white;
   
-  min-height: 900px;
+  /*min-height: 800px; */
   color: #434a54;  
+}
+
+
+@media (min-width: 1170px) { 
+	.middle-col {
+	    margin-left: -2px; /* compensate border width */
+	    border-left: 2px solid #b3b3b3;
+	    margin-right: -2px; /* compensate border width */
+	    border-right: 2px solid #b3b3b3;    
+	}
+}
+
+.row {
+	margin-bottom: 1em;
 }
 
 .logo .row{
@@ -50,10 +63,47 @@ strong {
 	color: #1C1C1C;
 }
 
+.bad-input {
+	-webkit-box-shadow: 0 0 10px rgba(255, 50, 50, 0.9);
+	-moz-box-shadow: 0 0 10px rgba(255, 50, 50, 0.9);
+	box-shadow: 0 0 10px rgba(255, 50, 50, 0.9);
+}
+
 .btn-default {
-	background-color: #fff;
 	border-color: #ccc;
 	border-width: 0.2em;
+	font-family: 'Open Sans';
+	font-size: 14px;
+}
+
+.toggle {
+  background-color: #e88;
+  border-width: 0.1em;
+}
+
+.toggle:hover,
+.toggle:focus {
+	background-color: #e88;
+}
+
+.toggle:active,
+.toggle.active {
+  background-color: #8e8;
+}
+.toggle.disabled:hover,
+.toggle.disabled:focus,
+.toggle.disabled:active,
+.toggle.disabled.active,
+.toggle[disabled]:hover,
+.toggle[disabled]:focus,
+.toggle[disabled]:active,
+.toggle[disabled].active,
+fieldset[disabled] .toggle:hover,
+fieldset[disabled] .toggle:focus,
+fieldset[disabled] .toggle:active,
+fieldset[disabled] .toggle.active {
+  background-color: #e88;
+ 
 }
 
 .navbar-brand {

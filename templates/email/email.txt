@@ -5,10 +5,13 @@ This is a Bondiz notification for @{{bondi}}:
 {% if dailyEmailHeading %}
 
 		{{ dailyEmailHeading }}
-	
-	{% for line in dailyEmailContent %}
-		{% if line %}
-			{{ line }}
+
+	{% for content in dailyEmailContent %}
+		{% if content %}													
+			Tweeter: {{ content.name }}
+			{% for line in content.text %}
+				{{ line }}
+			{% endfor%}
 		{% else %}
 			""
 		{% endif %}
@@ -20,9 +23,12 @@ This is a Bondiz notification for @{{bondi}}:
 
 	{{ realtimeEmailHeading }} 
 	
-	{% for line in realtimeEmailContent %}
-		{% if line %}
-			{{ line }}
+	{% for content in realtimeEmailContent %}
+		{% if content %}
+			Tweeter: {{ content.name }}
+			{% for line in content.text %}
+				{{ line }}
+			{% endfor%}
 		{% else %}
 			""
 		{% endif %}

@@ -479,10 +479,16 @@
 											
 												<h2> {{ dailyEmailHeading }} </h2>
 												
-												{% for line in dailyEmailContent %}
-													{% if line %}													
-														<p><img src="{{ line.image_url }}" height="50px" width="50px"><a href="https://twitter.com/{{ line.screen_name }}" target="_blank">{{ line.name }}</a>
-														<br>{{ line.text }}</p>
+												{% for content in dailyEmailContent %}
+													{% if content %}													
+														<p><img src="{{ content.image_url }}" height="50px" width="50px">
+															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
+														<br>
+														{% for line in content.text %}
+															{{ line }}
+															<br>
+														{% endfor%}
+														</p>
 													{% else %}
 														<br>
 													{% endif %}
@@ -494,12 +500,18 @@
 											
 												<h2> {{ realtimeEmailHeading }} </h2>
 												
-												{% for line in realtimeEmailContent %}
-													{% if line.text %}
-														<p><img src="{{ line.image_url }}" height="50px" width="50px"><a href="https://twitter.com/{{ line.screen_name }}" target="_blank">{{ line.name }}</a>
-														<br>{{ line.text }}
-														<br><strong>{{ line.tweet_text }}</strong>
-														<br><a href="https://twitter.com/{{ line.screen_name }}/status/{{ line.tweet_id }}" target="_blank">open tweet</a></p>
+												{% for content in realtimeEmailContent %}
+													{% if content.text %}
+														<p><img src="{{ content.image_url }}" height="50px" width="50px">
+															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
+														<br>
+														{% for line in content.text %}
+															{{ line }}
+															<br>
+														{% endfor%}
+														<br><strong>{{ content.tweet_text }}</strong>
+														<br><a href="https://twitter.com/{{ content.screen_name }}/status/{{ content.tweet_id }}" target="_blank">open tweet</a>
+														</p>
 													{% else %}
 														<br>
 													{% endif %}

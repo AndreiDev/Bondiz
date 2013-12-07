@@ -20,9 +20,6 @@ from datetime import datetime
 
 def runDailyTask():
     debug('****** runDailyTask started ******')
-    RepFollowersNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
-    RepFriendsNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
-
     for bondi in Bondi.objects.all():
         try:
             debug('processing bondi ' + bondi.twitter_screen_name)
@@ -38,10 +35,13 @@ def runDailyTask():
             if not bondi.active_flag:
                 debug('bondi not active - moving forward')
                 continue
+            if not bondi.list_set.all()[0].active_flag:
+                debug('list not active - moving forward')
+                continue            
             
             bondiList = bondi.list_set.all()[0]
-            report_followers_num = int(RepFollowersNumTable[bondiList.report_followers_num])   
-            report_friends_num = int(RepFriendsNumTable[bondiList.report_friends_num])      
+            report_followers_num = bondiList.report_followers_num  
+            report_friends_num = bondiList.report_friends_num    
                  
             debug('TWITTER: getting list members')
             tic = time.clock()

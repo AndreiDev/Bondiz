@@ -35,19 +35,19 @@ def runEmailTask():
             unique_screen_names = list(set([daily_log.bondee_screen_name for daily_log in daily_logs]))
             for unique_screen_name in unique_screen_names:  
                 screen_name_daily_logs = daily_logs.filter(bondee_screen_name=unique_screen_name)   
-                text = ""
+                text = [""]
                 for screen_name_daily_log in screen_name_daily_logs:                         
                     if screen_name_daily_log.type == "FOLLOWERS":
-                        text = text + "Number of followers grew from " + screen_name_daily_log.before + " to " + screen_name_daily_log.after + ". "
+                        text = text + ["Number of followers grew from " + screen_name_daily_log.before + " to " + screen_name_daily_log.after + ". "]
                     if screen_name_daily_log.type == "FRIENDS":
-                        text = text + "Number of friends grew from " + screen_name_daily_log.before + " to " + screen_name_daily_log.after + ". "
+                        text = text + ["Number of friends grew from " + screen_name_daily_log.before + " to " + screen_name_daily_log.after + ". "]
                     if screen_name_daily_log.type == "RELATIONSHIP":
                         if (screen_name_daily_log.before == False) and (screen_name_daily_log.after == True):
-                            text = text + "Started following you. "
+                            text = text + ["Started following you. "]
                         if (screen_name_daily_log.before == True) and (screen_name_daily_log.after == False):
-                            text = text + "Not following you anymore. "
+                            text = text + ["Not following you anymore. "]
                     if screen_name_daily_log.type == "BIO":
-                        text = text + "Changed his profile bio from:'" + screen_name_daily_log.before + "' to: '" + screen_name_daily_log.after + "'. "                                            
+                        text = text + ["Changed profile bio from: ",screen_name_daily_log.before, "to: ", screen_name_daily_log.after]                                           
                     screen_name_daily_log.email_timestamp = str(int(time.time()))
                     screen_name_daily_log.save()                 
                 dailyEmailContent = dailyEmailContent + [{'image_url':bondi.bondee_set.filter(twitter_screen_name=screen_name_daily_log.bondee_screen_name)[0].image_url,
@@ -64,19 +64,19 @@ def runEmailTask():
             unique_tweet_ids = list(set([realtime_log.tweet_id for realtime_log in realtime_logs]))
             for unique_tweet_id in unique_tweet_ids:  
                 tweet_id_realtime_logs = realtime_logs.filter(tweet_id=unique_tweet_id)   
-                text = ""
+                text = [""]
                 for tweet_id_realtime_log in tweet_id_realtime_logs:                                           
                     if tweet_id_realtime_log.type == "KEY":
                         if not "Mentioned '" + tweet_id_realtime_log.condition + "'. " in text:
-                            text = text + "Mentioned '" + tweet_id_realtime_log.condition + "'. "                                                
+                            text = text + ["Mentioned '" + tweet_id_realtime_log.condition + "'. "]                                              
                     if tweet_id_realtime_log.type == "RT":
-                        text = text + "Got retweeted " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "                
+                        text = text + ["Got retweeted " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "]                
                     if tweet_id_realtime_log.type == "FAV":
-                        text = text + "Got favorited " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "     
+                        text = text + ["Got favorited " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "]     
                     if tweet_id_realtime_log.RT == 2:
-                        text = text + " Auto Retweeted!" 
+                        text = text + [" Auto Retweeted! "] 
                     if tweet_id_realtime_log.FAV == 2:
-                        text = text + " Auto Favorited! "  
+                        text = text + [" Auto Favorited! "]  
                     tweet_id_realtime_log.email_timestamp = str(int(time.time()))
                     tweet_id_realtime_log.save()                        
                 tweet_text = 'Tweet created ' + str(tweet_id_realtime_log.time) + ' minutes ago: "'+ tweet_id_realtime_log.tweet_text +'"'                                         

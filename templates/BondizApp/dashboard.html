@@ -38,157 +38,144 @@
 	    <div class="container">
 	
 	      <div class="row">
-	      		<div class="col-md-8 col-md-offset-2">
+	      		<div class="col-sm-8 col-sm-offset-2">
 	      			<h1>SETTINGS</h1>
-	      			<p class="text-center">get email notifications based on triggers below, </p>
+	      			<p class="text-center">email notifications are based on triggers </p>
 	      			<p class="text-center">for the list of tweeters you put in your </p>
-	      			<p class="text-center"><a href="https://www.twitter.com/{{ bondi.twitter_screen_name }}/lists" target="_blank">"Bondiz" Twitter list</a></p>
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-6 col-md-offset-3">
-		      					{% if bondi.email %}
-		      					<input type="email" class="form-control" id="email" placeholder="your email to get the notifications" value="{{ bondi.email }}">
-		      					{% else %}
-		      					<input type="email" class="form-control" id="email" placeholder="your email to get the notifications">
-		      					{% endif %}
-								<div id="alert_email" class="alert alert-danger">
-								  <strong>Warning!</strong> email doesn't seem valid.
-								</div>
-		      				</div>
-		      			</div>
-	      			</div>	      			
+	      			<p class="text-center"><a href="https://www.twitter.com/{{ bondi.twitter_screen_name }}/lists" target="_blank">"Bondiz" Twitter list</a></p>      			
 	      		</div>	    		  
 	      </div><!-- /.row -->
 	      
-	      <div class="row well"> <!-- REAL TIME SECTION -->
-				<div class="col-md-offset-3 col-md-6 well well-sm">
-					<h2>Real Time triggers</h2>
-				</div>	      	
-	      		<div class="col-md-5 col-md-offset-1">
+	      <div class="row">
+  			 	<div class="col-sm-offset-4 col-sm-4 text-center">
+  			 		{% ifequal bondiList.active_flag 1 %}
+      				<button type="button" id="enabledFlag" class="toggle btn btn-default btn-lg active" data-toggle="button">Account active</button>
+      				{% else %}
+      				<button type="button" id="enabledFlag" class="toggle btn btn-default btn-lg" data-toggle="button">Account inactive</button>
+      				{% endifequal  %}   				
+      			</div>   			 		  
+	      </div><!-- /.row -->		      	      
+	      
+	      <div class="row">
+	  			<div class="form-group">
+	  				<div class="row">		      			
+	      				<div class="col-sm-6 col-sm-offset-3">
+	      					{% if bondi.email %}
+	      					<input data-toggle="tooltip" title="a valid email address" type="email" class="form-control" id="email" placeholder="your email to get the notifications" value="{{ bondi.email }}">
+	      					{% else %}
+	      					<input data-toggle="tooltip" title="a valid email address" type="email" class="form-control" id="email" placeholder="your email to get the notifications">
+	      					{% endif %}
+							<div id="alert_email" class="alert alert-danger">
+							  <strong>Warning!</strong> email doesn't seem valid.
+							</div>
+	      				</div>
+	      			</div>
+	  			</div>		      
+	      </div><!-- /.row -->	
+	      
+	      <div class="row well">   	
+	      		<div class="col-sm-4">
 	      			<h3>keywords in tweets</h3>
 	      			<div class="row">	
 	      				<p>monitored every 5 minutes</p>
 	      			</div>	
 	      			<div class="form-group">
 	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
+		      				<div class="col-xs-6 col-sm-6">
 		      					{% if first_bondiTweetKeywords %}
-		      					<input type="text" class="form-control" id="tweet_keyword1" placeholder="1st keyword" value="{{ first_bondiTweetKeywords }}">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword1" placeholder="1st keyword" value="{{ first_bondiTweetKeywords }}">
 		      					{% else %}
-		      					<input type="text" class="form-control" id="tweet_keyword1" placeholder="1st keyword">
-		      					{% endif %}
-								<div id="alert_tweet_keyword1" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>		      					
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword1" placeholder="1st keyword">
+		      					{% endif %}	      			
 		      				</div>
-		      			</div>
-	      			</div>
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
+		      				<div class="col-xs-6 col-sm-6">
 	      						{% if bondiList.tweet_keyword_set.all.1 %}
-		      					<input type="text" class="form-control" id="tweet_keyword2" placeholder="2nd keyword" value="{{ bondiList.tweet_keyword_set.all.1 }}">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword2" placeholder="2nd keyword" value="{{ bondiList.tweet_keyword_set.all.1 }}">
 		      					{% else %}
-		      					<input type="text" class="form-control" id="tweet_keyword2" placeholder="2nd keyword">
-		      					{% endif %}
-								<div id="alert_tweet_keyword2" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword2" placeholder="2nd keyword">
+		      					{% endif %}		      					
+		      				</div>		      				
 		      			</div>
 	      			</div>
 	      			<div class="form-group">
 	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
+		      				<div class="col-xs-6 col-sm-6">
 	      						{% if bondiList.tweet_keyword_set.all.2 %}
-		      					<input type="text" class="form-control" id="tweet_keyword3" placeholder="3rd keyword" value="{{ bondiList.tweet_keyword_set.all.2 }}">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword3" placeholder="3rd keyword" value="{{ bondiList.tweet_keyword_set.all.2 }}">
 		      					{% else %}
-		      					<input type="text" class="form-control" id="tweet_keyword3" placeholder="3rd keyword">
-		      					{% endif %}
-								<div id="alert_tweet_keyword3" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
-		      				</div>
-		      			</div>
-	      			</div>			
-	      			<div class="form-group">
-	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword3" placeholder="3rd keyword">
+		      					{% endif %}		      					
+		      				</div>	      			
+		      				<div class="col-xs-6 col-sm-6">
 	      						{% if bondiList.tweet_keyword_set.all.3 %}
-		      					<input type="text" class="form-control" id="tweet_keyword4" placeholder="4th keyword" value="{{ bondiList.tweet_keyword_set.all.3 }}">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword4" placeholder="4th keyword" value="{{ bondiList.tweet_keyword_set.all.3 }}">
 		      					{% else %}
-		      					<input type="text" class="form-control" id="tweet_keyword4" placeholder="4th keyword">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword4" placeholder="4th keyword">
 		      					{% endif %}
 								<div id="alert_tweet_keyword4" class="alert alert-danger alert-dismissable">
 								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								  Only letters and numbers please
 								</div>			      					
-		      				</div>
+		      				</div>	      				
 		      			</div>
-	      			</div>		
+	      			</div>				
 	      			<div class="form-group">
 	      				<div class="row">		      			
-		      				<div class="col-md-offset-3 col-md-6">
+		      				<div class="col-xs-offset-3 col-xs-6 col-sm-offset-3 col-sm-6">
 	      						{% if bondiList.tweet_keyword_set.all.4 %}
-		      					<input type="text" class="form-control" id="tweet_keyword5" placeholder="5th keyword" value="{{ bondiList.tweet_keyword_set.all.4 }}">
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword5" placeholder="5th keyword" value="{{ bondiList.tweet_keyword_set.all.4 }}">
 		      					{% else %}
-		      					<input type="text" class="form-control" id="tweet_keyword5" placeholder="5th keyword">
-		      					{% endif %}
-								<div id="alert_tweet_keyword5" class="alert alert-danger alert-dismissable">
-								  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								  Only letters and numbers please
-								</div>			      					
+		      					<input type="text" data-toggle="tooltip" title="one word of letters and/or numbers" class="form-control" id="tweet_keyword5" placeholder="5th keyword">
+		      					{% endif %}		      					
 		      				</div>
 		      			</div>
 	      			</div>		
 	      			<div class="form-group">	      				      				      				      				      			
 		      			 <div class="row">
-		      			 	<div class="col-md-offset-1 col-md-2 text-center">
+		      			 	<div class="col-sm-offset-1 col-sm-1 text-center">
 		      			 		{% ifequal bondiList.realtime_keywords_RT_flag 1 %}
-			      				<button type="button" id="keywordsRT" class="btn btn-default btn-lg active" data-toggle="button">Auto Retweet on</button>
+			      				<button type="button" id="keywordsRT" class="toggle btn btn-default btn-lg active" data-toggle="button">Auto RT</button>
 			      				{% else %}
-			      				<button type="button" id="keywordsRT" class="btn btn-default btn-lg" data-toggle="button">Auto Retweet off</button>
+			      				<button type="button" id="keywordsRT" class="toggle btn btn-default btn-lg" data-toggle="button">Auto RT</button>
 			      				{% endifequal  %}
 			      			</div>
-			      			<div class="col-md-offset-3 col-md-2 text-center">
+			      			<div class="col-sm-offset-4 col-sm-1 text-center">
 			      				{% ifequal bondiList.realtime_keywords_FAV_flag 1 %}
-			      				<button type="button" id="keywordsFAV" class="btn btn-default btn-lg active" data-toggle="button">Auto Favorite on</button>
+			      				<button type="button" id="keywordsFAV" class="toggle btn btn-default btn-lg active" data-toggle="button">Auto FAV</button>
 			      				{% else %}
-			      				<button type="button" id="keywordsFAV" class="btn btn-default btn-lg" data-toggle="button">Auto Favorite off</button>
+			      				<button type="button" id="keywordsFAV" class="toggle btn btn-default btn-lg" data-toggle="button">Auto FAV</button>
 			      				{% endifequal  %}
 			      			</div>
 		      			</div>
 	      			</div>
 	      		</div>	
-	      		<div class="col-md-5">
+	      		
+	      		<div class="col-sm-4 middle-col">
 	      			<h3>popular tweets</h3>
 	      			
 	      			<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-offset-1 col-sm-6">
 		      					<p>time period (mins.): </p>
 		      				</div>
-		      				<div class="col-md-3">
+		      				<div class="col-sm-4">
 				      			<select id="rt_pop_time" class="form-control">
-				      			  {% ifequal bondiList.realtime_popular_time_period 1 %}
+				      			  {% ifequal bondiList.realtime_popular_time_period 10 %}
 								  <option selected>10</option>
 								  {% else %}
 								  <option>10</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_time_period 2 %}
+								  {% ifequal bondiList.realtime_popular_time_period 20 %}
 								  <option selected>20</option>
 								  {% else %}
 								  <option>20</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_time_period 3 %}
+								  {% ifequal bondiList.realtime_popular_time_period 30 %}
 								  <option selected>30</option>
 								  {% else %}
 								  <option>30</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_time_period 4 %}
+								  {% ifequal bondiList.realtime_popular_time_period 60 %}
 								  <option selected>60</option>
 								  {% else %}
 								  <option>60</option>
@@ -199,10 +186,10 @@
 					</div>
 					<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-offset-1 col-sm-6">
 		      					<p>minimum retweets: </p>
 		      				</div>
-		      				<div class="col-md-3">
+		      				<div class="col-sm-4">
 				      			<select id="rt_pop_RT" class="form-control">
 								  {% ifequal bondiList.realtime_popular_RT_threshold 1 %}
 								  <option selected>1</option>
@@ -219,12 +206,12 @@
 								  {% else %}
 								  <option>3</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_RT_threshold 4 %}
+								  {% ifequal bondiList.realtime_popular_RT_threshold 5 %}
 								  <option selected>5</option>
 								  {% else %}
 								  <option>5</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_RT_threshold 5 %}
+								  {% ifequal bondiList.realtime_popular_RT_threshold 10 %}
 								  <option selected>10</option>
 								  {% else %}
 								  <option>10</option>
@@ -235,10 +222,10 @@
 					</div>
 					<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-offset-1 col-sm-6">
 		      					<p>or minimum favorites: </p>
 		      				</div>
-		      				<div class="col-md-3">
+		      				<div class="col-sm-4">
 				      			<select id="rt_pop_FAV" class="form-control">
 								  {% ifequal bondiList.realtime_popular_FAV_threshold 1 %}
 								  <option selected>1</option>
@@ -255,12 +242,12 @@
 								  {% else %}
 								  <option>3</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_FAV_threshold 4 %}
+								  {% ifequal bondiList.realtime_popular_FAV_threshold 5 %}
 								  <option selected>5</option>
 								  {% else %}
 								  <option>5</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.realtime_popular_FAV_threshold 5 %}
+								  {% ifequal bondiList.realtime_popular_FAV_threshold 10 %}
 								  <option selected>10</option>
 								  {% else %}
 								  <option>10</option>
@@ -271,59 +258,54 @@
 					</div>
 	      			<div class="form-group">	      				      				      				      				      			
 		      			 <div class="row">
-		      			 	<div class="col-md-offset-1 col-md-2 text-center">
+		      			 	<div class="col-sm-offset-1 col-sm-1 text-center">
 		      			 		{% ifequal bondiList.realtime_popular_RT_flag 1 %}
-			      				<button type="button" id="popularRT" class="btn btn-default btn-lg active" data-toggle="button">Auto Retweet on</button>
+			      				<button type="button" id="popularRT" class="toggle btn btn-default btn-lg active" data-toggle="button">Auto RT</button>
 			      				{% else %}
-			      				<button type="button" id="popularRT" class="btn btn-default btn-lg" data-toggle="button">Auto Retweet off</button>
+			      				<button type="button" id="popularRT" class="toggle btn btn-default btn-lg" data-toggle="button">Auto RT</button>
 			      				{% endifequal  %}		      			 					      				
 			      			</div>
-			      			<div class="col-md-offset-3 col-md-2 text-center">			      				
+			      			<div class="col-sm-offset-4 col-sm-1 text-center">			      				
 		      			 		{% ifequal bondiList.realtime_popular_FAV_flag 1 %}
-			      				<button type="button" id="popularFAV" class="btn btn-default btn-lg active" data-toggle="button">Auto Favorite on</button>
+			      				<button type="button" id="popularFAV" class="toggle btn btn-default btn-lg active" data-toggle="button">Auto FAV</button>
 			      				{% else %}
-			      				<button type="button" id="popularFAV" class="btn btn-default btn-lg" data-toggle="button">Auto Favorite off</button>
+			      				<button type="button" id="popularFAV" class="toggle btn btn-default btn-lg" data-toggle="button">Auto FAV</button>
 			      				{% endifequal  %}				      				
 			      			</div>
 		      			</div>
 	      			</div>    			
-		      	</div>		      		      
-	     </div><!-- /.row -->
-
-	      <div class="row well"> <!-- REPORT SECTION -->
-				<div class="col-md-offset-3 col-md-6 well well-sm">
-					<h2>Special triggers</h2>
-				</div>		      	
-	      		<div class="col-md-offset-3 col-md-6">
-	      			
-      			<div class="form-group">
+		      	</div>	
+		      	
+      		   <div class="col-sm-4">
+	      		<h3>special triggers</h3>	
+      				<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-8">
 		      					<p>daily followers growth: </p>
 		      				</div>
-		      				<div class="col-md-3">
+		      				<div class="col-sm-4">
 				      			<select id="rep_followers_num" class="form-control">
-								  {% ifequal bondiList.report_followers_num 1 %}
+								  {% ifequal bondiList.report_followers_num 2 %}
 								  <option selected>2</option>
 								  {% else %}
 								  <option>2</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_followers_num 2 %}
+								  {% ifequal bondiList.report_followers_num 5 %}
 								  <option selected>5</option>
 								  {% else %}
 								  <option>5</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_followers_num 3 %}
+								  {% ifequal bondiList.report_followers_num 10 %}
 								  <option selected>10</option>
 								  {% else %}
 								  <option>10</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_followers_num 4 %}
+								  {% ifequal bondiList.report_followers_num 30 %}
 								  <option selected>30</option>
 								  {% else %}
 								  <option>30</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_followers_num 5 %}
+								  {% ifequal bondiList.report_followers_num 50 %}
 								  <option selected>50</option>
 								  {% else %}
 								  <option>50</option>
@@ -335,32 +317,32 @@
 	      			
 	      			<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-8">
 		      					<p>daily followees growth: </p>
 		      				</div>
-		      				<div class="col-md-3">
+		      				<div class="col-sm-4">
 				      			<select id="rep_friends_num" class="form-control">
-								  {% ifequal bondiList.report_friends_num 1 %}
+								  {% ifequal bondiList.report_friends_num 2 %}
 								  <option selected>2</option>
 								  {% else %}
 								  <option>2</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_friends_num 2 %}
+								  {% ifequal bondiList.report_friends_num 5 %}
 								  <option selected>5</option>
 								  {% else %}
 								  <option>5</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_friends_num 3 %}
+								  {% ifequal bondiList.report_friends_num 10 %}
 								  <option selected>10</option>
 								  {% else %}
 								  <option>10</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_friends_num 4 %}
+								  {% ifequal bondiList.report_friends_num 30 %}
 								  <option selected>30</option>
 								  {% else %}
 								  <option>30</option>
 								  {% endifequal  %}
-								  {% ifequal bondiList.report_friends_num 5 %}
+								  {% ifequal bondiList.report_friends_num 50 %}
 								  <option selected>50</option>
 								  {% else %}
 								  <option>50</option>
@@ -371,10 +353,10 @@
 					</div>
 					<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-8">
 		      					<p>followed/unfollowed me </p>
 		      				</div>
-		      				<div class="col-md-2 text-center">
+		      				<div class="col-sm-4 text-center">
 		      					{% ifequal bondiList.report_follows_me_flag 1 %}
 								<input type="checkbox" id="meFlag" value="option1" checked>
 								{% else %}
@@ -385,10 +367,10 @@
 					</div>
 					<div class="form-group">
 	      				<div class="row">
-	      					<div class="col-md-offset-2 col-md-6">
+	      					<div class="col-sm-8">
 		      					<p>changed profile bio </p>
 		      				</div>
-		      				<div class="col-md-2 text-center">
+		      				<div class="col-sm-4 text-center">
 		      					{% ifequal bondiList.report_change_bio_flag 1 %}
 								<input type="checkbox" id="bioFlag" value="option1" checked>
 								{% else %}
@@ -397,18 +379,14 @@
 							</div>
 						</div>												
 					</div> 			
-		      	</div>		      		      
-	     </div><!-- /.row -->
+		      	</div>		      		      		      			      			     			      		   
+	       </div><!-- /.row -->
+	       
 	      <div class="row">
-  			 	<div class="col-md-offset-4 col-md-4 text-center">
-  			 		{% ifequal bondiList.active_flag 1 %}
-      				<button type="button" id="enabledFlag" class="btn btn-default btn-lg active" data-toggle="button">Account is active</button>
-      				{% else %}
-      				<button type="button" id="enabledFlag" class="btn btn-default btn-lg" data-toggle="button">Account is inactive</button>
-      				{% endifequal  %}   				
-      			</div>   			 		  
-	      </div><!-- /.row -->	     
-	     
+			 	<div class="col-sm-offset-4 col-sm-4 text-center">
+					<btn id="saveChanges" type="button" class="btn btn-default btn-lg btn-block" disabled="disabled"><strong>Save Changes</strong></btn>				
+	  			</div>   			 		  
+	      </div><!-- /.row -->	      	       	          	    
 	      	      
 				    <!--<p>Bondiz uses Twitter lists to manage the tweeters you want to bond with.</p>
 				    <p>Please <a href="https://www.twitter.com/{{ bondi.twitter_screen_name }}/lists" target="_blank">create a list</a> in your Twitter account.</p>

@@ -19,10 +19,7 @@ from datetime import datetime
 #from BondizApp.ajax import
 
 def runRealtimeTask():
-    debug('*** RealtimeTask started ***')
-    RtPopTimeTable = {1:u'10',2:u'20',3:u'30',4:u'60'}
-    RtPopMinRTtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}
-    RtPopMinFAVtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}    
+    debug('*** RealtimeTask started ***') 
     for bondi in Bondi.objects.all():
         try:
             
@@ -38,6 +35,10 @@ def runRealtimeTask():
             
             if not bondi.active_flag:
                 debug('bondi not active - moving forward')
+                continue
+            
+            if not bondi.list_set.all()[0].active_flag:
+                debug('list not active - moving forward')
                 continue
             
             debug('TWITTER: getting list members')
@@ -106,9 +107,9 @@ def runRealtimeTask():
             toc = time.clock()
             debug('TWITTER: done [' + str(toc-tic) + ' seconds]')         
             
-            realtime_popular_time_period = int(RtPopTimeTable[bondiList.realtime_popular_time_period])        
-            realtime_popular_RT_threshold = int(RtPopMinRTtable[bondiList.realtime_popular_RT_threshold])        
-            realtime_popular_FAV_threshold = int(RtPopMinFAVtable[bondiList.realtime_popular_FAV_threshold])
+            realtime_popular_time_period = bondiList.realtime_popular_time_period      
+            realtime_popular_RT_threshold = bondiList.realtime_popular_RT_threshold   
+            realtime_popular_FAV_threshold = bondiList.realtime_popular_FAV_threshold
     
             POP_RTcount = 0
             POP_FAVcount = 0      

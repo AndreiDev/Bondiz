@@ -8,129 +8,131 @@ from twython import Twython, TwythonError, TwythonRateLimitError
 import useTwitterAPI
 
 @dajaxice_register
-def AJ_updateEmail(request,email):
+def AJ_UpdateAll(request,email,tweet_keyword1,tweet_keyword2,tweet_keyword3,tweet_keyword4,tweet_keyword5,
+                 keywords_RT_flag,keywords_FAV_flag,RtPopTimeChoice,RtPopMinRTChoice,RtPopMinFAVChoice,popular_RT_flag,
+                 popular_FAV_flag,RepFollowersNumChoice,RepFriendsNumChoice,MeFlag,BioFlag,enabled_flag):
+    email = updateEmail(request,email)
+    tweet_keyword1 = tweet_keyword(request,1,tweet_keyword1)
+    tweet_keyword2 = tweet_keyword(request,2,tweet_keyword2)
+    tweet_keyword3 = tweet_keyword(request,3,tweet_keyword3)
+    tweet_keyword4 = tweet_keyword(request,4,tweet_keyword4)
+    tweet_keyword5 = tweet_keyword(request,5,tweet_keyword5)
+    keywords_RT_flag = toggleKeywordsRT(request,keywords_RT_flag)
+    keywords_FAV_flag = toggleKeywordsFAV(request,keywords_FAV_flag)
+    RtPopTimeChoice = updateRtPopTime(request,RtPopTimeChoice)
+    RtPopMinRTChoice = updateRtPopMinRT(request,RtPopMinRTChoice)
+    RtPopMinFAVChoice = updateRtPopMinFAV(request,RtPopMinFAVChoice)
+    popular_RT_flag = togglePopularRT(request,popular_RT_flag)
+    popular_FAV_flag = togglePopularFAV(request,popular_FAV_flag)
+    RepFollowersNumChoice = updateRepFollowersNum(request,RepFollowersNumChoice)
+    RepFriendsNumChoice = updateRepFriendsNum(request,RepFriendsNumChoice)
+    MeFlag = updateMeFlag(request,MeFlag)
+    BioFlag = updateBioFlag(request,BioFlag)
+    enabled_flag = toggleEnabled(request,enabled_flag)
+    return json.dumps({'email':email,'tweet_keyword1':tweet_keyword1,'tweet_keyword2':tweet_keyword2,'tweet_keyword3':tweet_keyword3,'tweet_keyword4':tweet_keyword4,'tweet_keyword5':tweet_keyword5,
+                       'keywords_RT_flag':keywords_RT_flag,'keywords_FAV_flag':keywords_FAV_flag,'RtPopTimeChoice':RtPopTimeChoice,'RtPopMinRTChoice':RtPopMinRTChoice,
+                       'RtPopMinFAVChoice':RtPopMinFAVChoice,'popular_RT_flag':popular_RT_flag,'popular_FAV_flag':popular_FAV_flag,'RepFollowersNumChoice':RepFollowersNumChoice,
+                       'RepFriendsNumChoice':RepFriendsNumChoice,'MeFlag':MeFlag,'BioFlag':BioFlag,'enabled_flag':enabled_flag})
+
+def updateEmail(request,email):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondi.email = email
     bondi.save()
-    return json.dumps({'email':email})
+    return bondi.email
 
-@dajaxice_register
-def AJ_tweet_keyword(request,keyword_num,tweet_keyword):
+def tweet_keyword(request,keyword_num,tweet_keyword):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0] 
     bondiTweetKeyword = bondiList.tweet_keyword_set.filter(place=keyword_num)[0]
     bondiTweetKeyword.keyword = tweet_keyword
     bondiTweetKeyword.save()
-    return json.dumps({'keyword_num':keyword_num,'tweet_keyword':tweet_keyword})
+    return bondiTweetKeyword.keyword
 
-@dajaxice_register
-def AJ_toggleKeywordsRT(request,keywords_RT_flag):
+def toggleKeywordsRT(request,keywords_RT_flag):
     keywords_RT_flag = not keywords_RT_flag # toggling the flag
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.realtime_keywords_RT_flag = keywords_RT_flag
     bondiList.save()
-    return json.dumps({'keywords_RT_flag':keywords_RT_flag})
+    return bondiList.realtime_keywords_RT_flag
 
-@dajaxice_register
-def AJ_toggleKeywordsFAV(request,keywords_FAV_flag):
+def toggleKeywordsFAV(request,keywords_FAV_flag):
     keywords_FAV_flag = not keywords_FAV_flag # toggling the flag
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.realtime_keywords_FAV_flag = keywords_FAV_flag
     bondiList.save()
-    return json.dumps({'keywords_FAV_flag':keywords_FAV_flag})
+    return bondiList.realtime_keywords_FAV_flag
 
-
-RtPopTimeTable = {1:u'10',2:u'20',3:u'30',4:u'60'}
-@dajaxice_register
-def AJ_updateRtPopTime(request,RtPopTimeChoice):
+def updateRtPopTime(request,RtPopTimeChoice):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
-    bondiList.realtime_popular_time_period = RtPopTimeTable.keys()[RtPopTimeTable.values().index(RtPopTimeChoice)]
+    bondiList.realtime_popular_time_period = RtPopTimeChoice
     bondiList.save()
-    return json.dumps({'RtPopTimeChoice':RtPopTimeChoice})
+    return bondiList.realtime_popular_time_period
 
-RtPopMinRTtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}
-@dajaxice_register
-def AJ_updateRtPopMinRT(request,RtPopMinRTChoice):
+def updateRtPopMinRT(request,RtPopMinRTChoice):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
-    bondiList.realtime_popular_RT_threshold = RtPopMinRTtable.keys()[RtPopMinRTtable.values().index(RtPopMinRTChoice)]
+    bondiList.realtime_popular_RT_threshold = RtPopMinRTChoice
     bondiList.save()
-    return json.dumps({'RtPopMinRTChoice':RtPopMinRTChoice})
+    return bondiList.realtime_popular_RT_threshold
     
-RtPopMinFAVtable = {1:u'1',2:u'2',3:u'3',4:u'5',5:u'10'}
-@dajaxice_register
-def AJ_updateRtPopMinFAV(request,RtPopMinFAVChoice):
+def updateRtPopMinFAV(request,RtPopMinFAVChoice):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
-    bondiList.realtime_popular_FAV_threshold = RtPopMinFAVtable.keys()[RtPopMinFAVtable.values().index(RtPopMinFAVChoice)]
+    bondiList.realtime_popular_FAV_threshold = RtPopMinFAVChoice
     bondiList.save()
-    return json.dumps({'RtPopMinFAVChoice':RtPopMinFAVChoice})
+    return bondiList.realtime_popular_FAV_threshold
 
-@dajaxice_register
-def AJ_togglePopularRT(request,popular_RT_flag):
+def togglePopularRT(request,popular_RT_flag):
     popular_RT_flag = not popular_RT_flag # toggling the flag
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.realtime_popular_RT_flag = popular_RT_flag
     bondiList.save()
-    return json.dumps({'popular_RT_flag':popular_RT_flag})
+    return bondiList.realtime_popular_RT_flag
 
-@dajaxice_register
-def AJ_togglePopularFAV(request,popular_FAV_flag):
+def togglePopularFAV(request,popular_FAV_flag):
     popular_FAV_flag = not popular_FAV_flag # toggling the flag
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.realtime_popular_FAV_flag = popular_FAV_flag
     bondiList.save()
-    return json.dumps({'popular_FAV_flag':popular_FAV_flag})
+    return bondiList.realtime_popular_FAV_flag
 
-
-
-RepFollowersNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
-@dajaxice_register
-def AJ_updateRepFollowersNum(request,RepFollowersNumChoice):
+def updateRepFollowersNum(request,RepFollowersNumChoice):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
-    bondiList.report_followers_num = RepFollowersNumTable.keys()[RepFollowersNumTable.values().index(RepFollowersNumChoice)]
+    bondiList.report_followers_num = RepFollowersNumChoice
     bondiList.save()
-    return json.dumps({'RepFollowersNumChoice':RepFollowersNumChoice})
+    return bondiList.report_followers_num
 
-RepFriendsNumTable = {1:u'2',2:u'5',3:u'10',4:u'30',5:u'50'}
-@dajaxice_register
-def AJ_updateRepFriendsNum(request,RepFriendsNumChoice):
+def updateRepFriendsNum(request,RepFriendsNumChoice):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
-    bondiList.report_friends_num = RepFriendsNumTable.keys()[RepFriendsNumTable.values().index(RepFriendsNumChoice)]
+    bondiList.report_friends_num = RepFriendsNumChoice
     bondiList.save()
-    return json.dumps({'RepFriendsNumChoice':RepFriendsNumChoice})
+    return bondiList.report_friends_num
 
-@dajaxice_register
-def AJ_updateMeFlag(request,MeFlag):
+def updateMeFlag(request,MeFlag):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.report_follows_me_flag = MeFlag
     bondiList.save()
-    return json.dumps({'MeFlag':MeFlag})    
+    return bondiList.report_follows_me_flag
 
-@dajaxice_register
-def AJ_updateBioFlag(request,BioFlag):
+def updateBioFlag(request,BioFlag):
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
     bondiList = bondi.list_set.all()[0]  
     bondiList.report_change_bio_flag = BioFlag
     bondiList.save()
-    return json.dumps({'BioFlag':BioFlag})   
+    return bondiList.report_change_bio_flag
     
-
-@dajaxice_register
-def AJ_toggleEnabled(request,enabled_flag):
+def toggleEnabled(request,enabled_flag):
     enabled_flag = not enabled_flag # toggling the flag
     bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0] 
     bondiList = bondi.list_set.all()[0]  
     bondiList.active_flag = enabled_flag
     bondiList.save()
-    return json.dumps({'enabled_flag':enabled_flag})
-    
-    
+    return bondiList.active_flag
