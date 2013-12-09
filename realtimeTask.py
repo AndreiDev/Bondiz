@@ -90,10 +90,10 @@ def runRealtimeTask():
                                                     
             
             MINUTES_PARAMETER = 5
-            POP_MAX_RT = 0
-            POP_MAX_FAV = 0
-            KEY_MAX_RT = 0
-            KEY_MAX_FAV = 0        
+            POP_MAX_RT = 1
+            POP_MAX_FAV = 1
+            KEY_MAX_RT = 1
+            KEY_MAX_FAV = 1       
             bondiList = bondi.list_set.all()[0]
             
             count = 200
@@ -117,6 +117,8 @@ def runRealtimeTask():
             KEY_FAVcount = 0           
             if len(tweets) > 0:
                 for tweet in tweets:
+                    autoKeyRetweeted = False
+                    autoKeyFavorited = False
                     try:
                         #debug('iterating through tweets (' + tweet['id_str'] + ')')
                         timeDelta = datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
@@ -188,7 +190,7 @@ def runRealtimeTask():
                                                                       RT = 0,
                                                                       FAV = 1,
                                                                       email_timestamp = "")
-                                    elif bondiList.realtime_popular_RT_flag and POP_FAVcount < POP_MAX_FAV:
+                                    elif bondiList.realtime_popular_FAV_flag and POP_FAVcount < POP_MAX_FAV:
                                     # auto FAV is enabled & not overdone
                                         debug('TWITTER: favorite')
                                         tic = time.clock()
@@ -228,7 +230,7 @@ def runRealtimeTask():
                             
                             if (any(keyword.lower() in tweet['text'].lower() for keyword in filter(None,keyword_list))) and (not bondi.realtime_log_set.filter(tweet_id=tweet['id_str'], type="KEY").exclude(email_timestamp="")): 
                             # tweet has keywords inside
-                            
+                                
                                 # RT #
                                 if tweet['retweeted']:
                                 # RT done by bondi
@@ -250,13 +252,17 @@ def runRealtimeTask():
                                     for keyword in filter(None,keyword_list):
                                     # check for indiviual keywords in the tweet
                                         if keyword.lower() in tweet['text'].lower():
-                                            debug('TWITTER: retweet')
-                                            tic = time.clock()
-                                            BondizApp.useTwitterAPI.ReTweet(twitter,tweet['id_str'])
-                                            toc = time.clock()
-                                            debug('TWITTER: retweet done [' + str(toc-tic) + ' seconds]')                                      
+                                            if ~autoKeyRetweeted:
+                                                autoKeyRetweeted = True
+                                                
+                                                debug('TWITTER: retweet')
+                                                tic = time.clock()
+                                                BondizApp.useTwitterAPI.ReTweet(twitter,tweet['id_str'])
+                                                toc = time.clock()
+                                                debug('TWITTER: retweet done [' + str(toc-tic) + ' seconds]')                                      
                                             
-                                            KEY_RTcount = KEY_RTcount + 1 
+                                                KEY_RTcount = KEY_RTcount + 1 
+                                                
                                             bondi.realtime_log_set.create(bondee_screen_name = tweet['user']['screen_name'],
                                                                           time = (datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')).total_seconds()/60,
                                                                           type = "KEY",
@@ -303,14 +309,18 @@ def runRealtimeTask():
                                 # auto FAV is enabled & not overdone
                                     for keyword in filter(None,keyword_list):
                                     # check for indiviual keywords in the tweet
-                                        if keyword.lower() in tweet['text'].lower():                                    
-                                            debug('TWITTER: favorite')
-                                            tic = time.clock()
-                                            BondizApp.useTwitterAPI.Favorite(twitter,tweet['id_str'])
-                                            toc = time.clock()
-                                            debug('TWITTER: favorite done [' + str(toc-tic) + ' seconds]')  
-                                                                            
-                                            KEY_FAVcount = KEY_FAVcount + 1 
+                                        if keyword.lower() in tweet['text'].lower():    
+                                            if ~autoKeyFavorited:
+                                                autoKeyFavorited = True
+                                                                                                                            
+                                                debug('TWITTER: favorite')
+                                                tic = time.clock()
+                                                BondizApp.useTwitterAPI.Favorite(twitter,tweet['id_str'])
+                                                toc = time.clock()
+                                                debug('TWITTER: favorite done [' + str(toc-tic) + ' seconds]')  
+                                                                                
+                                                KEY_FAVcount = KEY_FAVcount + 1 
+                                                
                                             bondi.realtime_log_set.create(bondee_screen_name = tweet['user']['screen_name'],
                                                                           time = (datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')).total_seconds()/60,
                                                                           type = "KEY",

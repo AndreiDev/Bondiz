@@ -309,3 +309,16 @@
 2013-12-07 23:11:05.760000 | TWITTER: done [2.83158255957 seconds]
 2013-12-07 23:11:05.908000 | TWITTER: getting List Timeline (tweets)
 2013-12-07 23:11:11.908000 | TWITTER: done [5.99937364327 seconds]
+2013-12-08 20:28:30.367000 | *** RealtimeTask started ***
+2013-12-08 20:28:30.467000 | processing bondi andreii
+2013-12-08 20:28:30.742000 | TWITTER: getting list members
+2013-12-08 20:28:33.391000 | TWITTER: done [2.64790121876 seconds]
+2013-12-08 20:28:33.631000 | TWITTER: getting List Timeline (tweets)
+2013-12-08 20:28:38.770000 | TWITTER: done [5.13761413994 seconds]
+2013-12-08 20:28:44.043000 | calling emailTask
+2013-12-08 20:28:44.043000 | runEmailTask started
+2013-12-08 20:28:44.186000 | iterating through realtime logs...
+2013-12-08 20:28:44.331000 | DJANGO: sending email
+2013-12-08 20:28:48.414000 | DJANGO: done [4.08208757488 seconds]
+2013-12-08 20:28:48.415000 | emailTask done [4.37156769879 seconds]
+2013-12-08 20:28:48.422000 | --- RealtimeTask done [18.0543706816 seconds] ---

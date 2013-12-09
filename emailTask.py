@@ -30,7 +30,7 @@ def runEmailTask():
         if daily_logs:     
             debug('iterating through daily logs...')
                
-            dailyEmailHeading = "Daily events:" 
+            dailyEmailHeading = "special triggers:" 
             
             unique_screen_names = list(set([daily_log.bondee_screen_name for daily_log in daily_logs]))
             for unique_screen_name in unique_screen_names:  
@@ -60,25 +60,37 @@ def runEmailTask():
         if realtime_logs:
             debug('iterating through realtime logs...')
             
-            realtimeEmailHeading = "Realtime events:"
+            realtimeEmailHeading = "realtime triggers:"
             unique_tweet_ids = list(set([realtime_log.tweet_id for realtime_log in realtime_logs]))
             for unique_tweet_id in unique_tweet_ids:  
                 tweet_id_realtime_logs = realtime_logs.filter(tweet_id=unique_tweet_id)   
+                AutoRetweeted = 0
+                AutoFavorited = 0
                 text = [""]
                 for tweet_id_realtime_log in tweet_id_realtime_logs:                                           
                     if tweet_id_realtime_log.type == "KEY":
                         if not "Mentioned '" + tweet_id_realtime_log.condition + "'. " in text:
                             text = text + ["Mentioned '" + tweet_id_realtime_log.condition + "'. "]                                              
                     if tweet_id_realtime_log.type == "RT":
-                        text = text + ["Got retweeted " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "]                
+                        if tweet_id_realtime_log.value == 1:
+                            text = text + ["Got retweeted " + tweet_id_realtime_log.value + " time. "]
+                        else:
+                            text = text + ["Got retweeted " + tweet_id_realtime_log.value + " times. "]                                                     
                     if tweet_id_realtime_log.type == "FAV":
-                        text = text + ["Got favorited " + tweet_id_realtime_log.value + " times (minimum set on " + tweet_id_realtime_log.condition + "). "]     
+                        if tweet_id_realtime_log.value == 1:
+                            text = text + ["Got favorited " + tweet_id_realtime_log.value + " time. "]     
+                        else:
+                            text = text + ["Got favorited " + tweet_id_realtime_log.value + " times. "]                                            
                     if tweet_id_realtime_log.RT == 2:
-                        text = text + [" Auto Retweeted! "] 
+                        AutoRetweeted = 1
                     if tweet_id_realtime_log.FAV == 2:
-                        text = text + [" Auto Favorited! "]  
+                        AutoFavorited = 1
                     tweet_id_realtime_log.email_timestamp = str(int(time.time()))
-                    tweet_id_realtime_log.save()                        
+                    tweet_id_realtime_log.save()  
+                if AutoRetweeted:
+                    text = text + ["Auto Retweeted! "]    
+                if AutoFavorited:
+                    text = text + ["Auto Favorited! "]                                                         
                 tweet_text = 'Tweet created ' + str(tweet_id_realtime_log.time) + ' minutes ago: "'+ tweet_id_realtime_log.tweet_text +'"'                                         
                 realtimeEmailContent = realtimeEmailContent + [{'image_url':bondi.bondee_set.filter(twitter_screen_name=tweet_id_realtime_log.bondee_screen_name)[0].image_url,
                                                                'screen_name':tweet_id_realtime_log.bondee_screen_name,

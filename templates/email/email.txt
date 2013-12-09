@@ -12,9 +12,8 @@ This is a Bondiz notification for @{{bondi}}:
 			{% for line in content.text %}
 				{{ line }}
 			{% endfor%}
-		{% else %}
-			""
 		{% endif %}
+		""
 	{% endfor%}
 
 {% endif %}
@@ -29,8 +28,7 @@ This is a Bondiz notification for @{{bondi}}:
 			{% for line in content.text %}
 				{{ line }}
 			{% endfor%}
-		{% else %}
-			""
+		""
 		{% endif %}
 	{% endfor%}
 

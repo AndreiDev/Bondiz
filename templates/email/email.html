@@ -447,7 +447,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                Bondiz notification email
+                                                @{{ bondi }} updates
                                             </td>
                                         </tr>
                                     </table>
@@ -473,7 +473,6 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" mc:edit="body_content">
-											<h1>@{{ bondi }} updates</h1>
 											
 											{% if dailyEmailHeading %}
 											
@@ -483,17 +482,16 @@
 													{% if content %}													
 														<p><img src="{{ content.image_url }}" height="50px" width="50px">
 															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
-														<br>
+														</p>
+														<p>
 														{% for line in content.text %}
 															{{ line }}
 															<br>
 														{% endfor%}
 														</p>
-													{% else %}
-														<br>
 													{% endif %}
-												{% endfor%}
-											
+													<hr>
+												{% endfor%}																							
 											{% endif %}
 											
 											{% if realtimeEmailHeading %}
@@ -504,17 +502,16 @@
 													{% if content.text %}
 														<p><img src="{{ content.image_url }}" height="50px" width="50px">
 															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
-														<br>
-														{% for line in content.text %}
-															{{ line }}
-															<br>
-														{% endfor%}
-														<br><strong>{{ content.tweet_text }}</strong>
-														<br><a href="https://twitter.com/{{ content.screen_name }}/status/{{ content.tweet_id }}" target="_blank">open tweet</a>
 														</p>
-													{% else %}
-														<br>
+														<p>
+														{% for line in content.text %}
+															{{ line }}<br>
+														{% endfor%}
+														</p>
+														<p><strong>{{ content.tweet_text }}</strong></p>
+														<a href="https://twitter.com/{{ content.screen_name }}/status/{{ content.tweet_id }}" target="_blank">open tweet</a>
 													{% endif %}
+													<hr>
 												{% endfor%}
 											
 											{% endif %}											
