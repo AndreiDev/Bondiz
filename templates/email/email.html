@@ -485,8 +485,9 @@
 														</p>
 														<p>
 														{% for line in content.text %}
-															{{ line }}
-															<br>
+															{{ if line }}														
+																{{ line }}<br>
+															{{ endif }}
 														{% endfor%}
 														</p>
 													{% endif %}
@@ -505,7 +506,9 @@
 														</p>
 														<p>
 														{% for line in content.text %}
-															{{ line }}<br>
+															{{ if line }}
+																{{ line }}<br>
+															{{ endif }}
 														{% endfor%}
 														</p>
 														<p><strong>{{ content.tweet_text }}</strong></p>
