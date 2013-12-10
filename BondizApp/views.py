@@ -9,6 +9,7 @@ from twython import Twython, TwythonError, TwythonRateLimitError
 import useTwitterAPI
     
 def home(request):
+    newUser = False
     if request.user.is_authenticated():
         bondis = Bondi.objects.filter(twitter_screen_name=request.user)
         SocialAccountId = SocialAccount.objects.filter(user_id=request.user.id)[0].id 
@@ -21,6 +22,7 @@ def home(request):
         if not bondis: # new authenticated user 
             newBondi = Bondi(twitter_screen_name=request.user)
             newBondi.save()            
+            newUser = True
         
         bondi = Bondi.objects.filter(twitter_screen_name=request.user)[0]
         if not List.objects.filter(bondi=bondi): # user doesn't have "Bondiz" in Bondi_list in DB   
@@ -43,7 +45,7 @@ def home(request):
         #bondiList = Bondi_lists.objects.filter(bondi=bondi)[0]
         #bondiTweetKeywords = Bondi_tweet_keywords.objects.filter(bondi_list=bondiList) 
            
-        return render_to_response('BondizApp/dashboard.html',{'bondi': bondi,'bondiList': bondiList,'first_bondiTweetKeywords':bondiTweetKeywords.first()},context_instance=RequestContext(request))      
+        return render_to_response('BondizApp/dashboard.html',{'bondi': bondi,'newUser':newUser,'bondiList': bondiList,'first_bondiTweetKeywords':bondiTweetKeywords.first()},context_instance=RequestContext(request))      
                   
     else:        
         return render_to_response('BondizApp/home.html',context_instance=RequestContext(request))   

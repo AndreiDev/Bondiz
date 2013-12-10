@@ -15,7 +15,7 @@ from django.contrib.auth.models import User
 import datetime
 import time
 from django.utils.timezone import utc
-from datetime import datetime
+from datetime import datetime,timedelta
 #from BondizApp.ajax import
 
 def runRealtimeTask():
@@ -89,7 +89,8 @@ def runRealtimeTask():
                                                            
                                                     
             
-            MINUTES_PARAMETER = 5
+            MINUTES_PARAMETER = 10
+            MAX_KEY_TIMEDELTA_FACTOR = 2
             POP_MAX_RT = 1
             POP_MAX_FAV = 1
             KEY_MAX_RT = 1
@@ -107,6 +108,13 @@ def runRealtimeTask():
             toc = time.clock()
             debug('TWITTER: done [' + str(toc-tic) + ' seconds]')         
             
+            if not bondi.last_timeline_UTC:
+                lastTimelineUTC = str(datetime.utcnow() + timedelta(minutes=-MINUTES_PARAMETER))
+            else:
+                lastTimelineUTC = bondi.last_timeline_UTC
+            bondi.last_timeline_UTC = datetime.utcnow()
+            bondi.save()
+            
             realtime_popular_time_period = bondiList.realtime_popular_time_period      
             realtime_popular_RT_threshold = bondiList.realtime_popular_RT_threshold   
             realtime_popular_FAV_threshold = bondiList.realtime_popular_FAV_threshold
@@ -121,13 +129,14 @@ def runRealtimeTask():
                     autoKeyFavorited = False
                     try:
                         #debug('iterating through tweets (' + tweet['id_str'] + ')')
-                        timeDelta = datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
-                        if (timeDelta.total_seconds() > realtime_popular_time_period * 60) and (timeDelta.total_seconds() > MINUTES_PARAMETER * 60): 
+                        POPtimeDelta = datetime.utcnow() - datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y')
+                        KEYtimeDelta = datetime.strptime(tweet['created_at'], '%a %b %d %H:%M:%S +0000 %Y') - datetime.strptime(lastTimelineUTC, '%Y-%m-%d %X.%f')
+                        if (POPtimeDelta.total_seconds() > realtime_popular_time_period * 60) and ((KEYtimeDelta.total_seconds() < 0) or (KEYtimeDelta.total_seconds() > MAX_KEY_TIMEDELTA_FACTOR*MINUTES_PARAMETER*60)): 
                         # tweet is irrelevant by time created  
                             continue
                         
                         ### POPULAR ###
-                        if timeDelta.total_seconds() <= realtime_popular_time_period * 60: 
+                        if POPtimeDelta.total_seconds() <= realtime_popular_time_period * 60: 
                         # tweet is time relevant for "popular" conditions       
                             if (not 'retweeted_status' in tweet.keys()) or (('retweeted_status' in tweet.keys()) and (tweet['retweeted_status']['user']['screen_name'] in newBondees_screen_names)):
                             # tweet was created by a Bondee
@@ -151,7 +160,9 @@ def runRealtimeTask():
                                         tic = time.clock()
                                         BondizApp.useTwitterAPI.ReTweet(twitter,tweet['id_str'])
                                         toc = time.clock()
-                                        debug('TWITTER: retweet done [' + str(toc-tic) + ' seconds]')                               
+                                        debug('TWITTER: retweet done [' + str(toc-tic) + ' seconds]')   
+                                        
+                                        autoKeyRetweeted = True                            
                                         
                                         POP_RTcount = POP_RTcount + 1                    
                                         bondi.realtime_log_set.create(bondee_screen_name = tweet['user']['screen_name'],
@@ -197,6 +208,8 @@ def runRealtimeTask():
                                         BondizApp.useTwitterAPI.Favorite(twitter,tweet['id_str'])
                                         toc = time.clock()
                                         debug('TWITTER: favorite done [' + str(toc-tic) + ' seconds]')  
+                                        
+                                        autoKeyFavorited = True
                                                                                                    
                                         POP_FAVcount = POP_FAVcount + 1                    
                                         bondi.realtime_log_set.create(bondee_screen_name = tweet['user']['screen_name'],
@@ -224,12 +237,12 @@ def runRealtimeTask():
                                         
                                         
                         ### KEYWORDS ###                                                                  
-                        if timeDelta.total_seconds() <= MINUTES_PARAMETER * 60:
+                        if (KEYtimeDelta.total_seconds() >= 0) and (KEYtimeDelta.total_seconds() <= MAX_KEY_TIMEDELTA_FACTOR*MINUTES_PARAMETER*60):
                         # tweet is time relevant for "keyword" conditions  
                             keyword_list = [x['keyword'] for x in bondiList.tweet_keyword_set.all().values()]
                             
                             if (any(keyword.lower() in tweet['text'].lower() for keyword in filter(None,keyword_list))) and (not bondi.realtime_log_set.filter(tweet_id=tweet['id_str'], type="KEY").exclude(email_timestamp="")): 
-                            # tweet has keywords inside
+                            # tweet has keywords inside & ketwords were not emailed before
                                 
                                 # RT #
                                 if tweet['retweeted']:
@@ -252,7 +265,7 @@ def runRealtimeTask():
                                     for keyword in filter(None,keyword_list):
                                     # check for indiviual keywords in the tweet
                                         if keyword.lower() in tweet['text'].lower():
-                                            if ~autoKeyRetweeted:
+                                            if not autoKeyRetweeted:
                                                 autoKeyRetweeted = True
                                                 
                                                 debug('TWITTER: retweet')
@@ -310,7 +323,7 @@ def runRealtimeTask():
                                     for keyword in filter(None,keyword_list):
                                     # check for indiviual keywords in the tweet
                                         if keyword.lower() in tweet['text'].lower():    
-                                            if ~autoKeyFavorited:
+                                            if not autoKeyFavorited:
                                                 autoKeyFavorited = True
                                                                                                                             
                                                 debug('TWITTER: favorite')

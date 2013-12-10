@@ -6,7 +6,7 @@ class Bondi(models.Model):
     
     email = models.CharField(max_length=40,default='')
     plan = models.IntegerField(default=1)
-    notification_timestamp = models.CharField(max_length=10,default='')
+    last_timeline_UTC = models.CharField(max_length=40,default='')
     active_flag = models.BooleanField(default=True)
     
     def __unicode__(self):
@@ -34,7 +34,7 @@ class List(models.Model):
         return self.list_name  
     
 class Tweet_keyword(models.Model):
-    alphanumeric = RegexValidator(r'^[0-9a-zA-Z]*$', 'Only alphanumeric characters are allowed.')
+    alphanumeric = RegexValidator(r'^[-_ #a-zA-Z0-9]{0,20}$', 'Only alphanumeric characters are allowed.')
     bondi_list = models.ForeignKey(List)
     place = models.IntegerField(default=0)
     keyword = models.CharField(max_length=20,default='', validators=[alphanumeric])

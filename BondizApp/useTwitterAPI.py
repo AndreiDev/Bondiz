@@ -1,4 +1,5 @@
 from twython import Twython, TwythonError, TwythonRateLimitError
+from debug import debug 
 import time
 
 def twitter_retry(func):
@@ -10,13 +11,13 @@ def twitter_retry(func):
             try: return func(*fargs, **fkwargs)
             except (TwythonError, TwythonRateLimitError, Exception) as e:
                 if "Rate limit" in str(e): 
-                    print e
+                    debug('!!! ' + e)
                     #print fkwargs['limit_rate_string']
-                    print 'sleeping for ' + str(rate_limit_timeout) + ' seconds'
+                    #print 'sleeping for ' + str(rate_limit_timeout) + ' seconds'
                     time.sleep(rate_limit_timeout)
                 else:
-                    print e
-                    print 'sleeping for ' + str(simple_timeout) + ' seconds'
+                    debug('!!! ' + e)
+                    #print 'sleeping for ' + str(simple_timeout) + ' seconds'
                     time.sleep(simple_timeout)
     return tryIt  
     
@@ -90,30 +91,30 @@ def twitterListTimeline(twitter,**params):
 ### *********************************************** ###
 
 def getFollowersIds(twitter,subjectScreenName):
-    print '*** getting the followers of ' + subjectScreenName
+#     print '*** getting the followers of ' + subjectScreenName
     ii = 1
-    print 'page ' + str(ii) 
+#     print 'page ' + str(ii) 
     followersIds_raw = twitterGetFollowersIds(twitter,limit_rate_string='xxx',screen_name=subjectScreenName,cursor=-1,count=5000)
     followersIds_next_cursor = followersIds_raw['next_cursor']
     followersIds_ids = followersIds_raw['ids']
     while followersIds_next_cursor:
         ii += 1
-        print 'page ' + str(ii) 
+#        print 'page ' + str(ii) 
         followersIds_raw = twitterGetFollowersIds(twitter,limit_rate_string='xxx',screen_name=subjectScreenName,cursor=followersIds_next_cursor,count=5000)
         followersIds_next_cursor = followersIds_raw['next_cursor']
         followersIds_ids = followersIds_ids + followersIds_raw['ids']    
     return followersIds_ids
     
 def getFollowingIds(twitter,subjectScreenName):
-    print '*** getting the following of ' + subjectScreenName
+#     print '*** getting the following of ' + subjectScreenName
     ii = 1
-    print 'page ' + str(ii) 
+#     print 'page ' + str(ii) 
     followingIds_raw = twitterGetFollowingIds(twitter,screen_name=subjectScreenName,cursor=-1,count=5000)
     followingIds_next_cursor = followingIds_raw['next_cursor']
     followingIds_ids = followingIds_raw['ids']
     while followingIds_next_cursor:
         ii += 1
-        print 'page ' + str(ii)     
+#        print 'page ' + str(ii)     
         followingIds_raw = twitterGetFollowingIds(twitter,screen_name=subjectScreenName,cursor=followingIds_next_cursor,count=5000)
         followingIds_next_cursor = followingIds_raw['next_cursor']
         followingIds_ids = followingIds_ids + followingIds_raw['ids']    
@@ -126,19 +127,19 @@ def lookup_byNAME(twitter, screen_name):
     return twitterLookupUser(twitter,screen_name=screen_name)
 
 def followUser(twitter, subjectName):
-    print '*** following ' + subjectName
+#    print '*** following ' + subjectName
     return twitterCreateFriendship(twitter,screen_name=subjectName)   
 
 def followUser_byID(twitter, userId):
-    print '*** following ' + userId
+#    print '*** following ' + userId
     return twitterCreateFriendship(twitter,user_id=userId)    
 
 def followUser_byNAME(twitter, screen_name):
-    print '*** following ' + screen_name
+#    print '*** following ' + screen_name
     return twitterCreateFriendship(twitter,screen_name=screen_name)  
     
 def unfollowUser_byID(twitter, userId):
-    print '*** unfollowing ' + userId
+#    print '*** unfollowing ' + userId
     return twitterDestroyFriendship(twitter,user_id=userId)  
     
 def friendship_byID(twitter, userId):
@@ -157,14 +158,14 @@ def Favorite(twitter, tweetId):
     return twitterFavorite(twitter,id=tweetId)    
     
 def UserTimeline(twitter,screen_name,count,trim_user,exclude_replies ,include_rts):
-    print '*** getting UserTimeline of ' + screen_name
+#     print '*** getting UserTimeline of ' + screen_name
     ii = 1
-    print 'page ' + str(ii) 
+#     print 'page ' + str(ii) 
     UserTimeline_raw = twitterUserTimeline(twitter,screen_name=screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)
     UserTimeline = [] 
     while len(UserTimeline_raw) > 0:
         ii += 1
-        print 'page ' + str(ii)          
+#         print 'page ' + str(ii)          
         UserTimeline = UserTimeline + UserTimeline_raw
         UserTimeline_max_id = int(UserTimeline_raw[-1]['id'])-1        
         UserTimeline_raw = twitterUserTimeline(twitter,max_id=UserTimeline_max_id,screen_name=screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)  
@@ -186,7 +187,7 @@ def UserTimeline(twitter,screen_name,count,trim_user,exclude_replies ,include_rt
 
 # getting only ONE Home Timeline
 def HomeTimeline(twitter,screen_name,count,trim_user,exclude_replies ,include_rts):
-    print '*** getting ONE! HomeTimeline of ' + screen_name
+#     print '*** getting ONE! HomeTimeline of ' + screen_name
     HomeTimeline = twitterHomeTimeline(twitter,screen_name=screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)
     return HomeTimeline
 
@@ -200,22 +201,22 @@ def createList(twitter, name, mode):
     return twitterCreateList(twitter,name=name,mode=mode)
 
 def getListMembers(twitter, slug, owner_screen_name):     
-    print '*** getting "Bondiz" list members of ' + owner_screen_name
+#     print '*** getting "Bondiz" list members of ' + owner_screen_name
     ii = 1
-    print 'page ' + str(ii) 
+#     print 'page ' + str(ii) 
     members_raw = twitterGetListMembers(twitter,slug=slug,owner_screen_name=owner_screen_name,cursor=-1)
     members_next_cursor = members_raw['next_cursor']
     members_names = members_raw['users']
     while members_next_cursor:
         ii += 1
-        print 'page ' + str(ii) 
+#         print 'page ' + str(ii) 
         members_raw = twitterGetListMembers(twitter,slug=slug,owner_screen_name=owner_screen_name,cursor=members_next_cursor)
         members_next_cursor = members_raw['next_cursor']
         members_names = members_names + members_raw['users']    
     return members_names
 
-def ListTimeline(twitter,slug,owner_screen_name,count,trim_user,exclude_replies ,include_rts):
-    print '*** getting ONE! ListTimeline of ' + owner_screen_name
+def ListTimeline(twitter,slug,owner_screen_name,count,trim_user,exclude_replies ,include_rts):    
+    #print '*** getting ONE! ListTimeline of ' + owner_screen_name
     HomeTimeline = twitterListTimeline(twitter,slug=slug,owner_screen_name=owner_screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)
     return HomeTimeline
 

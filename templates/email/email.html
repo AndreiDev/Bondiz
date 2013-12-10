@@ -511,7 +511,7 @@
 															{% endif %}
 														{% endfor%}
 														</p>
-														<p><strong>{{ content.tweet_text }}</strong></p>
+														<p><strong>{{ content.tweet_text|safe }}</strong></p>
 														<a href="https://twitter.com/{{ content.screen_name }}/status/{{ content.tweet_id }}" target="_blank">open tweet</a>
 													{% endif %}
 													<hr>

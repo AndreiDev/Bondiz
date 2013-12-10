@@ -322,3 +322,346 @@
 2013-12-08 20:28:48.414000 | DJANGO: done [4.08208757488 seconds]
 2013-12-08 20:28:48.415000 | emailTask done [4.37156769879 seconds]
 2013-12-08 20:28:48.422000 | --- RealtimeTask done [18.0543706816 seconds] ---
+2013-12-09 21:37:25.909000 | *** RealtimeTask started ***
+2013-12-09 21:37:25.980000 | processing bondi andreii
+2013-12-09 21:37:26.154000 | TWITTER: getting list members
+2013-12-09 21:37:28.878000 | TWITTER: done [2.72236920043 seconds]
+2013-12-09 21:37:29.083000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 21:37:33.774000 | TWITTER: done [4.69052872449 seconds]
+2013-12-09 21:37:45.339000 | TWITTER: retweet
+2013-12-09 21:37:49.843000 | TWITTER: retweet done [2.80412252931 seconds]
+2013-12-09 22:21:08.892000 | *** RealtimeTask started ***
+2013-12-09 22:23:08.426000 | *** RealtimeTask started ***
+2013-12-09 22:23:08.474000 | processing bondi andreii
+2013-12-09 22:23:08.655000 | TWITTER: getting list members
+2013-12-09 22:23:08.656000 | !!! Exception in andreii: type object 'datetime.datetime' has no attribute 'datetime'
+2013-12-09 22:23:08.656000 | calling emailTask
+2013-12-09 22:23:08.656000 | runEmailTask started
+2013-12-09 22:23:08.683000 | emailTask done [0.0263507387039 seconds]
+2013-12-09 22:23:08.683000 | --- RealtimeTask done [0.25763195019 seconds] ---
+2013-12-09 22:24:00.573000 | *** RealtimeTask started ***
+2013-12-09 22:24:00.619000 | processing bondi andreii
+2013-12-09 22:24:00.776000 | TWITTER: getting list members
+2013-12-09 22:26:45.182000 | *** RealtimeTask started ***
+2013-12-09 22:26:45.239000 | processing bondi andreii
+2013-12-09 22:26:45.435000 | TWITTER: getting list members
+2013-12-09 22:26:53.972000 | TWITTER: done [2.62194671349 seconds]
+2013-12-09 22:26:53.997000 | creating AndreiAverkin
+2013-12-09 22:26:53.997000 | TWITTER: getting friendships
+2013-12-09 22:26:54.816000 | TWITTER: done [0.818930234556 seconds]
+2013-12-09 22:26:54.861000 | creating Bondiz
+2013-12-09 22:26:54.886000 | creating BrainSciencenew
+2013-12-09 22:26:54.904000 | creating hichamchraibi
+2013-12-09 22:26:54.919000 | creating LeoWid
+2013-12-09 22:26:54.934000 | creating itsjamieosborne
+2013-12-09 22:26:54.952000 | creating joelgascoigne
+2013-12-09 22:26:54.968000 | creating iamreff
+2013-12-09 22:26:54.987000 | creating arkarthick
+2013-12-09 22:26:55.008000 | creating ericries
+2013-12-09 22:26:55.024000 | creating ashmaurya
+2013-12-09 22:26:55.041000 | creating adamberk
+2013-12-09 22:26:55.056000 | creating andrewchen
+2013-12-09 22:26:55.076000 | creating nathansmith
+2013-12-09 22:26:55.092000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 22:26:59.684000 | TWITTER: done [4.5907917457 seconds]
+2013-12-09 22:26:59.686000 | !!! Exception in andreii: 'Bondi' object has no attribute 'notification_timestamp'
+2013-12-09 22:26:59.686000 | calling emailTask
+2013-12-09 22:26:59.686000 | runEmailTask started
+2013-12-09 22:26:59.709000 | emailTask done [0.0228089466106 seconds]
+2013-12-09 22:26:59.713000 | --- RealtimeTask done [179.136183162 seconds] ---
+2013-12-09 22:27:59.999000 | *** RealtimeTask started ***
+2013-12-09 22:28:00.054000 | processing bondi andreii
+2013-12-09 22:28:00.219000 | TWITTER: getting list members
+2013-12-09 22:28:02.706000 | TWITTER: done [2.48651347801 seconds]
+2013-12-09 22:28:02.846000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 22:28:07.899000 | TWITTER: done [5.05244380413 seconds]
+2013-12-09 22:28:07.900000 | !!! Exception in andreii: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2013-12-09 22:28:07.900000 | calling emailTask
+2013-12-09 22:28:07.900000 | runEmailTask started
+2013-12-09 22:28:07.927000 | emailTask done [0.0266497369383 seconds]
+2013-12-09 22:28:07.931000 | --- RealtimeTask done [7.93239034098 seconds] ---
+2013-12-09 22:48:55.706000 | *** RealtimeTask started ***
+2013-12-09 22:48:55.758000 | processing bondi andreii
+2013-12-09 22:48:55.938000 | TWITTER: getting list members
+2013-12-09 22:48:58.444000 | TWITTER: done [2.5054451711 seconds]
+2013-12-09 22:48:58.568000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 22:49:03.228000 | TWITTER: done [4.65997499435 seconds]
+2013-12-09 22:49:03.229000 | !!! Exception in andreii: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2013-12-09 22:49:03.229000 | calling emailTask
+2013-12-09 22:49:03.230000 | runEmailTask started
+2013-12-09 22:49:12.900000 | emailTask done [9.66902718615 seconds]
+2013-12-09 22:49:12.946000 | --- RealtimeTask done [17.2023111996 seconds] ---
+2013-12-09 22:49:27.524000 | *** RealtimeTask started ***
+2013-12-09 22:49:27.572000 | processing bondi andreii
+2013-12-09 22:49:27.730000 | TWITTER: getting list members
+2013-12-09 22:49:30.256000 | TWITTER: done [2.52582283261 seconds]
+2013-12-09 22:49:30.384000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 22:49:35.208000 | TWITTER: done [4.82381792385 seconds]
+2013-12-09 22:49:35.209000 | !!! Exception in andreii: unsupported operand type(s) for -: 'datetime.datetime' and 'int'
+2013-12-09 22:49:35.210000 | calling emailTask
+2013-12-09 22:49:35.210000 | runEmailTask started
+2013-12-09 23:40:00.482000 | *** RealtimeTask started ***
+2013-12-09 23:40:00.536000 | processing bondi andreii
+2013-12-09 23:40:00.733000 | TWITTER: getting list members
+2013-12-09 23:40:03.369000 | TWITTER: done [2.63579138512 seconds]
+2013-12-09 23:40:03.486000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 23:40:03.487000 | *** getting ONE! ListTimeline of andreii
+2013-12-09 23:40:08.199000 | TWITTER: done [4.71120133277 seconds]
+2013-12-09 23:40:08.256000 | !!! Exception in 410160580667113473: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.257000 | !!! Exception in 410158704366219265: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.258000 | !!! Exception in 410158467287359489: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.259000 | !!! Exception in 410156862341144576: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.260000 | !!! Exception in 410155944539336705: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.260000 | !!! Exception in 410154978477871105: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.261000 | !!! Exception in 410154690165633025: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.262000 | !!! Exception in 410153824259960832: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.262000 | !!! Exception in 410153153070649345: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.263000 | !!! Exception in 410150644725460992: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.368000 | !!! Exception in 410149441426190336: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.370000 | !!! Exception in 410148023071567873: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.371000 | !!! Exception in 410147590215581696: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.373000 | !!! Exception in 410146610593923073: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.376000 | !!! Exception in 410144837900328960: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.377000 | !!! Exception in 410143846455336960: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.379000 | !!! Exception in 410141066960961536: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.384000 | !!! Exception in 410140867614089216: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.386000 | !!! Exception in 410140705554563072: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.387000 | !!! Exception in 410140505272352768: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.388000 | !!! Exception in 410140368416411648: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.389000 | !!! Exception in 410140211226480640: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.391000 | !!! Exception in 410140136157233153: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.393000 | !!! Exception in 410137924244873216: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.394000 | !!! Exception in 410136080802140160: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.396000 | !!! Exception in 410135040321126400: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.397000 | !!! Exception in 410134216132030467: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.399000 | !!! Exception in 410132353458376704: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.400000 | !!! Exception in 410131435706920960: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.403000 | !!! Exception in 410130782490230784: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.404000 | !!! Exception in 410130499001413633: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.406000 | !!! Exception in 410128647824347136: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.407000 | !!! Exception in 410126798203400192: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.410000 | !!! Exception in 410124933109653504: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.412000 | !!! Exception in 410124760472117248: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.414000 | !!! Exception in 410123081689350144: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.416000 | !!! Exception in 410122539617501184: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.417000 | !!! Exception in 410121208378953729: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.417000 | !!! Exception in 410119364042838016: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.418000 | !!! Exception in 410117477092556800: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.418000 | !!! Exception in 410116192515653632: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.419000 | !!! Exception in 410115605212459009: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.421000 | !!! Exception in 410114353674076160: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.422000 | !!! Exception in 410113725191176192: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.422000 | !!! Exception in 410111880204533760: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.423000 | !!! Exception in 410111716089802752: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.425000 | !!! Exception in 410111132678905857: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.426000 | !!! Exception in 410110709972742144: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.426000 | !!! Exception in 410110404702896129: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.427000 | !!! Exception in 410110020097802240: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.428000 | !!! Exception in 410109220558622720: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.428000 | !!! Exception in 410108606231494656: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.429000 | !!! Exception in 410108389541171200: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.431000 | !!! Exception in 410108133735170048: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.432000 | !!! Exception in 410107960191238144: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.432000 | !!! Exception in 410107365438943232: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.433000 | !!! Exception in 410106572283453440: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.434000 | !!! Exception in 410106250748493824: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.435000 | !!! Exception in 410105812594327552: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.436000 | !!! Exception in 410105388236013569: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.436000 | !!! Exception in 410104394533707776: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.437000 | !!! Exception in 410104119081566208: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.437000 | !!! Exception in 410102803856519168: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.438000 | !!! Exception in 410102530073313281: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.439000 | !!! Exception in 410101594416742400: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.439000 | !!! Exception in 410100327674019840: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.440000 | !!! Exception in 410100196165435392: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.441000 | !!! Exception in 410099038470799360: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.443000 | !!! Exception in 410098843921809408: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.443000 | !!! Exception in 410097794465419265: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.444000 | !!! Exception in 410097002517524481: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.444000 | !!! Exception in 410096564418670594: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.445000 | !!! Exception in 410096258213097472: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.446000 | !!! Exception in 410095246312091648: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.446000 | !!! Exception in 410095182265073664: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.447000 | !!! Exception in 410094064789643265: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.448000 | !!! Exception in 410093320522563584: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.449000 | !!! Exception in 410092805877661696: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.449000 | !!! Exception in 410092394390880256: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.450000 | !!! Exception in 410091485405528064: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.451000 | !!! Exception in 410091485187424256: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.451000 | !!! Exception in 410090343598546944: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.453000 | !!! Exception in 410089642113781760: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.453000 | !!! Exception in 410089204761100288: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.454000 | !!! Exception in 410089099325079553: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.454000 | !!! Exception in 410089085181493248: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.455000 | !!! Exception in 410087771097681920: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.456000 | !!! Exception in 410087701509963776: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.456000 | !!! Exception in 410086568657817600: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.457000 | !!! Exception in 410085907903946752: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.458000 | !!! Exception in 410085310714765312: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.459000 | !!! Exception in 410085077498875904: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.459000 | !!! Exception in 410084051882483712: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.460000 | !!! Exception in 410083948954677248: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.460000 | !!! Exception in 410082794233008128: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.461000 | !!! Exception in 410082194892148736: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.462000 | !!! Exception in 410081535514009601: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.463000 | !!! Exception in 410080334730887168: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.463000 | !!! Exception in 410080160281423874: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.464000 | !!! Exception in 410079059499315200: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.465000 | !!! Exception in 410079018692521985: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.465000 | !!! Exception in 410078472682225665: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.466000 | !!! Exception in 410077760774631424: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.467000 | !!! Exception in 410076616488783873: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.468000 | !!! Exception in 410076396778557440: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.468000 | !!! Exception in 410075155696975872: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.469000 | !!! Exception in 410074759380992000: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.470000 | !!! Exception in 410073940405788672: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.470000 | !!! Exception in 410072905410555905: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.471000 | !!! Exception in 410072613621227520: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.472000 | !!! Exception in 410071416240111616: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.474000 | !!! Exception in 410071047996579840: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.475000 | !!! Exception in 410070115146027008: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.476000 | !!! Exception in 410069207695376385: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.476000 | !!! Exception in 410069035636645888: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.477000 | !!! Exception in 410068844485431296: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.478000 | !!! Exception in 410067605035442176: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.479000 | !!! Exception in 410067354857402368: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.480000 | !!! Exception in 410066427467825153: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.480000 | !!! Exception in 410065498181623808: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.481000 | !!! Exception in 410065055984541696: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.481000 | !!! Exception in 410063869424730112: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.482000 | !!! Exception in 410063623801692160: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.483000 | !!! Exception in 410062600274460673: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.484000 | !!! Exception in 410061781193592834: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.484000 | !!! Exception in 410061303395270657: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.485000 | !!! Exception in 410060144127389697: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.485000 | !!! Exception in 410059952774840320: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.486000 | !!! Exception in 410058885920067584: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.487000 | !!! Exception in 410058118065033216: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.488000 | !!! Exception in 410057514919530496: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.488000 | !!! Exception in 410056368721117184: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.490000 | !!! Exception in 410056275129421824: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.490000 | !!! Exception in 410055110706737152: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.491000 | !!! Exception in 410054426716422144: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.491000 | !!! Exception in 410053777085841408: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.492000 | !!! Exception in 410053748736532482: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.493000 | !!! Exception in 410052594015272960: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.494000 | !!! Exception in 410052569231147009: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.494000 | !!! Exception in 410051335698907136: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.495000 | !!! Exception in 410050702702944256: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.495000 | !!! Exception in 410050239341805568: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.496000 | !!! Exception in 410049963880886273: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.497000 | !!! Exception in 410049858947395584: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.498000 | !!! Exception in 410049737555841024: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.499000 | !!! Exception in 410048843355418624: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.500000 | !!! Exception in 410048818839707648: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.500000 | !!! Exception in 410047560779173889: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.502000 | !!! Exception in 410046999006691328: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.502000 | !!! Exception in 410046194534985728: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.503000 | !!! Exception in 410045171716202496: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.504000 | !!! Exception in 410044960101396480: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.505000 | !!! Exception in 410043752536109056: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.506000 | !!! Exception in 410043356907991041: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.507000 | !!! Exception in 410042414221385728: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.508000 | !!! Exception in 410041881792225280: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.509000 | !!! Exception in 410041500433522688: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.509000 | !!! Exception in 410041206715199488: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.510000 | !!! Exception in 410039940160823296: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.511000 | !!! Exception in 410039624636325888: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.513000 | !!! Exception in 410038657253257217: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.515000 | !!! Exception in 410038165278167041: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.516000 | !!! Exception in 410037761182146560: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.516000 | !!! Exception in 410037463420510208: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.517000 | !!! Exception in 410036219611865088: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.517000 | !!! Exception in 410035906553184257: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.518000 | !!! Exception in 410034849307574272: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.519000 | !!! Exception in 410034047545389056: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.520000 | !!! Exception in 410033689096368129: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.521000 | !!! Exception in 410032429630750720: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.521000 | !!! Exception in 410032201733255168: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.522000 | !!! Exception in 410031107929690112: unsupported operand type(s) for -: 'datetime.datetime' and 'unicode'
+2013-12-09 23:40:08.522000 | calling emailTask
+2013-12-09 23:40:08.523000 | runEmailTask started
+2013-12-09 23:40:08.551000 | emailTask done [0.0280102194193 seconds]
+2013-12-09 23:40:08.556000 | --- RealtimeTask done [8.07279270023 seconds] ---
+2013-12-09 23:41:19.249000 | *** RealtimeTask started ***
+2013-12-09 23:41:19.337000 | processing bondi andreii
+2013-12-09 23:41:19.501000 | TWITTER: getting list members
+2013-12-09 23:41:22.130000 | TWITTER: done [2.62882245744 seconds]
+2013-12-09 23:41:22.251000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 23:41:22.252000 | *** getting ONE! ListTimeline of andreii
+2013-12-09 23:41:26.962000 | TWITTER: done [4.71102266309 seconds]
+2013-12-09 23:48:37.795000 | *** RealtimeTask started ***
+2013-12-09 23:48:37.863000 | processing bondi andreii
+2013-12-09 23:48:38.040000 | TWITTER: getting list members
+2013-12-09 23:48:40.596000 | TWITTER: done [2.55567120242 seconds]
+2013-12-09 23:48:40.728000 | TWITTER: getting List Timeline (tweets)
+2013-12-09 23:48:40.729000 | *** getting ONE! ListTimeline of andreii
+2013-12-09 23:48:45.365000 | TWITTER: done [4.63656967186 seconds]
+2013-12-09 23:48:45.540000 | calling emailTask
+2013-12-09 23:48:45.540000 | runEmailTask started
+2013-12-09 23:48:45.560000 | emailTask done [0.0202808314582 seconds]
+2013-12-09 23:48:45.564000 | --- RealtimeTask done [7.76959147442 seconds] ---
+2013-12-10 09:33:33.644000 | *** RealtimeTask started ***
+2013-12-10 09:33:33.761000 | processing bondi andreii
+2013-12-10 09:33:34.015000 | TWITTER: getting list members
+2013-12-10 09:33:36.542000 | TWITTER: done [2.5257811025 seconds]
+2013-12-10 09:33:36.558000 | creating AndreiAverkin
+2013-12-10 09:33:36.559000 | TWITTER: getting friendships
+2013-12-10 09:33:36.801000 | TWITTER: done [0.241905777472 seconds]
+2013-12-10 09:33:36.826000 | creating Bondiz
+2013-12-10 09:33:36.850000 | creating BrainSciencenew
+2013-12-10 09:33:36.866000 | creating hichamchraibi
+2013-12-10 09:33:36.881000 | creating LeoWid
+2013-12-10 09:33:36.896000 | creating itsjamieosborne
+2013-12-10 09:33:36.912000 | creating joelgascoigne
+2013-12-10 09:33:36.927000 | creating iamreff
+2013-12-10 09:33:36.942000 | creating arkarthick
+2013-12-10 09:33:36.973000 | creating ericries
+2013-12-10 09:33:36.990000 | creating ashmaurya
+2013-12-10 09:33:37.007000 | creating adamberk
+2013-12-10 09:33:37.022000 | creating andrewchen
+2013-12-10 09:33:37.038000 | creating nathansmith
+2013-12-10 09:33:37.060000 | TWITTER: getting List Timeline (tweets)
+2013-12-10 09:33:41.461000 | TWITTER: done [4.40135408116 seconds]
+2013-12-10 09:34:05.923000 | *** RealtimeTask started ***
+2013-12-10 09:34:05.972000 | processing bondi andreii
+2013-12-10 09:34:06.125000 | TWITTER: getting list members
+2013-12-10 09:34:08.711000 | TWITTER: done [2.58492684267 seconds]
+2013-12-10 09:34:08.834000 | TWITTER: getting List Timeline (tweets)
+2013-12-10 09:34:13.401000 | TWITTER: done [4.56736616588 seconds]
+2013-12-10 09:36:40.372000 | calling emailTask
+2013-12-10 09:36:40.372000 | runEmailTask started
+2013-12-10 09:36:40.404000 | emailTask done [0.0320876153959 seconds]
+2013-12-10 09:36:40.408000 | --- RealtimeTask done [154.482270377 seconds] ---
+2013-12-10 09:37:11.853000 | *** RealtimeTask started ***
+2013-12-10 09:37:11.901000 | processing bondi andreii
+2013-12-10 09:37:12.064000 | TWITTER: getting list members
+2013-12-10 09:37:14.561000 | TWITTER: done [2.49615434791 seconds]
+2013-12-10 09:37:14.682000 | TWITTER: getting List Timeline (tweets)
+2013-12-10 09:37:19.157000 | TWITTER: done [4.47426224819 seconds]
+2013-12-10 09:37:33.119000 | calling emailTask
+2013-12-10 09:37:33.119000 | runEmailTask started
+2013-12-10 09:37:33.146000 | emailTask done [0.0271379386624 seconds]
+2013-12-10 09:37:33.150000 | --- RealtimeTask done [21.2970271959 seconds] ---
+2013-12-10 09:39:04.143000 | *** RealtimeTask started ***
+2013-12-10 09:39:04.194000 | processing bondi andreii
+2013-12-10 09:39:04.351000 | TWITTER: getting list members
+2013-12-10 09:39:06.943000 | TWITTER: done [2.59025452123 seconds]
+2013-12-10 09:39:06.962000 | creating AndreiAverkin
+2013-12-10 09:39:06.963000 | TWITTER: getting friendships
+2013-12-10 09:39:07.215000 | TWITTER: done [0.251531251798 seconds]
+2013-12-10 09:39:07.254000 | creating Bondiz
+2013-12-10 09:39:07.279000 | creating BrainSciencenew
+2013-12-10 09:39:07.296000 | creating hichamchraibi
+2013-12-10 09:39:07.311000 | creating LeoWid
+2013-12-10 09:39:07.341000 | creating itsjamieosborne
+2013-12-10 09:39:07.356000 | creating joelgascoigne
+2013-12-10 09:39:07.370000 | creating iamreff
+2013-12-10 09:39:07.388000 | creating arkarthick
+2013-12-10 09:39:07.404000 | creating ericries
+2013-12-10 09:39:07.430000 | creating ashmaurya
+2013-12-10 09:39:07.444000 | creating adamberk
+2013-12-10 09:39:07.463000 | creating andrewchen
+2013-12-10 09:39:07.478000 | creating nathansmith
+2013-12-10 09:39:07.492000 | TWITTER: getting List Timeline (tweets)
+2013-12-10 09:39:12.007000 | TWITTER: done [4.5143575873 seconds]

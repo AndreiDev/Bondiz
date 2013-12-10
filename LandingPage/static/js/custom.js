@@ -1,5 +1,14 @@
 $(document).ready(function () {	
-	$("[data-toggle='tooltip']").tooltip({'placement': 'top'});
+	
+	if (( $('#page-guide').css('display') != 'none' ) && ($('#new-user').css('display') != 'none' )) {
+        introJs().start();      
+    }	
+	
+	$('#page-guide').click(function() { 
+		introJs().start();					
+	})	
+	
+	$("[data-toggle='tooltip']").tooltip({'placement': 'bottom'});
 	
 	
 	// SETTINGS page
@@ -18,7 +27,7 @@ $(document).ready(function () {
 	$('#saveChanges').attr('disabled','disabled');
 	
 	function IsAlphaNumeric(text) {
-  		var regex = /^[a-zA-Z0-9_]+$/;
+  		var regex = /^[-_ #a-zA-Z0-9]{0,20}$/;
   		return regex.test(text);
 	}	
 	
