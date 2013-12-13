@@ -42,9 +42,9 @@ def runEmailTask():
                     if screen_name_daily_log.type == "FRIENDS":
                         text = text + ["Number of friends grew from " + screen_name_daily_log.before + " to " + screen_name_daily_log.after + ". "]
                     if screen_name_daily_log.type == "RELATIONSHIP":
-                        if (screen_name_daily_log.before == False) and (screen_name_daily_log.after == True):
+                        if (screen_name_daily_log.before == "False") and (screen_name_daily_log.after == "True"):
                             text = text + ["Started following you. "]
-                        if (screen_name_daily_log.before == True) and (screen_name_daily_log.after == False):
+                        if (screen_name_daily_log.before == "True") and (screen_name_daily_log.after == "False"):
                             text = text + ["Not following you anymore. "]
                     if screen_name_daily_log.type == "BIO":
                         text = text + ["Changed profile bio from: ",screen_name_daily_log.before, "to: ", screen_name_daily_log.after]                                           
