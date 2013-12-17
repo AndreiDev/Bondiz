@@ -44,6 +44,7 @@ def runEmailTask():
     return 1
 
 if __name__=='__main__':
+    time.sleep(30)
     tic = time.clock()
     runEmailTask() 
     toc = time.clock()
