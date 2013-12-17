@@ -1,22 +1,22 @@
 from twython import Twython, TwythonError, TwythonRateLimitError
-from debug import debug 
+from taskDebug import taskDebug 
 import time
 
 def twitter_retry(func):
-    howmany = 5 # maximum retires
-    simple_timeout = 5 # seconds
+    howmany = 2 # maximum retires
+    simple_timeout = 1 # seconds
     rate_limit_timeout = 300 # seconds
     def tryIt(*fargs, **fkwargs):
         for _ in xrange(howmany):
             try: return func(*fargs, **fkwargs)
             except (TwythonError, TwythonRateLimitError, Exception) as e:
                 if "Rate limit" in str(e): 
-                    debug('!!! ' + e)
+                    taskDebug('!!! ' + str(e))
                     #print fkwargs['limit_rate_string']
                     #print 'sleeping for ' + str(rate_limit_timeout) + ' seconds'
                     time.sleep(rate_limit_timeout)
                 else:
-                    debug('!!! ' + e)
+                    taskDebug('!!! ' + str(e))
                     #print 'sleeping for ' + str(simple_timeout) + ' seconds'
                     time.sleep(simple_timeout)
     return tryIt  
@@ -86,6 +86,13 @@ def twitterGetListMembers(twitter,**params):
 def twitterListTimeline(twitter,**params):
     return twitter.get_list_statuses(**params)
 
+@twitter_retry
+def twitterCreateListMembers(twitter,**params):
+    return twitter.create_list_members(**params)
+
+@twitter_retry
+def twitterDeleteListMembers(twitter,**params):
+    return twitter.delete_list_members(**params)
 
 
 ### *********************************************** ###
@@ -220,4 +227,11 @@ def ListTimeline(twitter,slug,owner_screen_name,count,trim_user,exclude_replies 
     HomeTimeline = twitterListTimeline(twitter,slug=slug,owner_screen_name=owner_screen_name,count=count,trim_user=trim_user,exclude_replies=exclude_replies,include_rts=include_rts)
     return HomeTimeline
 
+def CreateListMembers(twitter,owner_screen_name,slug,screen_name):    
+    res = twitterCreateListMembers(twitter,owner_screen_name=owner_screen_name,slug=slug,screen_name=screen_name)
+    return res    
+
+def DeleteListMembers(twitter,owner_screen_name,slug,screen_name):    
+    res = twitterDeleteListMembers(twitter,owner_screen_name=owner_screen_name,slug=slug,screen_name=screen_name)
+    return res   
     

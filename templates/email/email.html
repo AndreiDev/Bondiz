@@ -447,7 +447,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templatePreheader">
                                         <tr>
                                             <td valign="top" class="preheaderContent" style="padding-top:10px; padding-right:20px; padding-bottom:10px; padding-left:20px;" mc:edit="preheader_content00">
-                                                @{{ bondi }} updates
+                                                @{{ username }} tweeted
                                             </td>
                                         </tr>
                                     </table>
@@ -472,52 +472,14 @@
                                 	<!-- BEGIN BODY // -->
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
-                                            <td valign="top" class="bodyContent" mc:edit="body_content">
+                                            <td valign="top" class="bodyContent" mc:edit="body_content">										
 											
-											{% if dailyEmailHeading %}
-											
-												<h2> {{ dailyEmailHeading }} </h2>
+												<h2> Hi! </h2>
+												<h3> @{{ username }} just tweeted: </h3>
 												
-												{% for content in dailyEmailContent %}
-													{% if content %}													
-														<p><img src="{{ content.image_url }}" height="50px" width="50px">
-															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
-														</p>
-														<p>
-														{% for line in content.text %}
-															{% if line %}														
-																{{ line }}<br>
-															{% endif %}
-														{% endfor%}
-														</p>
-													{% endif %}
-													<hr>
-												{% endfor%}																							
-											{% endif %}
-											
-											{% if realtimeEmailHeading %}
-											
-												<h2> {{ realtimeEmailHeading }} </h2>
+												<p>{{ tweet_text|safe }}</p>
 												
-												{% for content in realtimeEmailContent %}
-													{% if content.text %}
-														<p><img src="{{ content.image_url }}" height="50px" width="50px">
-															<a href="https://twitter.com/{{ content.screen_name }}" target="_blank">{{ content.name }}</a>
-														</p>
-														<p>
-														{% for line in content.text %}
-															{% if line %}
-																{{ line }}<br>
-															{% endif %}
-														{% endfor%}
-														</p>
-														<p><strong>{{ content.tweet_text|safe }}</strong></p>
-														<a href="https://twitter.com/{{ content.screen_name }}/status/{{ content.tweet_id }}" target="_blank">open tweet</a>
-													{% endif %}
-													<hr>
-												{% endfor%}
-											
-											{% endif %}											
+												<a href="https://twitter.com/{{ username }}/status/{{ tweet_id }}" target="_blank">open tweet</a>
 											
                                             </td>
                                         </tr>
@@ -531,7 +493,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter">
                                         <tr>
 										    <td valign="top" class="footerContent" style="padding-top:0; padding-bottom:40px;" mc:edit="footer_content02">
-                                            	<a href="http://www.bondiz.com/alpha">update Bondiz settings</a>&nbsp;
+                                            	<a href="http://www.bondiz.com/">Fire another Bondiz</a>&nbsp;
                                             </td>
 
                                         </tr>

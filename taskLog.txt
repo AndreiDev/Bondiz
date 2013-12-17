@@ -1,0 +1,40 @@
+2013-12-17 21:00:45.485000 | *** RealtimeTask started ***
+2013-12-17 21:00:45.506000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:00:50.589000 | TWITTER: done [5.08261477459 seconds]
+2013-12-17 21:00:51.283000 | --- RealtimeTask done [5.79846417565 seconds] ---
+2013-12-17 21:03:40.557000 | *** RealtimeTask started ***
+2013-12-17 21:03:40.570000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:03:45.913000 | TWITTER: done [5.34289381428 seconds]
+2013-12-17 21:03:46.609000 | --- RealtimeTask done [6.05214907236 seconds] ---
+2013-12-17 21:06:22.476000 | *** RealtimeTask started ***
+2013-12-17 21:06:22.487000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:06:27.316000 | TWITTER: done [4.8283185138 seconds]
+2013-12-17 21:06:28.022000 | --- RealtimeTask done [5.5461903996 seconds] ---
+2013-12-17 21:06:42.698000 | *** RealtimeTask started ***
+2013-12-17 21:06:42.709000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:06:48.016000 | TWITTER: done [5.30510511289 seconds]
+2013-12-17 21:07:03.196000 | --- RealtimeTask done [20.4974453571 seconds] ---
+2013-12-17 21:09:40.490000 | *** RealtimeTask started ***
+2013-12-17 21:09:40.514000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:09:45.752000 | TWITTER: done [5.23611942221 seconds]
+2013-12-17 21:09:48.393000 | --- RealtimeTask done [7.90178470504 seconds] ---
+2013-12-17 21:50:19.449000 | *** RealtimeTask started ***
+2013-12-17 21:50:19.468000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:50:24.885000 | TWITTER: done [5.41665819238 seconds]
+2013-12-17 21:50:25.619000 | --- RealtimeTask done [6.17051345264 seconds] ---
+2013-12-17 21:51:06.598000 | *** RealtimeTask started ***
+2013-12-17 21:51:06.619000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:51:11.712000 | TWITTER: done [5.09300755879 seconds]
+2013-12-17 21:51:12.404000 | --- RealtimeTask done [5.80626767699 seconds] ---
+2013-12-17 21:56:55.713000 | *** RealtimeTask started ***
+2013-12-17 21:56:55.733000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 21:57:01.516000 | TWITTER: done [5.78332957224 seconds]
+2013-12-17 21:57:06.073000 | --- RealtimeTask done [10.3599167994 seconds] ---
+2013-12-17 22:00:15.218000 | *** RealtimeTask started ***
+2013-12-17 22:00:15.241000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 22:00:22.294000 | TWITTER: done [7.05267738168 seconds]
+2013-12-17 22:00:23.883000 | --- RealtimeTask done [8.66518559093 seconds] ---
+2013-12-17 22:36:20.162000 | *** RealtimeTask started ***
+2013-12-17 22:36:20.183000 | TWITTER: getting List Timeline (tweets)
+2013-12-17 22:36:26.350000 | TWITTER: done [6.16705594366 seconds]
+2013-12-17 22:36:28.827000 | --- RealtimeTask done [8.66540355904 seconds] ---

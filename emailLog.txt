@@ -1,0 +1,24 @@
+2013-12-17 21:01:12.086000 | ***  runEmailTask started ***
+2013-12-17 21:01:12.241000 | DJANGO: sending email
+2013-12-17 21:01:19.058000 | DJANGO: done [6.81553861418 seconds]
+2013-12-17 21:01:19.099000 | ---  runEmailTask done [7.01250156487 seconds] ---
+2013-12-17 21:09:59.248000 | ***  runEmailTask started ***
+2013-12-17 21:09:59.407000 | DJANGO: sending email
+2013-12-17 21:10:06.227000 | DJANGO: done [6.81846011609 seconds]
+2013-12-17 21:10:06.261000 | ---  runEmailTask done [7.01236260008 seconds] ---
+2013-12-17 22:00:41.394000 | ***  runEmailTask started ***
+2013-12-17 22:00:41.564000 | DJANGO: sending email
+2013-12-17 22:00:48.504000 | DJANGO: done [6.93891058891 seconds]
+2013-12-17 22:00:48.537000 | DJANGO: sending email
+2013-12-17 22:00:54.972000 | DJANGO: done [6.43399840616 seconds]
+2013-12-17 22:00:54.998000 | DJANGO: sending email
+2013-12-17 22:01:00.499000 | DJANGO: done [5.49913764848 seconds]
+2013-12-17 22:01:00.510000 | ---  runEmailTask done [19.1126502126 seconds] ---
+2013-12-17 22:37:00.891000 | ***  runEmailTask started ***
+2013-12-17 22:37:01.058000 | DJANGO: sending email
+2013-12-17 22:37:07.783000 | DJANGO: done [6.72416784193 seconds]
+2013-12-17 22:37:07.818000 | DJANGO: sending email
+2013-12-17 22:37:13.400000 | DJANGO: done [5.58159522674 seconds]
+2013-12-17 22:37:13.425000 | DJANGO: sending email
+2013-12-17 22:37:19.021000 | DJANGO: done [5.59506670918 seconds]
+2013-12-17 22:37:19.040000 | ---  runEmailTask done [18.1482855674 seconds] ---

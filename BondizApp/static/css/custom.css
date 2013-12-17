@@ -12,22 +12,8 @@ body {
   
   background: white;
   
-  /*min-height: 800px; */
+  min-height: 700px; 
   color: #434a54;  
-}
-
-
-@media (min-width: 1170px) { 
-	.middle-col {
-	    margin-left: -2px; /* compensate border width */
-	    border-left: 2px solid #b3b3b3;
-	    margin-right: -2px; /* compensate border width */
-	    border-right: 2px solid #b3b3b3;    
-	}
-}
-
-@media (max-width: 760px) { 
-	#page-guide { display: none; }
 }
 
 .row {
@@ -70,36 +56,6 @@ strong {
 
 #saveChanges{		
 	font-size: 16px;
-}
-
-.toggle {
-  background-color: #e88;
-  border-width: 0.1em;
-}
-
-.toggle:hover,
-.toggle:focus {
-	background-color: #e88;
-}
-
-.toggle:active,
-.toggle.active {
-  background-color: #8e8;
-}
-.toggle.disabled:hover,
-.toggle.disabled:focus,
-.toggle.disabled:active,
-.toggle.disabled.active,
-.toggle[disabled]:hover,
-.toggle[disabled]:focus,
-.toggle[disabled]:active,
-.toggle[disabled].active,
-fieldset[disabled] .toggle:hover,
-fieldset[disabled] .toggle:focus,
-fieldset[disabled] .toggle:active,
-fieldset[disabled] .toggle.active {
-  background-color: #e88;
- 
 }
 
 .navbar-brand {

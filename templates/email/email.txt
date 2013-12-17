@@ -1,35 +1,5 @@
 Hi!
 
-This is a Bondiz notification for @{{bondi}}:
+@{{username}} just tweeted:
 
-{% if dailyEmailHeading %}
-
-		{{ dailyEmailHeading }}
-
-	{% for content in dailyEmailContent %}
-		{% if content %}													
-			Tweeter: {{ content.name }}
-			{% for line in content.text %}
-				{{ line }}
-			{% endfor%}
-		{% endif %}
-		""
-	{% endfor%}
-
-{% endif %}
-
-{% if realtimeEmailHeading %}
-
-	{{ realtimeEmailHeading }} 
-	
-	{% for content in realtimeEmailContent %}
-		{% if content %}
-			Tweeter: {{ content.name }}
-			{% for line in content.text %}
-				{{ line }}
-			{% endfor%}
-		""
-		{% endif %}
-	{% endfor%}
-
-{% endif %}	
+{{ tweet_text }}
