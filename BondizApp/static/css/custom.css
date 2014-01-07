@@ -12,12 +12,14 @@ body {
   
   background: white;
   
-  min-height: 750px; 
-  color: #434a54;  
+  /*min-height: 800px;*/ 
+  color: #434a54; 
+  
+  padding-bottom: 10px; 
 }
 
 .row {
-	margin-bottom: 0.3em;
+	margin-bottom: 0.1em;
 }
 
 .logo .row{
@@ -63,7 +65,7 @@ strong {
 }
 
 .dashboard {
-	margin: 10px 10px 20px 10px;
+	margin: 0;
 }
 
 .dashboard h1{
@@ -85,7 +87,6 @@ strong {
 	font-size: 1.3em;
 	color: #1C1C1C;	
 	padding: 0px 0px 7px 0px;
-	text-decoration: underline;
 }
 
 .dashboard p{
@@ -98,10 +99,6 @@ strong {
 	font-weight: bold;
 }
 
-.navbar-fixed-bottom {
-	background: none;
-}
-
 #page-guide {
 	font-weight: 600;
 	cursor: pointer;
@@ -111,21 +108,37 @@ strong {
 	font-weight: 600;
 }
 
-.form-signin {
-	margin-top: 40px;
-}
-
-.form-signin {
-	color: #AAAAAA;
-}
-
 .content {
 	text-align: center;
-	min-height: 450px;
-	padding-top: 30px; 
+	/*min-height: 450px;*/
+	padding-top: 10px; 
 }
 
 .btn {
 	margin-top: 5px;
 }
 
+/* Footer stuff */
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by its height */
+  margin: 0 auto -50px;
+  /* Pad bottom by footer height */
+  padding: 0 0 50px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 50px;
+  background-color: #fff;
+}

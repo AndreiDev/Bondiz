@@ -19,7 +19,7 @@
       <div class="row">
       	<div class="col-md-offset-4 col-lg-4">		         
 	          <h3><strong>realtime tweet watcher</strong></h3>
-      	</div>
+      	</div>    	
       </div><!-- /.row -->
       <div class="row">
       	<hr>
@@ -34,10 +34,13 @@
 	      	</div>
 	      </div><!-- /.row -->	      
 	      <div class="row">
-	  			<div class="input-group input-group-lg col-sm-4 col-sm-offset-4">
+	  			<div class="input-group input-group-lg col-sm-4 col-sm-offset-1 text-right">	
+	  				<h4><strong>Twitter username to watch: </strong></h4>
+	  			</div>	      	
+	  			<div class="input-group input-group-lg col-sm-4 text-left">
   					<span class="input-group-addon">@</span>
-  					<input data-toggle="tooltip" title="Twitter username" type="text" class="form-control" id="username" placeholder="Twitter Username">
-	  			</div>		      
+  					<input data-toggle="tooltip" title="15 charachters max." type="text" class="form-control" id="username" placeholder="choose a Twitter Username">
+	  			</div>
 	      </div><!-- /.row -->	
 	      <div class="row">
 	      	<div class="col-md-offset-1 col-md-10">		         
@@ -45,14 +48,17 @@
 	      	</div>
 	      </div><!-- /.row -->	      
 	      <div class="row">
-	  			<div class="input-group input-group-lg col-xs-12 col-sm-4 col-sm-offset-4">	      			
-	      			<input data-toggle="tooltip" title="a valid email address" type="email" class="form-control" id="email" placeholder="GOD@heaven.com">
+	  			<div class="input-group input-group-lg col-sm-4 col-sm-offset-1 text-right">	
+	  				<h4><strong>Your email to notify you: </strong></h4>
+	  			</div>		      	
+	  			<div class="input-group input-group-lg col-xs-12 col-sm-4">	      			
+	      			<input data-toggle="tooltip" title="a valid email address" type="email" class="form-control" id="email" placeholder="Email address">
 	  			</div>		      
 	      </div><!-- /.row -->	
 	      <hr/>
 	      <div class="row">
 			 	<div class="col-sm-offset-5 col-sm-2 text-center">
-					<btn id="go" type="button" class="btn btn-default btn-lg btn-block"><strong>GO!!!</strong></btn>		
+					<btn id="go" type="button" class="btn btn-default btn-lg btn-block"><strong>Start The Watcher!!!</strong></btn>		
 	  			</div>   			 		  
 	      </div><!-- /.row -->	      	       	          	    
 	      	      
@@ -137,9 +143,7 @@
 {% endblock content %}
 
 {% block footer %}
-  <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">                 
+    <div class="container" id="footer">                 
         <p class="navbar-text">&copy; 2013 Bondiz. All rights reserved &middot; <a href="mailto:feedback@bondiz.com?subject=feedback" class="navbar-link">feedback</a></p>       
     </div>
-  </div>  
 {% endblock footer %}
