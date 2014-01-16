@@ -1,1 +1,1 @@
-web: gunicorn bondiz.wsgi
+web: gunicorn Bondiz.wsgi
