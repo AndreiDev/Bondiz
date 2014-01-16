@@ -1,6 +1,7 @@
 venv
 *.pyc
 staticfiles
+settings_dev.py
 
 #################
 ## Eclipse
