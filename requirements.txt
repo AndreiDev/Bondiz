@@ -1,3 +1,4 @@
+git+https://github.com/AndreiDev/django-dajaxice.git
 Django==1.6.1
 argparse==1.2.1
 dj-database-url==0.2.2
