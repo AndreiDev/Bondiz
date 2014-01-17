@@ -12,10 +12,10 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'andreii1_bondiz',                      # Or path to database file if using sqlite3.
+        'NAME': 'd4it4mvasg085c',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
-        'USER': 'andreii1_bondiz',
-        'PASSWORD': 'bsar5248',
+        'USER': 'wmidifkpduzeon',
+        'PASSWORD': 'pSuNswaXi6XU6K7mDplPocW5aF',
         'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '5432',                      # Set to empty string for default.
     }
@@ -23,7 +23,7 @@ DATABASES = {
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = ['www.bondiz.andreii.com','bondiz.andreii.com','www.bondiz.com','bondiz.com']
+ALLOWED_HOSTS = ['www.bondiz.com','bondiz.com']
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
