@@ -1,1 +1,1 @@
-web: gunicorn Bondiz.wsgi
+web: newrelic-admin run-program gunicorn Bondiz.wsgi
