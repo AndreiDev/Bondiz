@@ -1,7 +1,7 @@
 #cd /home/andreii1/django_projects/Bondiz && /home/andreii1/python/bin/python realtimeTask.py
 
-#import os
-#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Bondiz.settings")
+import os
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "Bondiz.settings")
 import Bondiz.settings
 
 from BondizApp.models import Stalk_task
