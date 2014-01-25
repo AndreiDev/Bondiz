@@ -1,5 +1,6 @@
 from django.shortcuts import render_to_response, redirect
 from django.template import RequestContext
+from django.core.urlresolvers import reverse
 from models import Stalk_task
 #from django.shortcuts import redirect
 
