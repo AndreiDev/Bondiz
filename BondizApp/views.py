@@ -41,11 +41,11 @@ def paypal_create(request):
             "item_list": {
                 "items": [{
                     "name": "Bondiz",
-                    "price": "5",
+                    "price": "1",
                     "currency": "USD",
                     "quantity": 1 }]},
             "amount":  {
-                "total": "5",
+                "total": "1",
                 "currency": "USD" },
             "description": "1 Bondiz" }]})
 
