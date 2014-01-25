@@ -22,9 +22,11 @@ DATABASES = {
 }
 
 # Paypal options
-PAYPAL_MODE = 'sandbox' # sandbox or live
-PAYPAL_CLIENT_ID = 'AfJMFRCJIv9uRChE101T8YE08qEYQkgxSDgVlvaeL_s-em1FodJVtaR6Vlsv'
-PAYPAL_CLIENT_SECRET = 'EFrJqRDVf5RKNb9oD3wXqPkA3w-J-dRST1kHRHC74WUMutIj16rmaGWgCHJX'
+PAYPAL_MODE = 'live' # sandbox or live
+PAYPAL_CLIENT_ID = 'AaAWZhDfUmN4b3xMeebStVsstRtKegW2np3OpeTEIzsALRnBcC8TdZZObph3'
+PAYPAL_CLIENT_SECRET = 'EEcfgBC4gPMfLFZHSCkZLtJ_gTz-Yv3MHBBQDldyBdCrCs4tud9jiT2F4mLw'
+#PAYPAL_CLIENT_ID = 'AfJMFRCJIv9uRChE101T8YE08qEYQkgxSDgVlvaeL_s-em1FodJVtaR6Vlsv'
+#PAYPAL_CLIENT_SECRET = 'EFrJqRDVf5RKNb9oD3wXqPkA3w-J-dRST1kHRHC74WUMutIj16rmaGWgCHJX'
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
