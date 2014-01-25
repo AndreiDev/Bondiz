@@ -21,6 +21,11 @@ DATABASES = {
     }
 }
 
+# Paypal options
+PAYPAL_MODE = 'sandbox' # sandbox or live
+PAYPAL_CLIENT_ID = 'AfJMFRCJIv9uRChE101T8YE08qEYQkgxSDgVlvaeL_s-em1FodJVtaR6Vlsv'
+PAYPAL_CLIENT_SECRET = 'EFrJqRDVf5RKNb9oD3wXqPkA3w-J-dRST1kHRHC74WUMutIj16rmaGWgCHJX'
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['www.bondiz.com','bondiz.com']
@@ -148,6 +153,7 @@ INSTALLED_APPS = (
     'dajaxice',
     #'LandingPage',
     'BondizApp',
+    'paypalrestsdk',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

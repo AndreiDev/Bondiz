@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} Bondiz - realtime tweet watcher {% endblock %}
+
+{% block navbar %}
+            
+{% endblock %}
+
+{% block content %}
+
+
+	<div class="container logo text-center">
+		<div class="row">
+			<div class="col-md-offset-4 col-md-4">
+				<h1><span class="logo-text" style="font-family: 'Cherry Swash', cursive;color:#cc1111">Bond</span><span class="logo-text" style="font-family: 'Cherry Swash', cursive;color:#1111cc">iz</span></h1>
+			</div>
+		</div>	
+      <div class="row">
+      	<div class="col-md-offset-4 col-lg-4">		         
+	          <h3><strong>realtime tweet watcher</strong></h3>
+      	</div>    	
+      </div><!-- /.row -->
+      <div class="row">
+      	<hr>
+      </div><!-- /.row -->	 	      
+    </div> 
+
+	<div class="dashboard">
+	    <div class="container">	   	      	     
+	      <div class="row">
+	      	<div class="col-md-offset-1 col-md-10">		         
+		          <h2><strong><span style="color:#cc1111">{{ caption }}</span></strong></h2>
+	      	</div>
+	      </div><!-- /.row -->	      
+		</div>		
+	</div>
+	
+{% endblock content %}
+
+{% block footer %}
+    <div class="container" id="footer">                 
+        <p class="navbar-text">&copy; 2013 Bondiz. All rights reserved &middot; <a href="mailto:feedback@bondiz.com?subject=feedback" class="navbar-link">feedback</a></p>       
+    </div>
+{% endblock footer %}

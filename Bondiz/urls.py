@@ -25,6 +25,9 @@ urlpatterns = patterns('',
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
+    
+    url(r'^paypal/create/$', 'paypal_create'),
+    url(r'^paypal/execute/$', 'paypal_execute'),
 )
 
 urlpatterns += staticfiles_urlpatterns()
