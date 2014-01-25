@@ -69,9 +69,13 @@ def paypal_execute(request):
     """
     MyApp > Paypal > Execute a Payment
     """
+    
+    if not 'PayerID' in request.GET:
+        return render_to_response('BondizApp/purchase.html',context_instance=RequestContext(request,{'caption': 'Naaa'}))
+    
     payment_id = request.session['payment_id']
     payer_id = request.GET['PayerID']
-
+     
     paypalrestsdk.configure({
         "mode": PAYPAL_MODE,
         "client_id": PAYPAL_CLIENT_ID,
