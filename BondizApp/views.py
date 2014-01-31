@@ -111,7 +111,7 @@ def paypal(request):
                    "cmd": "_xclick-subscriptions",
                    "a1": "0",     # trial price 
                    "p1": 1,     # trial duration, duration of unit defaults to month 
-                   "a3": "10.95", # yearly price 
+                   "a3": "1", # yearly price 
                    "p3": 1, # duration of each unit (depends on unit) 
                    "t3": "Y", # duration unit ("M for Month") 
                    "src": "1", # make payments recur 
@@ -119,9 +119,9 @@ def paypal(request):
                    "no_note": "1", # remove extra notes (optional)        
         
                    "business": settings.PAYPAL_RECEIVER_EMAIL,
-                   "amount": "1.00",
+                   #"amount": "1.00",
                    "item_name": "one Bondiz",
-                   "invoice": "1010",
+                   "invoice": "99",
                    "notify_url": "%s%s" % (settings.SITE_NAME, reverse('paypal-ipn')),
                    "return_url": "http://www.bondiz.com/success/",
                    "cancel_return": "http://www.bondiz.com/cancel/",
