@@ -132,7 +132,6 @@ def paypal(request):
     context = {"form": form.sandbox()} # form.render() for real case
     return render_to_response("paypal.html", context)
 
-context = {"form": form, "encoded_email" : urlquote(settings.PAYPAL_RECEIVER_EMAIL), "paid" : request.user.get_profile().paid}
 from paypal.standard.ipn.signals import payment_was_successful
 
 def show_me_the_money(sender, **kwargs):
