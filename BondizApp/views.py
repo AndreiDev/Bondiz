@@ -108,20 +108,31 @@ def paypal(request):
     # What you want the button to do.
 
     paypal_dict = {
-        "business": settings.PAYPAL_RECEIVER_EMAIL,
-        "amount": "1.00",
-        "item_name": "name of the item",
-        "invoice": "7777",
-        "notify_url": "%s%s" % (settings.SITE_NAME, reverse('paypal-ipn')),
-        "return_url": "http://www.bondiz.com/success/",
-        "cancel_return": "http://www.bondiz.com/cancel/",
+                   "cmd": "_xclick-subscriptions",
+                   "a1": "0",     # trial price 
+                   "p1": 1,     # trial duration, duration of unit defaults to month 
+                   "a3": "29.95", # yearly price 
+                   "p3": 1, # duration of each unit (depends on unit) 
+                   "t3": "Y", # duration unit ("M for Month") 
+                   "src": "1", # make payments recur 
+                   "sra": "1", # reattempt payment on payment error 
+                   "no_note": "1", # remove extra notes (optional)        
+        
+                   "business": settings.PAYPAL_RECEIVER_EMAIL,
+                   "amount": "1.00",
+                   "item_name": "one Bondiz",
+                   "invoice": "101",
+                   "notify_url": "%s%s" % (settings.SITE_NAME, reverse('paypal-ipn')),
+                   "return_url": "http://www.bondiz.com/success/",
+                   "cancel_return": "http://www.bondiz.com/cancel/",
     }
 
     # Create the instance.
-    form = PayPalPaymentsForm(initial=paypal_dict)
+    form = PayPalPaymentsForm(initial=paypal_dict, button_type="subscribe") 
     context = {"form": form.sandbox()} # form.render() for real case
     return render_to_response("paypal.html", context)
 
+context = {"form": form, "encoded_email" : urlquote(settings.PAYPAL_RECEIVER_EMAIL), "paid" : request.user.get_profile().paid}
 from paypal.standard.ipn.signals import payment_was_successful
 
 def show_me_the_money(sender, **kwargs):
