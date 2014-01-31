@@ -29,7 +29,7 @@ PAYPAL_CLIENT_SECRET = 'EEcfgBC4gPMfLFZHSCkZLtJ_gTz-Yv3MHBBQDldyBdCrCs4tud9jiT2F
 #PAYPAL_CLIENT_SECRET = 'EFrJqRDVf5RKNb9oD3wXqPkA3w-J-dRST1kHRHC74WUMutIj16rmaGWgCHJX'
 
 # Classic Paypal options
-PAYPAL_RECEIVER_EMAIL = "andrei-facilitator@bondiz.com"
+PAYPAL_RECEIVER_EMAIL = "andrei@bondiz.com"
 SITE_NAME = "http://www.bondiz.com"
 
 
