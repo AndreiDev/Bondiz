@@ -28,6 +28,11 @@ PAYPAL_CLIENT_SECRET = 'EEcfgBC4gPMfLFZHSCkZLtJ_gTz-Yv3MHBBQDldyBdCrCs4tud9jiT2F
 #PAYPAL_CLIENT_ID = 'AfJMFRCJIv9uRChE101T8YE08qEYQkgxSDgVlvaeL_s-em1FodJVtaR6Vlsv'
 #PAYPAL_CLIENT_SECRET = 'EFrJqRDVf5RKNb9oD3wXqPkA3w-J-dRST1kHRHC74WUMutIj16rmaGWgCHJX'
 
+# Classic Paypal options
+PAYPAL_RECEIVER_EMAIL = "andrei-facilitator@bondiz.com"
+SITE_NAME = "http://www.bondiz.com"
+
+
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
 ALLOWED_HOSTS = ['www.bondiz.com','bondiz.com']
@@ -156,6 +161,7 @@ INSTALLED_APPS = (
     #'LandingPage',
     'BondizApp',
     'paypalrestsdk',
+    'paypal.standard.ipn',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

@@ -90,3 +90,44 @@ def paypal_execute(request):
         return render_to_response('BondizApp/purchase.html',context_instance=RequestContext(request,{'caption': 'Naaa'}))
 
     return HttpResponseRedirect(reverse('BondizApp.views.home'))     
+
+
+# Classic Paypal stuff
+from paypal.standard.forms import PayPalPaymentsForm
+from django.conf import settings
+from django.core.urlresolvers import reverse
+
+def success(request):
+    return render_to_response('BondizApp/purchase.html',context_instance=RequestContext(request,{'caption': 'SUCCESS'}))
+
+def cancel(request):
+    return render_to_response('BondizApp/purchase.html',context_instance=RequestContext(request,{'caption': 'CANCEL'}))
+
+def paypal(request):
+
+    # What you want the button to do.
+
+    paypal_dict = {
+        "business": settings.PAYPAL_RECEIVER_EMAIL,
+        "amount": "1.00",
+        "item_name": "name of the item",
+        "invoice": "unique-invoice-id",
+        "notify_url": "%s%s" % (settings.SITE_NAME, reverse('paypal-ipn')),
+        "return_url": "http://www.bondiz.com/success/",
+        "cancel_return": "http://www.bondiz.com/cancel/",
+    }
+
+    # Create the instance.
+    form = PayPalPaymentsForm(initial=paypal_dict)
+    context = {"form": form.sandbox()} # form.render() for real case
+    return render_to_response("paypal.html", context)
+
+from paypal.standard.ipn.signals import payment_was_successful
+
+def show_me_the_money(sender, **kwargs):
+    ipn_obj = sender
+    # Undertake some action depending upon `ipn_obj`.
+    if ipn_obj.custom == "Upgrade all users!":
+        Users.objects.update(paid=True)
+    print __file__,1, 'This works'        
+payment_was_successful.connect(show_me_the_money)

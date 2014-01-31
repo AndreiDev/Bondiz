@@ -20,12 +20,20 @@ urlpatterns = patterns('',
     # url(r'^Bondiz/', include('Bondiz.foo.urls')),
     
     url(r'^$', 'BondizApp.views.home',name='home'),
+    
+    # Classic Paypal stuff
+    url(r'^paypal/$', 'BondizApp.views.paypal', name='paypal'),
+    url(r'^success/$', 'BondizApp.views.success', name='success'),
+    url(r'^cancel/$', 'BondizApp.views.cancel', name='cancel'),
+    url(r'^saragonich/', include('paypal.standard.ipn.urls')),
+    
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
     # Uncomment the next line to enable the admin:
     url(r'^admin/', include(admin.site.urls)),
     
+    # Paypal stuff
     url(r'^paypal/create/$', 'BondizApp.views.paypal_create',name='paypal_create'),
     url(r'^paypal/execute/$', 'BondizApp.views.paypal_execute',name='paypal_execute'),
 )
