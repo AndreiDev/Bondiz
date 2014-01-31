@@ -111,7 +111,7 @@ def paypal(request):
         "business": settings.PAYPAL_RECEIVER_EMAIL,
         "amount": "1.00",
         "item_name": "name of the item",
-        "invoice": "unique-invoice-id",
+        "invoice": "7777",
         "notify_url": "%s%s" % (settings.SITE_NAME, reverse('paypal-ipn')),
         "return_url": "http://www.bondiz.com/success/",
         "cancel_return": "http://www.bondiz.com/cancel/",
