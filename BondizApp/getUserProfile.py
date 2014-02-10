@@ -19,14 +19,14 @@ def getUserProfile(userName):
 
     url = 'https://twitter.com/' + str(userName)
     response = urllib.urlopen(url).read()
-    match = re.findall(r'<strong>(.*)</strong> Follow',response)
+    match = re.findall(r'Follow.*<strong title=".*">(.*)</strong>',response)
     if match:
         picAndName = re.findall(r'<img src="(.*)" alt="(.*)" class',response)
         pic = picAndName[0][0]
         name = picAndName[0][1]
-        tweets = re.findall(r'<strong>(.*)</strong> Tweet',response)[0].replace(',','')
-        following = match[0].replace(',','')
-        followers = match[1].replace(',','')
+        tweets = cleanNum(re.findall(r'Tweets<strong title=".*">(.*)</strong>',response)[0])
+        following = cleanNum(match[0])
+        followers = cleanNum(match[1])
         isBlocked = len(re.findall(r'data-protected="true"',response))
         if not isBlocked:
             return [name, pic, tweets, following, followers]
@@ -34,4 +34,11 @@ def getUserProfile(userName):
             return ''
     else: 
         return ''
+    
+def cleanNum(rawNum):
+    Num = rawNum.replace(',','')
+    if '.' in Num:
+        return Num.replace('.','').replace('K','00')
+    else:
+        return Num.replace('K','000')
     
